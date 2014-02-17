@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<oval_system_characteristics xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:ind-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent" xmlns:linux-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:unix-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5 oval-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#unix unix-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux linux-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent independent-system-characteristics-schema.xsd">
+
+  <generator>
+    <oval:product_name>OVAL Definition Interpreter</oval:product_name>
+    <oval:product_version>5.9 Build: 1</oval:product_version>
+    <oval:schema_version>5.9</oval:schema_version>
+    <oval:timestamp>2011-06-21T19:05:30</oval:timestamp>
+    <vendor>The MITRE Corporation</vendor>
+  </generator>
+
+  <system_info>
+    <os_name>Linux</os_name>
+    <os_version>#1 SMP Sat Jun 11 14:54:10 UTC 2011</os_version>
+    <architecture>i686</architecture>
+    <primary_host_name>dhcp149181.a01.aist.go.jp</primary_host_name>
+    <interfaces>
+      <interface>
+        <interface_name>eth0</interface_name>
+        <ip_address>150.29.149.181</ip_address>
+        <mac_address>00-0C-29-37-69-D8</mac_address>
+      </interface>
+    </interfaces>
+  </system_info>
+
+  <collected_objects>
+    <object comment="The single uname object." flag="complete" id="oval:org.mitre.oval:obj:2759" version="1">
+      <reference item_ref="12"/>
+    </object>
+    <object comment="xulrunner-1.9-dbg package information" flag="does not exist" id="oval:org.mitre.oval:obj:7323" version="1">
+      <reference item_ref="4"/>
+    </object>
+    <object flag="complete" id="oval:org.mitre.oval:obj:7326" version="1">
+      <reference item_ref="1"/>
+    </object>
+    <object comment="libmozillainterfaces-java package information" flag="does not exist" id="oval:org.mitre.oval:obj:7345" version="1">
+      <reference item_ref="7"/>
+    </object>
+    <object comment="xulrunner-1.9-gnome-support package information" flag="complete" id="oval:org.mitre.oval:obj:7607" version="1">
+      <reference item_ref="2"/>
+    </object>
+    <object comment="libmozjs1d-dbg package information" flag="does not exist" id="oval:org.mitre.oval:obj:7652" version="1">
+      <reference item_ref="3"/>
+    </object>
+    <object comment="xulrunner-1.9 package information" flag="complete" id="oval:org.mitre.oval:obj:7759" version="1">
+      <reference item_ref="5"/>
+    </object>
+    <object comment="python-xpcom package information" flag="does not exist" id="oval:org.mitre.oval:obj:7786" version="1">
+      <reference item_ref="11"/>
+    </object>
+    <object comment="spidermonkey-bin package information" flag="does not exist" id="oval:org.mitre.oval:obj:7891" version="1">
+      <reference item_ref="8"/>
+    </object>
+    <object comment="libmozjs1d package information" flag="complete" id="oval:org.mitre.oval:obj:7900" version="1">
+      <reference item_ref="9"/>
+    </object>
+    <object comment="xulrunner-dev package information" flag="does not exist" id="oval:org.mitre.oval:obj:7903" version="1">
+      <reference item_ref="10"/>
+    </object>
+    <object comment="libmozjs-dev package information" flag="does not exist" id="oval:org.mitre.oval:obj:7916" version="1">
+      <reference item_ref="6"/>
+    </object>
+  </collected_objects>
+
+  <system_data>
+    <uname_item id="12" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#unix">
+      <machine_class>i686</machine_class>
+      <node_name>dhcp149181</node_name>
+      <os_name>Linux</os_name>
+      <os_release>2.6.26-2-686</os_release>
+      <os_version>#1 SMP Sat Jun 11 14:54:10 UTC 2011</os_version>
+      <processor_type>i686</processor_type>
+    </uname_item>
+    <dpkginfo_item id="4" status="does not exist" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name status="does not exist">xulrunner-1.9-dbg</name>
+    </dpkginfo_item>
+    <textfilecontent_item id="1" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <path>/etc</path>
+      <filename>debian_version</filename>
+      <line>5.0.8</line>
+    </textfilecontent_item>
+    <dpkginfo_item id="7" status="does not exist" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name status="does not exist">libmozillainterfaces-java</name>
+    </dpkginfo_item>
+    <dpkginfo_item id="2" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name>xulrunner-1.9-gnome-support</name>
+      <arch>i386</arch>
+      <epoch>0</epoch>
+      <release>11</release>
+      <version>1.9.0.19</version>
+      <evr datatype="evr_string">0:1.9.0.19-11</evr>
+    </dpkginfo_item>
+    <dpkginfo_item id="3" status="does not exist" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name status="does not exist">libmozjs1d-dbg</name>
+    </dpkginfo_item>
+    <dpkginfo_item id="5" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name>xulrunner-1.9</name>
+      <arch>i386</arch>
+      <epoch>0</epoch>
+      <release>11</release>
+      <version>1.9.0.19</version>
+      <evr datatype="evr_string">0:1.9.0.19-11</evr>
+    </dpkginfo_item>
+    <dpkginfo_item id="11" status="does not exist" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name status="does not exist">python-xpcom</name>
+    </dpkginfo_item>
+    <dpkginfo_item id="8" status="does not exist" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name status="does not exist">spidermonkey-bin</name>
+    </dpkginfo_item>
+    <dpkginfo_item id="9" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name>libmozjs1d</name>
+      <arch>i386</arch>
+      <epoch>0</epoch>
+      <release>11</release>
+      <version>1.9.0.19</version>
+      <evr datatype="evr_string">0:1.9.0.19-11</evr>
+    </dpkginfo_item>
+    <dpkginfo_item id="10" status="does not exist" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name status="does not exist">xulrunner-dev</name>
+    </dpkginfo_item>
+    <dpkginfo_item id="6" status="does not exist" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+      <name status="does not exist">libmozjs-dev</name>
+    </dpkginfo_item>
+  </system_data>
+
+</oval_system_characteristics>

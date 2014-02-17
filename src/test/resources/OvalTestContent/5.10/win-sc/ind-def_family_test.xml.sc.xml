@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<oval_system_characteristics xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:ind-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5 oval-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent independent-system-characteristics-schema.xsd">
+
+  <generator>
+    <oval:product_name>cpe:/a:mitre:ovaldi:5.10.1.1</oval:product_name>
+    <oval:product_version>5.10.1 Build: 1</oval:product_version>
+    <oval:schema_version>5.10.1</oval:schema_version>
+    <oval:timestamp>2012-02-13T10:51:09</oval:timestamp>
+    <vendor>The MITRE Corporation</vendor>
+  </generator>
+
+  <system_info>
+    <os_name>Windows 7 Professional Service Pack 1</os_name>
+    <os_version>6.1.7601</os_version>
+    <architecture>AMD64</architecture>
+    <primary_host_name>host1</primary_host_name>
+    <interfaces>
+      <interface>
+        <interface_name>Intel(R) Centrino(R) Advanced-N 6250 AGN</interface_name>
+        <ip_address>192.168.1.128</ip_address>
+        <mac_address>66-77-88-99-AA-BB</mac_address>
+      </interface>
+    </interfaces>
+  </system_info>
+
+  <collected_objects>
+    <object comment="This variable_object represents the family that the operating system belongs to." flag="complete" id="oval:org.mitre.oval.test:obj:472" version="1">
+      <reference item_ref="1"/>
+    </object>
+  </collected_objects>
+
+  <system_data>
+    <family_item id="1" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <family>windows</family>
+    </family_item>
+  </system_data>
+
+</oval_system_characteristics>

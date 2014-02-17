@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<oval_system_characteristics xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:ind-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5 oval-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent independent-system-characteristics-schema.xsd">
+
+  <generator>
+    <oval:product_name>OVAL Definition Interpreter</oval:product_name>
+    <oval:product_version>5.10 Build: 1</oval:product_version>
+    <oval:schema_version>5.10</oval:schema_version>
+    <oval:timestamp>2012-02-22T09:25:05</oval:timestamp>
+    <vendor>The MITRE Corporation</vendor>
+  </generator>
+
+  <system_info>
+          <os_name>Windows 7 Professional Service Pack 1</os_name>
+          <os_version>6.1.7601</os_version>
+          <architecture>AMD64</architecture>
+          <primary_host_name>host1</primary_host_name>
+          <interfaces>
+            <interface>
+              <interface_name>Intel(R) Centrino(R) Advanced-N 6250 AGN</interface_name>
+              <ip_address>192.168.1.128</ip_address>
+              <mac_address>66-77-88-99-AA-BB</mac_address>
+            </interface>
+          </interfaces>
+  </system_info>
+
+  <collected_objects>
+    <object comment="This environmentvariable_object represents the environment variable with a name equal to 'PATH'." flag="complete" id="oval:org.mitre.oval.test:obj:269" version="1">
+      <reference item_ref="1"/>
+    </object>
+    <object comment="This environmentvariable_object represents the environment variables that match the regular expression '.*'." flag="complete" id="oval:org.mitre.oval.test:obj:822" version="1">
+      <reference item_ref="2"/>
+      <reference item_ref="3"/>
+      <reference item_ref="4"/>
+      <reference item_ref="5"/>
+      <reference item_ref="6"/>
+      <reference item_ref="7"/>
+      <reference item_ref="8"/>
+      <reference item_ref="9"/>
+      <reference item_ref="10"/>
+      <reference item_ref="11"/>
+      <reference item_ref="12"/>
+      <reference item_ref="13"/>
+      <reference item_ref="14"/>
+      <reference item_ref="15"/>
+      <reference item_ref="16"/>
+      <reference item_ref="17"/>
+      <reference item_ref="18"/>
+      <reference item_ref="19"/>
+      <reference item_ref="20"/>
+      <reference item_ref="21"/>
+      <reference item_ref="22"/>
+      <reference item_ref="23"/>
+      <reference item_ref="24"/>
+      <reference item_ref="25"/>
+      <reference item_ref="26"/>
+      <reference item_ref="27"/>
+      <reference item_ref="28"/>
+      <reference item_ref="29"/>
+      <reference item_ref="30"/>
+      <reference item_ref="31"/>
+      <reference item_ref="32"/>
+      <reference item_ref="33"/>
+      <reference item_ref="34"/>
+      <reference item_ref="35"/>
+      <reference item_ref="36"/>
+      <reference item_ref="37"/>
+      <reference item_ref="38"/>
+      <reference item_ref="39"/>
+      <reference item_ref="40"/>
+      <reference item_ref="41"/>
+      <reference item_ref="42"/>
+      <reference item_ref="43"/>
+      <reference item_ref="44"/>
+      <reference item_ref="45"/>
+      <reference item_ref="46"/>
+    </object>
+    <object comment="This environmentvariable_object represents the environment variable(s) with a name not equal to 'PATH'." flag="complete" id="oval:org.mitre.oval.test:obj:874" version="1">
+      <reference item_ref="2"/>
+      <reference item_ref="3"/>
+      <reference item_ref="4"/>
+      <reference item_ref="5"/>
+      <reference item_ref="6"/>
+      <reference item_ref="7"/>
+      <reference item_ref="8"/>
+      <reference item_ref="9"/>
+      <reference item_ref="10"/>
+      <reference item_ref="11"/>
+      <reference item_ref="12"/>
+      <reference item_ref="13"/>
+      <reference item_ref="14"/>
+      <reference item_ref="15"/>
+      <reference item_ref="16"/>
+      <reference item_ref="17"/>
+      <reference item_ref="18"/>
+      <reference item_ref="19"/>
+      <reference item_ref="20"/>
+      <reference item_ref="21"/>
+      <reference item_ref="22"/>
+      <reference item_ref="23"/>
+      <reference item_ref="24"/>
+      <reference item_ref="25"/>
+      <reference item_ref="26"/>
+      <reference item_ref="27"/>
+      <reference item_ref="28"/>
+      <reference item_ref="29"/>
+      <reference item_ref="30"/>
+      <reference item_ref="31"/>
+      <reference item_ref="32"/>
+      <reference item_ref="33"/>
+      <reference item_ref="34"/>
+      <reference item_ref="35"/>
+      <reference item_ref="36"/>
+      <reference item_ref="37"/>
+      <reference item_ref="38"/>
+      <reference item_ref="39"/>
+      <reference item_ref="40"/>
+      <reference item_ref="41"/>
+      <reference item_ref="42"/>
+      <reference item_ref="43"/>
+      <reference item_ref="44"/>
+      <reference item_ref="45"/>
+      <reference item_ref="46"/>
+    </object>
+  </collected_objects>
+
+  <system_data>
+    <environmentvariable_item id="1" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PATH</name>
+      <value>C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\PROGRA~1\DISKEE~1\DISKEE~1\;C:\Program Files\SlikSvn\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\app\w32tex\bin;C:\app\gs\gs9.04\bin;C:\app\gs\gs9.04\lib;C:\java\jdk1.6.0_30\bin;C:\java\apache-ant-1.8.2\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="2" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>ALLUSERSPROFILE</name>
+      <value>C:\ProgramData</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="3" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>ANT_HOME</name>
+      <value>C:\java\apache-ant-1.8.2</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="4" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>APPDATA</name>
+      <value>C:\Users\akihito\AppData\Roaming</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="5" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>asl.log</name>
+      <value>Destination=file</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="6" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>CLASSPATH</name>
+      <value>.;C:\Program Files (x86)\QuickTime\QTSystem\QTJava.zip</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="7" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>CommonProgramFiles</name>
+      <value>C:\Program Files\Common Files</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="8" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>CommonProgramFiles(x86)</name>
+      <value>C:\Program Files (x86)\Common Files</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="9" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>CommonProgramW6432</name>
+      <value>C:\Program Files\Common Files</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="10" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>COMPUTERNAME</name>
+      <value>T420S</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="11" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>ComSpec</name>
+      <value>C:\Windows\system32\cmd.exe</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="12" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>FP_NO_HOST_CHECK</name>
+      <value>NO</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="13" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>HOMEDRIVE</name>
+      <value>D:</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="14" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>HOMEPATH</name>
+      <value>\naka</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="15" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>JAVA_HOME</name>
+      <value>C:\java\jdk1.6.0_30</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="16" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>LOCALAPPDATA</name>
+      <value>C:\Users\akihito\AppData\Local</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="17" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>LOGONSERVER</name>
+      <value>\\T420S</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="18" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>NUMBER_OF_PROCESSORS</name>
+      <value>4</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="19" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>OS</name>
+      <value>Windows_NT</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="20" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>Path</name>
+      <value>C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\PROGRA~1\DISKEE~1\DISKEE~1\;C:\Program Files\SlikSvn\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\app\w32tex\bin;C:\app\gs\gs9.04\bin;C:\app\gs\gs9.04\lib;C:\java\jdk1.6.0_30\bin;C:\java\apache-ant-1.8.2\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="21" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PATHEXT</name>
+      <value>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="22" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PROCESSOR_ARCHITECTURE</name>
+      <value>AMD64</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="23" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PROCESSOR_IDENTIFIER</name>
+      <value>Intel64 Family 6 Model 42 Stepping 7, GenuineIntel</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="24" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PROCESSOR_LEVEL</name>
+      <value>6</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="25" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PROCESSOR_REVISION</name>
+      <value>2a07</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="26" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>ProgramData</name>
+      <value>C:\ProgramData</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="27" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>ProgramFiles</name>
+      <value>C:\Program Files</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="28" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>ProgramFiles(x86)</name>
+      <value>C:\Program Files (x86)</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="29" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>ProgramW6432</name>
+      <value>C:\Program Files</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="30" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PROMPT</name>
+      <value>$P$G</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="31" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PSModulePath</name>
+      <value>C:\Windows\system32\WindowsPowerShell\v1.0\Modules\</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="32" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>PUBLIC</name>
+      <value>C:\Users\Public</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="33" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>QTJAVA</name>
+      <value>C:\Program Files (x86)\QuickTime\QTSystem\QTJava.zip</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="34" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>SESSIONNAME</name>
+      <value>Console</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="35" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>SystemDrive</name>
+      <value>C:</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="36" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>SystemRoot</name>
+      <value>C:\Windows</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="37" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>TEMP</name>
+      <value>T:\tmp</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="38" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>TEMP_ORIG</name>
+      <value>C:\Users\akihito\AppData\Local\Temp</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="39" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>TMP</name>
+      <value>T:\tmp</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="40" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>TMP_ORIG</name>
+      <value>C:\Users\akihito\AppData\Local\Temp</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="41" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>USERDOMAIN</name>
+      <value>t420s</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="42" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>USERNAME</name>
+      <value>akihito</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="43" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>USERPROFILE</name>
+      <value>C:\Users\akihito</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="44" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>windir</name>
+      <value>C:\Windows</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="45" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>windows_tracing_flags</name>
+      <value>3</value>
+    </environmentvariable_item>
+    <environmentvariable_item id="46" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+      <name>windows_tracing_logfile</name>
+      <value>C:\BVTBin\Tests\installpackage\csilogfile.log</value>
+    </environmentvariable_item>
+  </system_data>
+
+</oval_system_characteristics>

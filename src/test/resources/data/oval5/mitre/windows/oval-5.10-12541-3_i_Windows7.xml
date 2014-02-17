@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+  <generator>
+    <oval:product_name>The OVAL Repository</oval:product_name>
+    <oval:schema_version>5.10.1</oval:schema_version>
+    <oval:timestamp>2013-02-06T04:18:57.684-05:00</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition id="oval:org.mitre.oval:def:12541" version="3" class="inventory">
+      <metadata>
+        <title>Microsoft Windows 7 is installed</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 7</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:microsoft:windows_7"/>
+        <description>The operating system installed on the system is Microsoft Windows 7.</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2011-06-23T00:00:00Z"/>
+            <status_change date="2011-06-29T14:09:45.698-04:00">DRAFT</status_change>
+            <status_change date="2011-07-18T04:00:16.416-04:00">INTERIM</status_change>
+            <status_change date="2011-08-08T04:00:24.675-04:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.mitre.oval:tst:99"/>
+        <criterion comment="Windows 7 is installed" test_ref="oval:org.mitre.oval:tst:10792"/>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <family_test id="oval:org.mitre.oval:tst:99" version="1" comment="the installed operating system is part of the Microsoft Windows family" check_existence="at_least_one_exists" check="only one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.mitre.oval:obj:99"/>
+      <state state_ref="oval:org.mitre.oval:ste:99"/>
+    </family_test>
+    <registry_test id="oval:org.mitre.oval:tst:10792" version="4" comment="Windows 7 is installed" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:5590"/>
+      <state state_ref="oval:org.mitre.oval:ste:5027"/>
+    </registry_test>
+  </tests>
+  <objects>
+    <family_object id="oval:org.mitre.oval:obj:99" version="1" comment="This is the default family object. Only one family object should exist." xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"/>
+    <registry_object id="oval:org.mitre.oval:obj:5590" version="1" comment="This registry key identifies the Windows ProductName" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>SOFTWARE\Microsoft\Windows NT\CurrentVersion</key>
+      <name>ProductName</name>
+    </registry_object>
+  </objects>
+  <states>
+    <family_state id="oval:org.mitre.oval:ste:99" version="2" comment="Microsoft Windows family" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <family operation="case insensitive equals">windows</family>
+    </family_state>
+    <registry_state id="oval:org.mitre.oval:ste:5027" version="4" comment="The registry key matches with Windows 7" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">^[a-zA-Z0-9\(\)\s]*[Ww][Ii][Nn][Dd][Oo][Ww][Ss] 7[a-zA-Z0-9\(\)\s]*$</value>
+    </registry_state>
+  </states>
+</oval_definitions>

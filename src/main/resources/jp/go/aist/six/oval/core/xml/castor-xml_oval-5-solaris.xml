@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<!-- /////////////////////////////////////////////////////////// -->
+<!-- // Project SIX: OVAL                                     // -->
+<!-- //                                                       // -->
+<!-- // Castor XML Mapping Specification                      // -->
+<!-- /////////////////////////////////////////////////////////// -->
+
+<!-- @author    Akihito Nakamura, AIST -->
+<!-- @version   $Id: castor-xml_oval-5-solaris.xml 3032 2013-02-20 05:12:43Z nakamura5akihito@gmail.com $ -->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  #solaris                                           % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <!-- ******************************************************* -->
+    <!-- isainfo                                                 -->
+    <!-- ******************************************************* -->
+    <class name="jp.go.aist.six.oval.model.solaris.IsainfoTest"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="isainfo_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.IsainfoObject"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="isainfo_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.IsainfoState"
+        extends="jp.go.aist.six.oval.model.definitions.StateType">
+        <map-to xml="isainfo_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="bits" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="bits" node="element"/>
+        </field>
+        <field name="kernelIsa" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="kernel_isa" node="element"/>
+        </field>
+        <field name="applicationIsa" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="application_isa" node="element"/>
+        </field>
+    </class>
+
+    <class name ="jp.go.aist.six.oval.model.solaris.IsainfoItem"
+        extends="jp.go.aist.six.oval.model.sc.ItemType">
+        <map-to xml="isainfo_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#solaris"
+            ns-prefix=""/>
+        <field name="bits" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="bits" node="element"/>
+        </field>
+        <field name="kernelIsa" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="kernel_isa" node="element"/>
+        </field>
+        <field name="applicationIsa" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="application_isa" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- ndd                                                     -->
+    <!-- ******************************************************* -->
+    <class name="jp.go.aist.six.oval.model.solaris.NddTest"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="ndd_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.NddObject"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="ndd_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="set" 
+            type="jp.go.aist.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="device" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="device" node="element"/>
+        </field>
+        <field name="parameter" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="parameter" node="element"/>
+        </field>
+        <field name="filter" 
+            type="jp.go.aist.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.NddState"
+        extends="jp.go.aist.six.oval.model.definitions.StateType">
+        <map-to xml="ndd_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="device" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="device" node="element"/>
+        </field>
+        <field name="instance" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+        <field name="parameter" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="parameter" node="element"/>
+        </field>
+        <field name="value" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="jp.go.aist.six.oval.model.solaris.NddItem"
+        extends="jp.go.aist.six.oval.model.sc.ItemType">
+        <map-to xml="ndd_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#solaris"
+            ns-prefix=""/>
+        <field name="device" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="device" node="element"/>
+        </field>
+        <field name="instance" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+        <field name="parameter" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="parameter" node="element"/>
+        </field>
+        <field name="value" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- package                                                 -->
+    <!-- ******************************************************* -->
+    <class name="jp.go.aist.six.oval.model.solaris.PackageTest"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="package_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.PackageObject"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="package_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="set" 
+            type="jp.go.aist.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="pkginst" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="pkginst" node="element"/>
+        </field>
+        <field name="filter" 
+            type="jp.go.aist.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.PackageState"
+        extends="jp.go.aist.six.oval.model.definitions.StateType">
+        <map-to xml="package_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="pkginst" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="pkginst" node="element"/>
+        </field>
+        <field name="name" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="category" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="category" node="element"/>
+        </field>
+        <field name="version" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="vendor" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="vendor" node="element"/>
+        </field>
+        <field name="description" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="description" node="element"/>
+        </field>
+    </class>
+
+    <class name ="jp.go.aist.six.oval.model.solaris.PackageItem"
+        extends="jp.go.aist.six.oval.model.sc.ItemType">
+        <map-to xml="package_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#solaris"
+            ns-prefix=""/>
+        <field name="pkginst" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="pkginst" node="element"/>
+        </field>
+        <field name="name" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="category" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="category" node="element"/>
+        </field>
+        <field name="version" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="vendor" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="vendor" node="element"/>
+        </field>
+        <field name="description" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="description" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- packagecheck                                            -->
+    <!-- ******************************************************* -->
+    <class name="jp.go.aist.six.oval.model.solaris.PackageCheckTest"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="packagecheck_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.PackageCheckObject"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="packagecheck_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="set" 
+            type="jp.go.aist.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="behaviors" 
+            type="jp.go.aist.six.oval.model.solaris.PackageCheckBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="pkginst" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="pkginst" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="filter" 
+            type="jp.go.aist.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.PackageCheckBehaviors">
+        <map-to xml="packagecheck_behaviors"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="fileattributesOnly" type="boolean">
+            <bind-xml name="fileattributes_only" node="attribute"/>
+        </field>
+        <field name="filecontentsOnly" type="boolean">
+            <bind-xml name="filecontents_only" node="attribute"/>
+        </field>
+        <field name="noVolatileeditable" type="boolean">
+            <bind-xml name="no_volatileeditable" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.PackageCheckState"
+        extends="jp.go.aist.six.oval.model.definitions.StateType">
+        <map-to xml="packagecheck_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="pkginst" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="pkginst" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="checksumDiffers" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="checksum_differs" node="element"/>
+        </field>
+        <field name="sizeDiffers" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="size_differs" node="element"/>
+        </field>
+        <field name="mtimeDiffers" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="mtime_differs" node="element"/>
+        </field>
+        <field name="uread" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="uread" node="element"/>
+        </field>
+        <field name="uwrite" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="uwrite" node="element"/>
+        </field>
+        <field name="uexec" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="uexec" node="element"/>
+        </field>
+        <field name="gread" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="gread" node="element"/>
+        </field>
+        <field name="gwrite" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="gwrite" node="element"/>
+        </field>
+        <field name="gexec" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="gexec" node="element"/>
+        </field>
+        <field name="oread" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="oread" node="element"/>
+        </field>
+        <field name="owrite" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="owrite" node="element"/>
+        </field>
+        <field name="oexec" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType">
+            <bind-xml name="oexec" node="element"/>
+        </field>
+    </class>
+
+    <class name ="jp.go.aist.six.oval.model.solaris.PackageCheckItem"
+        extends="jp.go.aist.six.oval.model.sc.ItemType">
+        <map-to xml="packagecheck_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#solaris"
+            ns-prefix=""/>
+        <field name="pkginst" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="pkginst" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="checksumDiffers" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="checksum_differs" node="element"/>
+        </field>
+        <field name="sizeDiffers" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="size_differs" node="element"/>
+        </field>
+        <field name="mtimeDiffers" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="mtime_differs" node="element"/>
+        </field>
+        <field name="uread" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="uread" node="element"/>
+        </field>
+        <field name="uwrite" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="uwrite" node="element"/>
+        </field>
+        <field name="uexec" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="uexec" node="element"/>
+        </field>
+        <field name="gread" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="gread" node="element"/>
+        </field>
+        <field name="gwrite" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="gwrite" node="element"/>
+        </field>
+        <field name="gexec" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="gexec" node="element"/>
+        </field>
+        <field name="oread" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="oread" node="element"/>
+        </field>
+        <field name="owrite" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="owrite" node="element"/>
+        </field>
+        <field name="oexec" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType">
+            <bind-xml name="oexec" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- patch, patch54                                          -->
+    <!-- ******************************************************* -->
+    <class name="jp.go.aist.six.oval.model.solaris.Patch54Test"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="patch54_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.PatchTest"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="patch_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.Patch54Object"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="patch54_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="behaviors" 
+            type="jp.go.aist.six.oval.model.solaris.PatchBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="base" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectIntType">
+            <bind-xml name="base" node="element"/>
+        </field>
+        <field name="version" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectIntType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="filter" 
+            type="jp.go.aist.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.PatchObject"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="patch_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="base" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectIntType">
+            <bind-xml name="base" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.PatchState"
+        extends="jp.go.aist.six.oval.model.definitions.StateType">
+        <map-to xml="patch_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="base" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="base" node="element"/>
+        </field>
+        <field name="version" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="version" node="element"/>
+        </field>
+    </class>
+
+    <class name ="jp.go.aist.six.oval.model.solaris.PatchItem"
+        extends="jp.go.aist.six.oval.model.sc.ItemType">
+        <map-to xml="patch_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#solaris"
+            ns-prefix=""/>
+        <field name="base" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="base" node="element"/>
+        </field>
+        <field name="version" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="version" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- smf                                                     -->
+    <!-- ******************************************************* -->
+    <class name="jp.go.aist.six.oval.model.solaris.SmfTest"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="smf_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.SmfObject"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="smf_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="fmri" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="fmri" node="element"/>
+        </field>
+        <field name="filter" 
+            type="jp.go.aist.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.SmfState"
+        extends="jp.go.aist.six.oval.model.definitions.StateType">
+        <map-to xml="smf_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris"
+            ns-prefix=""/>
+        <field name="fmri" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="fmri" node="element"/>
+        </field>
+        <field name="serviceName" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="service_name" node="element"/>
+        </field>
+        <field name="serviceState" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStateSmfServiceStateType">
+            <bind-xml name="service_state" node="element"/>
+        </field>
+        <field name="protocol" 
+            type="jp.go.aist.six.oval.model.solaris.EntityStateSmfProtocolType">
+            <bind-xml name="protocol" node="element"/>
+        </field>
+        <field name="serverExecutable" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="server_executable" node="element"/>
+        </field>
+        <field name="serverArguements" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="server_arguements" node="element"/>
+        </field>
+        <field name="execAsUser" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="exec_as_user" node="element"/>
+        </field>
+    </class>
+
+    <class name ="jp.go.aist.six.oval.model.solaris.SmfItem"
+        extends="jp.go.aist.six.oval.model.sc.ItemType">
+        <map-to xml="smf_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#solaris"
+            ns-prefix=""/>
+        <field name="fmri" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="fmri" node="element"/>
+        </field>
+        <field name="serviceName" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="service_name" node="element"/>
+        </field>
+        <field name="serviceState" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemSmfServiceStateType">
+            <bind-xml name="service_state" node="element"/>
+        </field>
+        <field name="protocol" 
+            type="jp.go.aist.six.oval.model.solaris.EntityItemSmfProtocolType">
+            <bind-xml name="protocol" node="element"/>
+        </field>
+        <field name="serverExecutable" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="server_executable" node="element"/>
+        </field>
+        <field name="serverArguements" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="server_arguements" node="element"/>
+        </field>
+        <field name="execAsUser" 
+            type="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="exec_as_user" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- entity attribute types                                  -->
+    <!-- ******************************************************* -->
+
+    <class name="jp.go.aist.six.oval.model.solaris.EntityStatePermissionCompareType"
+        extends="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="jp.go.aist.six.oval.model.solaris.EntityItemPermissionCompareType"
+        extends="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.EntityStateSmfProtocolType"
+        extends="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="jp.go.aist.six.oval.model.solaris.EntityItemSmfProtocolType"
+        extends="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.solaris.EntityStateSmfServiceStateType"
+        extends="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="jp.go.aist.six.oval.model.solaris.EntityItemSmfServiceStateType"
+        extends="jp.go.aist.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+</mapping>
+

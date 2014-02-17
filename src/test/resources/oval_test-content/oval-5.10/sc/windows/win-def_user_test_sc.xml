@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<oval_system_characteristics xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:win-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5 oval-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows windows-system-characteristics-schema.xsd">
+
+  <generator>
+    <oval:product_name>cpe:/a:mitre:ovaldi:5.10.1.2</oval:product_name>
+    <oval:product_version>5.10.1 Build: 2</oval:product_version>
+    <oval:schema_version>5.10.1</oval:schema_version>
+    <oval:timestamp>2012-05-09T11:41:16</oval:timestamp>
+    <vendor>The MITRE Corporation</vendor>
+  </generator>
+
+  <system_info>
+    <os_name>Windows 7 Professional Service Pack 1</os_name>
+    <os_version>6.1.7601</os_version>
+    <architecture>AMD64</architecture>
+    <primary_host_name>pc199.bar.com</primary_host_name>
+    <interfaces>
+      <interface>
+        <interface_name>Network Adopter</interface_name>
+        <ip_address>192.168.20.199</ip_address>
+        <mac_address>00-50-56-C0-00-99</mac_address>
+      </interface>
+    </interfaces>
+  </system_info>
+
+  <collected_objects>
+    <object comment="Retrieves a user_object where user equals the 'ADMINISTRATOR' account." flag="complete" id="oval:org.mitre.oval.test:obj:1064" version="1">
+      <reference item_ref="1"/>
+    </object>
+    <object comment="Retrieves a user_object where user matches the regular expression '.*'." flag="complete" id="oval:org.mitre.oval.test:obj:547" version="1">
+      <reference item_ref="2"/>
+      <reference item_ref="3"/>
+      <reference item_ref="4"/>
+      <reference item_ref="5"/>
+      <reference item_ref="6"/>
+    </object>
+    <object comment="Retrieves a user_object where user is not equal to the 'Guest' account." flag="complete" id="oval:org.mitre.oval.test:obj:708" version="1">
+      <reference item_ref="2"/>
+      <reference item_ref="3"/>
+      <reference item_ref="4"/>
+      <reference item_ref="5"/>
+      <reference item_ref="6"/>
+    </object>
+  </collected_objects>
+
+  <system_data>
+    <user_item id="1" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <user>ADMINISTRATOR</user>
+      <enabled datatype="boolean">true</enabled>
+      <group>Administrators</group>
+      <group>HomeUsers</group>
+      <group>None</group>
+    </user_item>
+    <user_item id="2" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <user>t420s\Administrator</user>
+      <enabled datatype="boolean">true</enabled>
+      <group>Administrators</group>
+      <group>HomeUsers</group>
+    </user_item>
+    <user_item id="3" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <user>t420s\Guest</user>
+      <enabled datatype="boolean">false</enabled>
+      <group>Guests</group>
+    </user_item>
+    <user_item id="4" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <user>t420s\HomeGroupUser$</user>
+      <enabled datatype="boolean">true</enabled>
+      <group>HomeUsers</group>
+    </user_item>
+    <user_item id="5" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <user>t420s\UpdatusUser</user>
+      <enabled datatype="boolean">true</enabled>
+      <group>HomeUsers</group>
+    </user_item>
+    <user_item id="6" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <user>t420s\akihito</user>
+      <enabled datatype="boolean">true</enabled>
+      <group>Administrators</group>
+      <group>HomeUsers</group>
+    </user_item>
+  </system_data>
+
+</oval_system_characteristics>

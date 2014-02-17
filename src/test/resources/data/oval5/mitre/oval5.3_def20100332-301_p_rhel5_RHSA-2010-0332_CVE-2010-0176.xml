@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:red-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
+  <generator>
+    <oval:product_name>Red Hat Errata System</oval:product_name>
+    <oval:schema_version>5.3</oval:schema_version>
+    <oval:timestamp>2010-03-30T19:24:31</oval:timestamp>
+  </generator>
+
+  <definitions>
+    <definition id="oval:com.redhat.rhsa:def:20100332" version="301" class="patch">
+      <metadata>
+        <title>RHSA-2010:0332: firefox security update (Critical)
+    </title>
+    <affected family="unix">
+            <platform>Red Hat Enterprise Linux 5</platform>
+             <platform>Red Hat Enterprise Linux 4</platform>
+             </affected>
+        <reference source="RHSA" ref_id="RHSA-2010:0332-00" ref_url="https://rhn.redhat.com/errata/RHSA-2010-0332.html"/>
+    <description>Mozilla Firefox is an open source Web browser. XULRunner provides the XUL
+Runtime environment for Mozilla Firefox.
+
+Several use-after-free flaws were found in Firefox. Visiting a web page
+containing malicious content could result in Firefox executing arbitrary
+code with the privileges of the user running Firefox. (CVE-2010-0175,
+CVE-2010-0176, CVE-2010-0177)
+
+A flaw was found in Firefox that could allow an applet to generate a drag
+and drop action from a mouse click. Such an action could be used to execute
+arbitrary JavaScript with the privileges of the user running Firefox.
+(CVE-2010-0178)
+
+A privilege escalation flaw was found in Firefox when the Firebug add-on is
+in use. The XMLHttpRequestSpy module in the Firebug add-on exposes a Chrome
+privilege escalation flaw that could be used to execute arbitrary
+JavaScript with the privileges of the user running Firefox. (CVE-2010-0179)
+
+Several flaws were found in the processing of malformed web content. A web
+page containing malicious content could cause Firefox to crash or,
+potentially, execute arbitrary code with the privileges of the user running
+Firefox. (CVE-2010-0174)
+
+For technical details regarding these flaws, refer to the Mozilla security
+advisories for Firefox 3.0.19. You can find a link to the Mozilla
+advisories in the References section of this erratum.
+
+All Firefox users should upgrade to these updated packages, which contain
+Firefox version 3.0.19, which corrects these issues. After installing the
+update, Firefox must be restarted for the changes to take effect.
+</description>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~   advisory details   ~~~~~~~~~~~~~~~~~~~ -->
+
+<advisory from="secalert@redhat.com">
+
+        <severity>Critical</severity>
+
+        <rights>Copyright 2010 Red Hat, Inc.</rights>
+        <issued date="2010-03-30"/>
+        <updated date="2010-03-30"/>
+            <cve href="https://www.redhat.com/security/data/cve/CVE-2010-0174.html">CVE-2010-0174</cve>
+            <cve href="https://www.redhat.com/security/data/cve/CVE-2010-0175.html">CVE-2010-0175</cve>
+            <cve href="https://www.redhat.com/security/data/cve/CVE-2010-0176.html">CVE-2010-0176</cve>
+            <cve href="https://www.redhat.com/security/data/cve/CVE-2010-0177.html">CVE-2010-0177</cve>
+            <cve href="https://www.redhat.com/security/data/cve/CVE-2010-0178.html">CVE-2010-0178</cve>
+            <cve href="https://www.redhat.com/security/data/cve/CVE-2010-0179.html">CVE-2010-0179</cve>
+                <bugzilla href="http://bugzilla.redhat.com/578147" id="578147">CVE-2010-0174 Mozilla crashes with evidence of memory corruption</bugzilla>
+            <bugzilla href="http://bugzilla.redhat.com/578149" id="578149">CVE-2010-0175 Mozilla remote code execution with use-after-free in nsTreeSelection</bugzilla>
+            <bugzilla href="http://bugzilla.redhat.com/578150" id="578150">CVE-2010-0176 Mozilla Dangling pointer vulnerability in nsTreeContentView</bugzilla>
+            <bugzilla href="http://bugzilla.redhat.com/578152" id="578152">CVE-2010-0177 Mozilla Dangling pointer vulnerability in nsPluginArray</bugzilla>
+            <bugzilla href="http://bugzilla.redhat.com/578154" id="578154">CVE-2010-0178 Firefox Chrome privilege escalation via forced URL drag and drop</bugzilla>
+            <bugzilla href="http://bugzilla.redhat.com/578155" id="578155">CVE-2010-0179 Firefox Arbitrary code execution with Firebug XMLHttpRequestSpy</bugzilla>
+        <affected_cpe_list>
+            <cpe>cpe:/o:redhat:enterprise_linux</cpe>
+        </affected_cpe_list>
+</advisory>
+      </metadata>
+      <criteria operator="OR">
+ 
+ <criteria operator="AND">
+ <criterion test_ref="oval:com.redhat.rhsa:tst:20100332001" comment="Red Hat Enterprise Linux 5 is installed" />
+ <criteria operator="OR">
+ 
+ <criteria operator="AND">
+ <criterion test_ref="oval:com.redhat.rhsa:tst:20100332006" comment="xulrunner-devel-unstable is earlier than 0:1.9.0.19-1.el5_5" /><criterion test_ref="oval:com.redhat.rhsa:tst:20100332007" comment="xulrunner-devel-unstable is signed with Red Hat redhatrelease key" />
+ 
+</criteria>
+<criteria operator="AND">
+ <criterion test_ref="oval:com.redhat.rhsa:tst:20100332002" comment="xulrunner is earlier than 0:1.9.0.19-1.el5_5" /><criterion test_ref="oval:com.redhat.rhsa:tst:20100332003" comment="xulrunner is signed with Red Hat redhatrelease key" />
+ 
+</criteria>
+<criteria operator="AND">
+ <criterion test_ref="oval:com.redhat.rhsa:tst:20100332004" comment="xulrunner-devel is earlier than 0:1.9.0.19-1.el5_5" /><criterion test_ref="oval:com.redhat.rhsa:tst:20100332005" comment="xulrunner-devel is signed with Red Hat redhatrelease key" />
+ 
+</criteria>
+<criteria operator="AND">
+ <criterion test_ref="oval:com.redhat.rhsa:tst:20100332008" comment="firefox is earlier than 0:3.0.19-1.el5_5" /><criterion test_ref="oval:com.redhat.rhsa:tst:20100332009" comment="firefox is signed with Red Hat redhatrelease key" />
+ 
+</criteria>
+
+</criteria>
+
+</criteria>
+<criteria operator="AND">
+ <criterion test_ref="oval:com.redhat.rhsa:tst:20100332010" comment="Red Hat Enterprise Linux 4 is installed" /><criterion test_ref="oval:com.redhat.rhsa:tst:20100332011" comment="firefox is earlier than 0:3.0.19-1.el4" /><criterion test_ref="oval:com.redhat.rhsa:tst:20100332012" comment="firefox is signed with Red Hat master key" />
+ 
+</criteria>
+
+</criteria>
+
+    </definition>
+  </definitions>
+  <tests>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~   rpminfo tests   ~~~~~~~~~~~~~~~~~~~~~ -->
+    <rpminfo_test id="oval:com.redhat.rhsa:tst:20100332001"  version="301" comment="Red Hat Enterprise Linux 5 is installed" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332001" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332003" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332002"  version="301" comment="xulrunner is earlier than 0:1.9.0.19-1.el5_5" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332002" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332004" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332003"  version="301" comment="xulrunner is signed with Red Hat redhatrelease key" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332002" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332001" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332004"  version="301" comment="xulrunner-devel is earlier than 0:1.9.0.19-1.el5_5" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332003" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332004" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332005"  version="301" comment="xulrunner-devel is signed with Red Hat redhatrelease key" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332003" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332001" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332006"  version="301" comment="xulrunner-devel-unstable is earlier than 0:1.9.0.19-1.el5_5" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332004" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332004" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332007"  version="301" comment="xulrunner-devel-unstable is signed with Red Hat redhatrelease key" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332004" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332001" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332008"  version="301" comment="firefox is earlier than 0:3.0.19-1.el5_5" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332005" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332005" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332009"  version="301" comment="firefox is signed with Red Hat redhatrelease key" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332005" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332001" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332010"  version="301" comment="Red Hat Enterprise Linux 4 is installed" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332001" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332006" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332011"  version="301" comment="firefox is earlier than 0:3.0.19-1.el4" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332005" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332007" />
+</rpminfo_test>
+<rpminfo_test id="oval:com.redhat.rhsa:tst:20100332012"  version="301" comment="firefox is signed with Red Hat master key" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <object object_ref="oval:com.redhat.rhsa:obj:20100332005" />
+  <state state_ref="oval:com.redhat.rhsa:ste:20100332002" />
+</rpminfo_test>
+
+  </tests>
+
+  <objects>
+    <!-- ~~~~~~~~~~~~~~~~~~~~   rpminfo objects   ~~~~~~~~~~~~~~~~~~~~ -->
+    <rpminfo_object id="oval:com.redhat.rhsa:obj:20100332004"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <name>xulrunner-devel-unstable</name>
+</rpminfo_object>
+<rpminfo_object id="oval:com.redhat.rhsa:obj:20100332002"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <name>xulrunner</name>
+</rpminfo_object>
+<rpminfo_object id="oval:com.redhat.rhsa:obj:20100332005"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <name>firefox</name>
+</rpminfo_object>
+<rpminfo_object id="oval:com.redhat.rhsa:obj:20100332001"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <name>redhat-release</name>
+</rpminfo_object>
+<rpminfo_object id="oval:com.redhat.rhsa:obj:20100332003"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <name>xulrunner-devel</name>
+</rpminfo_object>
+
+  </objects>
+  <states>
+    <!-- ~~~~~~~~~~~~~~~~~~~~   rpminfo states   ~~~~~~~~~~~~~~~~~~~~~ -->
+    <rpminfo_state id="oval:com.redhat.rhsa:ste:20100332001"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <signature_keyid  operation="equals">5326810137017186</signature_keyid>
+</rpminfo_state>
+<rpminfo_state id="oval:com.redhat.rhsa:ste:20100332002"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <signature_keyid  operation="equals">219180cddb42a60e</signature_keyid>
+</rpminfo_state>
+<rpminfo_state id="oval:com.redhat.rhsa:ste:20100332003"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <version  operation="pattern match">^5[^[:digit:]]</version>
+</rpminfo_state>
+<rpminfo_state id="oval:com.redhat.rhsa:ste:20100332004"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <evr datatype="evr_string" operation="less than">0:1.9.0.19-1.el5_5</evr>
+</rpminfo_state>
+<rpminfo_state id="oval:com.redhat.rhsa:ste:20100332005"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <evr datatype="evr_string" operation="less than">0:3.0.19-1.el5_5</evr>
+</rpminfo_state>
+<rpminfo_state id="oval:com.redhat.rhsa:ste:20100332006"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <version  operation="pattern match">^4[^[:digit:]]</version>
+</rpminfo_state>
+<rpminfo_state id="oval:com.redhat.rhsa:ste:20100332007"  version="301" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+  <evr datatype="evr_string" operation="less than">0:3.0.19-1.el4</evr>
+</rpminfo_state>
+
+  </states>
+</oval_definitions>
+

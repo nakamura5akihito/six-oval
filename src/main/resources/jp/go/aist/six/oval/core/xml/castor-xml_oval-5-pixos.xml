@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<!-- /////////////////////////////////////////////////////////// -->
+<!-- // Project SIX: OVAL                                     // -->
+<!-- //                                                       // -->
+<!-- // Castor XML Mapping Specification                      // -->
+<!-- /////////////////////////////////////////////////////////// -->
+
+<!-- @author    Akihito Nakamura, AIST -->
+<!-- @version   $Id: castor-xml_oval-5-pixos.xml 3197 2013-07-05 08:11:39Z nakamura5akihito@gmail.com $ -->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  #pixos                                             % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    
+    <!-- ******************************************************* -->
+    <!-- entity & behavior                                       -->
+    <!-- ******************************************************* -->
+
+    <!-- ******************************************************* -->
+    <!-- line                                                    -->
+    <!-- ******************************************************* -->
+    <class name="jp.go.aist.six.oval.model.pixos.LineTest"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="pixos_line_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#pixos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.pixos.LineObject"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="pixos_line_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#pixos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="jp.go.aist.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="showSubcommand" 
+            type="jp.go.aist.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="show_subcommand" node="element"/>
+        </field>
+        <field name="filter" 
+            type="jp.go.aist.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.pixos.LineState"
+        extends="jp.go.aist.six.oval.model.definitions.StateType">
+        <map-to xml="pixos_line_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#pixos"
+            ns-prefix=""/>
+        <field name="showSubcommand" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="show_subcommand" node="element"/>
+        </field>
+        <field name="configLine" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="config_line" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO:
+    <class name ="jp.go.aist.six.oval.model.pixos.LineItem"
+        extends="jp.go.aist.six.oval.model.sc.ItemType">
+        <map-to xml="pixos_line_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#pixos"
+            ns-prefix=""/>
+    </class>
+-->
+
+
+    <!-- ******************************************************* -->
+    <!-- version                                                 -->
+    <!-- ******************************************************* -->
+    <class name="jp.go.aist.six.oval.model.pixos.VersionTest"
+        extends="jp.go.aist.six.oval.model.definitions.TestType">
+        <map-to xml="pixos_version_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#pixos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="jp.go.aist.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="jp.go.aist.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.pixos.VersionObject"
+        extends="jp.go.aist.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="pixos_version_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#pixos"
+            ns-prefix=""/>
+    </class>
+
+    <class name="jp.go.aist.six.oval.model.pixos.VersionState"
+        extends="jp.go.aist.six.oval.model.definitions.StateType">
+        <map-to xml="pixos_version_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#pixos"
+            ns-prefix=""/>
+        <field name="pixRelease" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="pix_release" node="element"/>
+        </field>
+        <field name="pixMajorRelease" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateVersionType">
+            <bind-xml name="pix_major_release" node="element"/>
+        </field>
+        <field name="pixMinorRelease" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateVersionType">
+            <bind-xml name="pix_minor_release" node="element"/>
+        </field>
+        <field name="pixBuild" 
+            type="jp.go.aist.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="pix_build" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO:
+    <class name ="jp.go.aist.six.oval.model.pixos.VersionItem"
+        extends="jp.go.aist.six.oval.model.sc.ItemType">
+        <map-to xml="pixos_version_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#pixos"
+            ns-prefix=""/>
+
+    </class>
+-->
+
+</mapping>

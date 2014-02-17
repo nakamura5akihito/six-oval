@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+  <generator>
+    <oval:product_name>The OVAL Repository</oval:product_name>
+    <oval:schema_version>5.10.1</oval:schema_version>
+    <oval:timestamp>2013-02-17T22:04:47.770-05:00</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition id="oval:org.mitre.oval:def:12191" version="5" class="inventory">
+      <metadata>
+        <title>Microsoft Publisher 2010 is installed</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 2000</platform>
+          <platform>Microsoft Windows XP</platform>
+          <platform>Microsoft Windows Server 2003</platform>
+          <platform>Microsoft Windows Vista</platform>
+          <platform>Microsoft Windows 7</platform>
+          <platform>Microsoft Windows Server 2008</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/a:microsoft:publisher:2010"/>
+        <description>The application Microsoft Publisher 2010 is installed.</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2010-12-14T14:00:00">
+              <contributor organization="Symantec Corporation">Dragos Prisaca</contributor>
+            </submitted>
+            <status_change date="2010-12-17T20:55:21.000-05:00">DRAFT</status_change>
+            <status_change date="2011-01-03T04:00:18.321-05:00">INTERIM</status_change>
+            <status_change date="2011-01-24T04:00:16.653-05:00">ACCEPTED</status_change>
+            <modified comment="EDITED oval:org.mitre.oval:var:297 - Updating Microsoft Office 2010 content to use windows_view behaviors." date="2012-05-10T14:51:00.071-04:00">
+              <contributor organization="G2, Inc.">Shane Shaffer</contributor>
+            </modified>
+            <status_change date="2012-05-10T14:54:53.245-04:00">INTERIM</status_change>
+            <status_change date="2012-05-28T04:00:15.506-04:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria operator="AND">
+        <criterion comment="Publisher 2010 is installed" test_ref="oval:org.mitre.oval:tst:41223"/>
+        <criterion comment="the version of mspub.exe is greater than or equal 14.0.0.0" test_ref="oval:org.mitre.oval:tst:41769"/>
+        <criterion comment="the version of mspub.exe is less than 15.0.0.0" test_ref="oval:org.mitre.oval:tst:40959"/>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <file_test id="oval:org.mitre.oval:tst:41769" version="2" comment="the version of mspub.exe is greater than or equal 14.0.0.0" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:94"/>
+      <state state_ref="oval:org.mitre.oval:ste:11789"/>
+    </file_test>
+    <registry_test id="oval:org.mitre.oval:tst:41223" version="2" comment="Publisher 2010 is installed" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:23941"/>
+    </registry_test>
+    <file_test id="oval:org.mitre.oval:tst:40959" version="2" comment="the version of mspub.exe is less than 15.0.0.0" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:94"/>
+      <state state_ref="oval:org.mitre.oval:ste:11973"/>
+    </file_test>
+  </tests>
+  <objects>
+    <file_object id="oval:org.mitre.oval:obj:94" version="3" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path var_ref="oval:org.mitre.oval:var:297" var_check="all"/>
+      <filename>mspub.exe</filename>
+    </file_object>
+    <registry_object id="oval:org.mitre.oval:obj:23941" version="1" comment="Publisher 2010 InstallRoot path" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <object_reference>oval:org.mitre.oval:obj:15707</object_reference>
+        <object_reference>oval:org.mitre.oval:obj:23570</object_reference>
+      </set>
+    </registry_object>
+    <registry_object id="oval:org.mitre.oval:obj:23570" version="1" comment="32 bit Publisher 2010 InstallRoot!Path" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <behaviors windows_view="32_bit"/>
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>SOFTWARE\Microsoft\Office\14.0\Publisher\InstallRoot</key>
+      <name>Path</name>
+    </registry_object>
+    <registry_object id="oval:org.mitre.oval:obj:15707" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>SOFTWARE\Microsoft\Office\14.0\Publisher\InstallRoot</key>
+      <name>Path</name>
+    </registry_object>
+  </objects>
+  <states>
+    <file_state id="oval:org.mitre.oval:ste:11789" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <version datatype="version" operation="greater than or equal">14.0.0.0</version>
+    </file_state>
+    <file_state id="oval:org.mitre.oval:ste:11973" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <version datatype="version" operation="less than">15.0.0.0</version>
+    </file_state>
+  </states>
+  <variables>
+    <local_variable id="oval:org.mitre.oval:var:297" version="2" comment="The path to mspub.exe" datatype="string">
+      <regex_capture pattern="^(.*[^\\])\\?$">
+        <object_component item_field="value" object_ref="oval:org.mitre.oval:obj:23941"/>
+      </regex_capture>
+    </local_variable>
+  </variables>
+</oval_definitions>

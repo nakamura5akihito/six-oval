@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<oval_results xmlns="http://oval.mitre.org/XMLSchema/oval-results-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval-res="http://oval.mitre.org/XMLSchema/oval-results-5" xmlns:oval-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5 oval-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-results-5 oval-results-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent independent-system-characteristics-schema.xsd">
+
+  <generator>
+    <oval:product_name>OVAL Definition Interpreter</oval:product_name>
+    <oval:product_version>5.10 Build: 1</oval:product_version>
+    <oval:schema_version>5.10</oval:schema_version>
+    <oval:timestamp>2012-02-22T09:25:05</oval:timestamp>
+    <vendor>The MITRE Corporation</vendor>
+  </generator>
+
+  <directives include_source_definitions="true">
+    <definition_true content="full" reported="true"/>
+    <definition_false content="full" reported="true"/>
+    <definition_unknown content="full" reported="true"/>
+    <definition_error content="full" reported="true"/>
+    <definition_not_evaluated content="full" reported="true"/>
+    <definition_not_applicable content="full" reported="true"/>
+  </directives>
+
+  <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+    <generator>
+      <oval:schema_version xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">5.9</oval:schema_version>
+      <oval:timestamp xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">2009-01-12T10:41:00-05:00</oval:timestamp>
+      <terms_of_use>Copyright (c) 2002-2011, The MITRE Corporation. All rights reserved. The contents of this file are subject to the license described in terms.txt.</terms_of_use>
+  </generator>
+    <definitions>
+      <definition class="miscellaneous" id="oval:org.mitre.oval.test:def:600" version="1">
+        <metadata>
+          <title>Evaluate to true if the ind-def:environmentvariable_test is properly supported</title>
+          <description>This definition is intended to evalutate to true if the interpreter properly supports the ind-def:environmentvariable_test and all of its valid operations.</description>
+      </metadata>
+        <notes>
+          <note>It is important to note that the values used in this test definition are specific to a particular machine, and may not necessarily apply to your system. As a result, in order to have the definition return a result of 'true', you must either change these values to the ones found on your particular system, or you must configure your system to use these values.</note>
+      </notes>
+        <criteria operator="AND">
+          <criterion comment="Test that the ind-def:environmentvariable_test is supported with the name entity using the equals operation." test_ref="oval:org.mitre.oval.test:tst:44"/>
+          <criterion comment="Test that the ind-def:environmentvariable_test is supported with the name entity using the not equal operation." test_ref="oval:org.mitre.oval.test:tst:46"/>
+          <criterion comment="Test that the ind-def:environmentvariable_test is supported with the name entity using the pattern match operation." test_ref="oval:org.mitre.oval.test:tst:968"/>
+      </criteria>
+    </definition>
+  </definitions>
+    <tests>
+      <environmentvariable_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="at_least_one_exists" comment="Test that the ind-def:environmentvariable_test is supported with the name entity using the equals operation." id="oval:org.mitre.oval.test:tst:44" version="1">
+        <object object_ref="oval:org.mitre.oval.test:obj:269"/>
+        <state state_ref="oval:org.mitre.oval.test:ste:365"/>
+    </environmentvariable_test>
+      <environmentvariable_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="at_least_one_exists" comment="Test that the ind-def:environmentvariable_test is supported with the name entity using the not equal operation." id="oval:org.mitre.oval.test:tst:46" version="1">
+        <object object_ref="oval:org.mitre.oval.test:obj:874"/>
+        <state state_ref="oval:org.mitre.oval.test:ste:988"/>
+    </environmentvariable_test>
+      <environmentvariable_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="at_least_one_exists" comment="Test that the ind-def:environmentvariable_test is supported with the name entity using the pattern match operation." id="oval:org.mitre.oval.test:tst:968" version="1">
+        <object object_ref="oval:org.mitre.oval.test:obj:822"/>
+        <state state_ref="oval:org.mitre.oval.test:ste:988"/>
+    </environmentvariable_test>
+  </tests>
+    <objects>
+      <environmentvariable_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="This environmentvariable_object represents the environment variable with a name equal to 'PATH'." id="oval:org.mitre.oval.test:obj:269" version="1">
+        <name>PATH</name>
+    </environmentvariable_object>
+      <environmentvariable_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="This environmentvariable_object represents the environment variable(s) with a name not equal to 'PATH'." id="oval:org.mitre.oval.test:obj:874" version="1">
+        <name operation="not equal">PATH</name>
+    </environmentvariable_object>
+      <environmentvariable_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="This environmentvariable_object represents the environment variables that match the regular expression '.*'." id="oval:org.mitre.oval.test:obj:822" version="1">
+        <name operation="pattern match">.*</name>
+    </environmentvariable_object>
+  </objects>
+    <states>
+      <environmentvariable_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="This environmentvariable_state represents an environment variable with a name equal to 'PATH' and a value that matches the regular expression '.*'." id="oval:org.mitre.oval.test:ste:365" version="1">
+        <name>PATH</name>
+        <value operation="pattern match">.*</value>
+    </environmentvariable_state>
+      <environmentvariable_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="This environmentvariable_state represents an environment variable with a name that matches the regular expression '.*' and a value that matches the regular expression '.*'." id="oval:org.mitre.oval.test:ste:988" version="1">
+        <name operation="pattern match">.*</name>
+        <value operation="pattern match">.*</value>
+    </environmentvariable_state>
+  </states>
+</oval_definitions>  <results>
+    <system>
+      <definitions>
+        <definition definition_id="oval:org.mitre.oval.test:def:600" result="true" version="1">
+          <criteria operator="AND" result="true">
+            <criterion result="true" test_ref="oval:org.mitre.oval.test:tst:44" version="1"/>
+            <criterion result="true" test_ref="oval:org.mitre.oval.test:tst:46" version="1"/>
+            <criterion result="true" test_ref="oval:org.mitre.oval.test:tst:968" version="1"/>
+          </criteria>
+        </definition>
+      </definitions>
+      <tests>
+        <test check="at least one" check_existence="at_least_one_exists" result="true" state_operator="AND" test_id="oval:org.mitre.oval.test:tst:44" version="1">
+          <tested_item item_id="1" result="true"/>
+        </test>
+        <test check="at least one" check_existence="at_least_one_exists" result="true" state_operator="AND" test_id="oval:org.mitre.oval.test:tst:46" version="1">
+          <tested_item item_id="46" result="true"/>
+          <tested_item item_id="45" result="true"/>
+          <tested_item item_id="44" result="true"/>
+          <tested_item item_id="43" result="true"/>
+          <tested_item item_id="42" result="true"/>
+          <tested_item item_id="41" result="true"/>
+          <tested_item item_id="40" result="true"/>
+          <tested_item item_id="39" result="true"/>
+          <tested_item item_id="38" result="true"/>
+          <tested_item item_id="37" result="true"/>
+          <tested_item item_id="36" result="true"/>
+          <tested_item item_id="35" result="true"/>
+          <tested_item item_id="34" result="true"/>
+          <tested_item item_id="33" result="true"/>
+          <tested_item item_id="32" result="true"/>
+          <tested_item item_id="31" result="true"/>
+          <tested_item item_id="30" result="true"/>
+          <tested_item item_id="29" result="true"/>
+          <tested_item item_id="28" result="true"/>
+          <tested_item item_id="27" result="true"/>
+          <tested_item item_id="26" result="true"/>
+          <tested_item item_id="25" result="true"/>
+          <tested_item item_id="24" result="true"/>
+          <tested_item item_id="23" result="true"/>
+          <tested_item item_id="22" result="true"/>
+          <tested_item item_id="21" result="true"/>
+          <tested_item item_id="20" result="true"/>
+          <tested_item item_id="19" result="true"/>
+          <tested_item item_id="18" result="true"/>
+          <tested_item item_id="17" result="true"/>
+          <tested_item item_id="16" result="true"/>
+          <tested_item item_id="15" result="true"/>
+          <tested_item item_id="14" result="true"/>
+          <tested_item item_id="13" result="true"/>
+          <tested_item item_id="12" result="true"/>
+          <tested_item item_id="11" result="true"/>
+          <tested_item item_id="10" result="true"/>
+          <tested_item item_id="9" result="true"/>
+          <tested_item item_id="8" result="true"/>
+          <tested_item item_id="7" result="true"/>
+          <tested_item item_id="6" result="true"/>
+          <tested_item item_id="5" result="true"/>
+          <tested_item item_id="4" result="true"/>
+          <tested_item item_id="3" result="true"/>
+          <tested_item item_id="2" result="true"/>
+        </test>
+        <test check="at least one" check_existence="at_least_one_exists" result="true" state_operator="AND" test_id="oval:org.mitre.oval.test:tst:968" version="1">
+          <tested_item item_id="46" result="true"/>
+          <tested_item item_id="45" result="true"/>
+          <tested_item item_id="44" result="true"/>
+          <tested_item item_id="43" result="true"/>
+          <tested_item item_id="42" result="true"/>
+          <tested_item item_id="41" result="true"/>
+          <tested_item item_id="40" result="true"/>
+          <tested_item item_id="39" result="true"/>
+          <tested_item item_id="38" result="true"/>
+          <tested_item item_id="37" result="true"/>
+          <tested_item item_id="36" result="true"/>
+          <tested_item item_id="35" result="true"/>
+          <tested_item item_id="34" result="true"/>
+          <tested_item item_id="33" result="true"/>
+          <tested_item item_id="32" result="true"/>
+          <tested_item item_id="31" result="true"/>
+          <tested_item item_id="30" result="true"/>
+          <tested_item item_id="29" result="true"/>
+          <tested_item item_id="28" result="true"/>
+          <tested_item item_id="27" result="true"/>
+          <tested_item item_id="26" result="true"/>
+          <tested_item item_id="25" result="true"/>
+          <tested_item item_id="24" result="true"/>
+          <tested_item item_id="23" result="true"/>
+          <tested_item item_id="22" result="true"/>
+          <tested_item item_id="21" result="true"/>
+          <tested_item item_id="20" result="true"/>
+          <tested_item item_id="19" result="true"/>
+          <tested_item item_id="18" result="true"/>
+          <tested_item item_id="17" result="true"/>
+          <tested_item item_id="16" result="true"/>
+          <tested_item item_id="15" result="true"/>
+          <tested_item item_id="14" result="true"/>
+          <tested_item item_id="13" result="true"/>
+          <tested_item item_id="12" result="true"/>
+          <tested_item item_id="11" result="true"/>
+          <tested_item item_id="10" result="true"/>
+          <tested_item item_id="9" result="true"/>
+          <tested_item item_id="8" result="true"/>
+          <tested_item item_id="7" result="true"/>
+          <tested_item item_id="6" result="true"/>
+          <tested_item item_id="5" result="true"/>
+          <tested_item item_id="4" result="true"/>
+          <tested_item item_id="3" result="true"/>
+          <tested_item item_id="2" result="true"/>
+        </test>
+      </tests>
+      <oval_system_characteristics xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5">
+        <generator>
+          <oval:product_name>OVAL Definition Interpreter</oval:product_name>
+          <oval:product_version>5.10 Build: 1</oval:product_version>
+          <oval:schema_version>5.10</oval:schema_version>
+          <oval:timestamp>2012-02-22T09:25:05</oval:timestamp>
+          <vendor>The MITRE Corporation</vendor>
+        </generator>
+        <system_info>
+          <os_name>Windows 7 Professional Service Pack 1</os_name>
+          <os_version>6.1.7601</os_version>
+          <architecture>AMD64</architecture>
+          <primary_host_name>host1</primary_host_name>
+          <interfaces>
+            <interface>
+              <interface_name>Intel(R) Centrino(R) Advanced-N 6250 AGN</interface_name>
+              <ip_address>192.168.1.128</ip_address>
+              <mac_address>66-77-88-99-AA-BB</mac_address>
+            </interface>
+          </interfaces>
+        </system_info>
+        <collected_objects>
+          <object comment="This environmentvariable_object represents the environment variable with a name equal to 'PATH'." flag="complete" id="oval:org.mitre.oval.test:obj:269" version="1">
+            <reference item_ref="1"/>
+          </object>
+          <object comment="This environmentvariable_object represents the environment variables that match the regular expression '.*'." flag="complete" id="oval:org.mitre.oval.test:obj:822" version="1">
+            <reference item_ref="2"/>
+            <reference item_ref="3"/>
+            <reference item_ref="4"/>
+            <reference item_ref="5"/>
+            <reference item_ref="6"/>
+            <reference item_ref="7"/>
+            <reference item_ref="8"/>
+            <reference item_ref="9"/>
+            <reference item_ref="10"/>
+            <reference item_ref="11"/>
+            <reference item_ref="12"/>
+            <reference item_ref="13"/>
+            <reference item_ref="14"/>
+            <reference item_ref="15"/>
+            <reference item_ref="16"/>
+            <reference item_ref="17"/>
+            <reference item_ref="18"/>
+            <reference item_ref="19"/>
+            <reference item_ref="20"/>
+            <reference item_ref="21"/>
+            <reference item_ref="22"/>
+            <reference item_ref="23"/>
+            <reference item_ref="24"/>
+            <reference item_ref="25"/>
+            <reference item_ref="26"/>
+            <reference item_ref="27"/>
+            <reference item_ref="28"/>
+            <reference item_ref="29"/>
+            <reference item_ref="30"/>
+            <reference item_ref="31"/>
+            <reference item_ref="32"/>
+            <reference item_ref="33"/>
+            <reference item_ref="34"/>
+            <reference item_ref="35"/>
+            <reference item_ref="36"/>
+            <reference item_ref="37"/>
+            <reference item_ref="38"/>
+            <reference item_ref="39"/>
+            <reference item_ref="40"/>
+            <reference item_ref="41"/>
+            <reference item_ref="42"/>
+            <reference item_ref="43"/>
+            <reference item_ref="44"/>
+            <reference item_ref="45"/>
+            <reference item_ref="46"/>
+          </object>
+          <object comment="This environmentvariable_object represents the environment variable(s) with a name not equal to 'PATH'." flag="complete" id="oval:org.mitre.oval.test:obj:874" version="1">
+            <reference item_ref="2"/>
+            <reference item_ref="3"/>
+            <reference item_ref="4"/>
+            <reference item_ref="5"/>
+            <reference item_ref="6"/>
+            <reference item_ref="7"/>
+            <reference item_ref="8"/>
+            <reference item_ref="9"/>
+            <reference item_ref="10"/>
+            <reference item_ref="11"/>
+            <reference item_ref="12"/>
+            <reference item_ref="13"/>
+            <reference item_ref="14"/>
+            <reference item_ref="15"/>
+            <reference item_ref="16"/>
+            <reference item_ref="17"/>
+            <reference item_ref="18"/>
+            <reference item_ref="19"/>
+            <reference item_ref="20"/>
+            <reference item_ref="21"/>
+            <reference item_ref="22"/>
+            <reference item_ref="23"/>
+            <reference item_ref="24"/>
+            <reference item_ref="25"/>
+            <reference item_ref="26"/>
+            <reference item_ref="27"/>
+            <reference item_ref="28"/>
+            <reference item_ref="29"/>
+            <reference item_ref="30"/>
+            <reference item_ref="31"/>
+            <reference item_ref="32"/>
+            <reference item_ref="33"/>
+            <reference item_ref="34"/>
+            <reference item_ref="35"/>
+            <reference item_ref="36"/>
+            <reference item_ref="37"/>
+            <reference item_ref="38"/>
+            <reference item_ref="39"/>
+            <reference item_ref="40"/>
+            <reference item_ref="41"/>
+            <reference item_ref="42"/>
+            <reference item_ref="43"/>
+            <reference item_ref="44"/>
+            <reference item_ref="45"/>
+            <reference item_ref="46"/>
+          </object>
+        </collected_objects>
+        <system_data>
+          <environmentvariable_item id="1" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PATH</name>
+            <value>C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\PROGRA~1\DISKEE~1\DISKEE~1\;C:\Program Files\SlikSvn\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\app\w32tex\bin;C:\app\gs\gs9.04\bin;C:\app\gs\gs9.04\lib;C:\java\jdk1.6.0_30\bin;C:\java\apache-ant-1.8.2\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="2" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>ALLUSERSPROFILE</name>
+            <value>C:\ProgramData</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="3" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>ANT_HOME</name>
+            <value>C:\java\apache-ant-1.8.2</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="4" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>APPDATA</name>
+            <value>C:\Users\akihito\AppData\Roaming</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="5" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>asl.log</name>
+            <value>Destination=file</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="6" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>CLASSPATH</name>
+            <value>.;C:\Program Files (x86)\QuickTime\QTSystem\QTJava.zip</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="7" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>CommonProgramFiles</name>
+            <value>C:\Program Files\Common Files</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="8" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>CommonProgramFiles(x86)</name>
+            <value>C:\Program Files (x86)\Common Files</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="9" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>CommonProgramW6432</name>
+            <value>C:\Program Files\Common Files</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="10" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>COMPUTERNAME</name>
+            <value>T420S</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="11" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>ComSpec</name>
+            <value>C:\Windows\system32\cmd.exe</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="12" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>FP_NO_HOST_CHECK</name>
+            <value>NO</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="13" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>HOMEDRIVE</name>
+            <value>D:</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="14" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>HOMEPATH</name>
+            <value>\naka</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="15" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>JAVA_HOME</name>
+            <value>C:\java\jdk1.6.0_30</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="16" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>LOCALAPPDATA</name>
+            <value>C:\Users\akihito\AppData\Local</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="17" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>LOGONSERVER</name>
+            <value>\\T420S</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="18" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>NUMBER_OF_PROCESSORS</name>
+            <value>4</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="19" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>OS</name>
+            <value>Windows_NT</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="20" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>Path</name>
+            <value>C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\PROGRA~1\DISKEE~1\DISKEE~1\;C:\Program Files\SlikSvn\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\app\w32tex\bin;C:\app\gs\gs9.04\bin;C:\app\gs\gs9.04\lib;C:\java\jdk1.6.0_30\bin;C:\java\apache-ant-1.8.2\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="21" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PATHEXT</name>
+            <value>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="22" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PROCESSOR_ARCHITECTURE</name>
+            <value>AMD64</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="23" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PROCESSOR_IDENTIFIER</name>
+            <value>Intel64 Family 6 Model 42 Stepping 7, GenuineIntel</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="24" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PROCESSOR_LEVEL</name>
+            <value>6</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="25" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PROCESSOR_REVISION</name>
+            <value>2a07</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="26" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>ProgramData</name>
+            <value>C:\ProgramData</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="27" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>ProgramFiles</name>
+            <value>C:\Program Files</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="28" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>ProgramFiles(x86)</name>
+            <value>C:\Program Files (x86)</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="29" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>ProgramW6432</name>
+            <value>C:\Program Files</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="30" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PROMPT</name>
+            <value>$P$G</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="31" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PSModulePath</name>
+            <value>C:\Windows\system32\WindowsPowerShell\v1.0\Modules\</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="32" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>PUBLIC</name>
+            <value>C:\Users\Public</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="33" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>QTJAVA</name>
+            <value>C:\Program Files (x86)\QuickTime\QTSystem\QTJava.zip</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="34" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>SESSIONNAME</name>
+            <value>Console</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="35" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>SystemDrive</name>
+            <value>C:</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="36" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>SystemRoot</name>
+            <value>C:\Windows</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="37" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>TEMP</name>
+            <value>T:\tmp</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="38" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>TEMP_ORIG</name>
+            <value>C:\Users\akihito\AppData\Local\Temp</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="39" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>TMP</name>
+            <value>T:\tmp</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="40" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>TMP_ORIG</name>
+            <value>C:\Users\akihito\AppData\Local\Temp</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="41" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>USERDOMAIN</name>
+            <value>t420s</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="42" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>USERNAME</name>
+            <value>akihito</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="43" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>USERPROFILE</name>
+            <value>C:\Users\akihito</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="44" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>windir</name>
+            <value>C:\Windows</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="45" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>windows_tracing_flags</name>
+            <value>3</value>
+          </environmentvariable_item>
+          <environmentvariable_item id="46" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent">
+            <name>windows_tracing_logfile</name>
+            <value>C:\BVTBin\Tests\installpackage\csilogfile.log</value>
+          </environmentvariable_item>
+        </system_data>
+      </oval_system_characteristics>
+    </system>
+  </results>
+
+</oval_results>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+  <generator>
+    <oval:product_name>The OVAL Repository</oval:product_name>
+    <oval:schema_version>5.9</oval:schema_version>
+    <oval:timestamp>2011-06-20T02:56:35.401-04:00</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition id="oval:org.mitre.oval:def:7432" version="3" class="patch">
+      <metadata>
+        <title>DSA-2027 xulrunner -- several vulnerabilities</title>
+        <affected family="unix">
+          <platform>Debian GNU/Linux 5.0</platform>
+          <product>xulrunner</product>
+        </affected>
+        <reference source="DSA" ref_url="http://www.debian.org/security/2010/dsa-2027" ref_id="DSA-2027"/>
+        <description>Several remote vulnerabilities have been discovered in Xulrunner, a runtime environment for XUL applications, such as the Iceweasel web browser. The Common Vulnerabilities and Exposures project identifies the following problems: Jesse Ruderman and Ehsan Akhgari discovered crashes in the layout engine, which might allow the execution of arbitrary code. It was discovered that incorrect memory handling in the XUL event handler might allow the execution of arbitrary code. It was discovered that incorrect memory handling in the XUL event handler might allow the execution of arbitrary code. It was discovered that incorrect memory handling in the plugin code might allow the execution of arbitrary code. Paul Stone discovered that forced drag-and-drop events could lead to Chrome privilege escalation. It was discovered that a programming error in the XMLHttpRequestSpy module could lead to the execution of arbitrary code.</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2010-05-24T19:08:20-05:00">
+              <contributor organization="SecPod Technologies">SecPod Team</contributor>
+            </submitted>
+            <status_change date="2010-05-26T13:28:51.982-04:00">DRAFT</status_change>
+            <status_change date="2010-06-14T04:00:52.416-04:00">INTERIM</status_change>
+            <status_change date="2010-06-29T11:49:52.651-04:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria operator="AND">
+        <extend_definition comment="Debian 5.0 is installed" definition_ref="oval:org.mitre.oval:def:6513"/>
+        <criteria operator="OR" comment="Architecture section">
+          <criteria operator="AND" comment="Architecture independent section">
+            <criterion comment="Installed architecture is all" test_ref="oval:org.mitre.oval:tst:10881"/>
+            <criterion comment="libmozillainterfaces-java is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26724"/>
+          </criteria>
+          <criteria operator="AND" comment="Architecture dependent section">
+            <criteria operator="OR" comment="Supported architectures section">
+              <criterion comment="Installed architecture is amd64" test_ref="oval:org.mitre.oval:tst:10392"/>
+              <criterion comment="Installed architecture is sparc" test_ref="oval:org.mitre.oval:tst:2465"/>
+              <criterion comment="Installed architecture is arm" test_ref="oval:org.mitre.oval:tst:10933"/>
+              <criterion comment="Installed architecture is i386" test_ref="oval:org.mitre.oval:tst:10864"/>
+              <criterion comment="Installed architecture is armel" test_ref="oval:org.mitre.oval:tst:11101"/>
+              <criterion comment="Installed architecture is ia64" test_ref="oval:org.mitre.oval:tst:10830"/>
+              <criterion comment="Installed architecture is alpha" test_ref="oval:org.mitre.oval:tst:10654"/>
+              <criterion comment="Installed architecture is powerpc" test_ref="oval:org.mitre.oval:tst:11168"/>
+              <criterion comment="Installed architecture is hppa" test_ref="oval:org.mitre.oval:tst:11164"/>
+            </criteria>
+            <criteria operator="OR" comment="Packages section">
+              <criterion comment="libmozjs-dev is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26795"/>
+              <criterion comment="spidermonkey-bin is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26718"/>
+              <criterion comment="xulrunner-1.9-gnome-support is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26858"/>
+              <criterion comment="xulrunner-1.9 is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26825"/>
+              <criterion comment="libmozjs1d-dbg is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26847"/>
+              <criterion comment="libmozjs1d is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26716"/>
+              <criterion comment="python-xpcom is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26168"/>
+              <criterion comment="xulrunner-1.9-dbg is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26841"/>
+              <criterion comment="xulrunner-dev is earlier than 1.9.0.19-1" test_ref="oval:org.mitre.oval:tst:26691"/>
+            </criteria>
+          </criteria>
+        </criteria>
+      </criteria>
+    </definition>
+    <definition id="oval:org.mitre.oval:def:6513" version="3" class="inventory">
+      <metadata>
+        <title>Debian 5.0 is installed</title>
+        <affected family="unix">
+          <platform>Debian GNU/Linux 5.0</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:debian:debian_linux:5.0"/>
+        <description>Debian 5.0 is installed</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2009-12-04T16:44:51-05:00">
+              <contributor organization="SecPod Technologies">SecPod Team</contributor>
+            </submitted>
+            <status_change date="2009-12-06T20:14:46.813-05:00">DRAFT</status_change>
+            <status_change date="2010-01-04T04:01:52.112-05:00">INTERIM</status_change>
+            <status_change date="2010-01-25T04:00:22.163-05:00">ACCEPTED</status_change>
+            <modified comment="EDITED oval:org.mitre.oval:def:6513 - Update textfilecontent_test to textfilecontent54_test" date="2011-01-20T13:45:00.069-05:00">
+              <contributor organization="SecPod Technologies">Preeti Subramanian</contributor>
+            </modified>
+            <status_change date="2011-01-20T13:46:58.156-05:00">INTERIM</status_change>
+            <status_change date="2011-02-07T04:00:15.513-05:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria>
+        <criterion comment="Debian GNU/Linux 5.0 is installed" test_ref="oval:org.mitre.oval:tst:42061"/>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <textfilecontent54_test id="oval:org.mitre.oval:tst:42061" version="1" comment="Debian GNU/Linux 5.0 is installed" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.mitre.oval:obj:15583"/>
+      <state state_ref="oval:org.mitre.oval:ste:12238"/>
+    </textfilecontent54_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26858" version="1" comment="xulrunner-1.9-gnome-support is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7607"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26847" version="1" comment="libmozjs1d-dbg is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7652"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26841" version="1" comment="xulrunner-1.9-dbg is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7323"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26825" version="1" comment="xulrunner-1.9 is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7759"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26795" version="1" comment="libmozjs-dev is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7916"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26724" version="1" comment="libmozillainterfaces-java is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7345"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26718" version="1" comment="spidermonkey-bin is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7891"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26716" version="1" comment="libmozjs1d is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7900"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26691" version="1" comment="xulrunner-dev is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7903"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <dpkginfo_test id="oval:org.mitre.oval:tst:26168" version="1" comment="python-xpcom is earlier than 1.9.0.19-1" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:7786"/>
+      <state state_ref="oval:org.mitre.oval:ste:6384"/>
+    </dpkginfo_test>
+    <uname_test id="oval:org.mitre.oval:tst:2465" version="1" comment="Installed architecture is sparc" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:2309"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:11168" version="1" comment="Installed architecture is powerpc" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:5297"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:11164" version="1" comment="Installed architecture is hppa" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:5684"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:11101" version="1" comment="Installed architecture is armel" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:5232"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:10933" version="1" comment="Installed architecture is arm" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:4776"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:10881" version="1" comment="Installed architecture is all" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:10864" version="1" comment="Installed architecture is i386" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:5377"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:10830" version="1" comment="Installed architecture is ia64" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:5760"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:10654" version="1" comment="Installed architecture is alpha" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:5636"/>
+    </uname_test>
+    <uname_test id="oval:org.mitre.oval:tst:10392" version="1" comment="Installed architecture is amd64" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <object object_ref="oval:org.mitre.oval:obj:2759"/>
+      <state state_ref="oval:org.mitre.oval:ste:5470"/>
+    </uname_test>
+  </tests>
+  <objects>
+    <textfilecontent54_object id="oval:org.mitre.oval:obj:15583" version="1" comment="Object holds Debian version" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <path>/etc</path>
+      <filename>debian_version</filename>
+      <pattern operation="pattern match">^\d\.\d$</pattern>
+      <instance datatype="int">1</instance>
+    </textfilecontent54_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7607" version="1" comment="xulrunner-1.9-gnome-support package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>xulrunner-1.9-gnome-support</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7652" version="1" comment="libmozjs1d-dbg package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>libmozjs1d-dbg</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7323" version="1" comment="xulrunner-1.9-dbg package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>xulrunner-1.9-dbg</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7759" version="1" comment="xulrunner-1.9 package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>xulrunner-1.9</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7916" version="1" comment="libmozjs-dev package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>libmozjs-dev</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7345" version="1" comment="libmozillainterfaces-java package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>libmozillainterfaces-java</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7891" version="1" comment="spidermonkey-bin package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>spidermonkey-bin</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7900" version="1" comment="libmozjs1d package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>libmozjs1d</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7903" version="1" comment="xulrunner-dev package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>xulrunner-dev</name>
+    </dpkginfo_object>
+    <dpkginfo_object id="oval:org.mitre.oval:obj:7786" version="1" comment="python-xpcom package information" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>python-xpcom</name>
+    </dpkginfo_object>
+    <uname_object id="oval:org.mitre.oval:obj:2759" version="1" comment="The single uname object." xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix"/>
+  </objects>
+  <states>
+    <textfilecontent54_state id="oval:org.mitre.oval:ste:12238" version="1" comment="State matches if version is 5.0" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <text>5.0</text>
+    </textfilecontent54_state>
+    <dpkginfo_state id="oval:org.mitre.oval:ste:6384" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <evr datatype="evr_string" operation="less than">0:1.9.0.19-1</evr>
+    </dpkginfo_state>
+    <uname_state id="oval:org.mitre.oval:ste:2309" version="1" comment="processor_type is sparc" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>sparc</processor_type>
+    </uname_state>
+    <uname_state id="oval:org.mitre.oval:ste:5297" version="1" comment="processor_type is ppc" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>ppc</processor_type>
+    </uname_state>
+    <uname_state id="oval:org.mitre.oval:ste:5684" version="1" comment="processor_type is hppa" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>hppa</processor_type>
+    </uname_state>
+    <uname_state id="oval:org.mitre.oval:ste:5232" version="1" comment="processor_type is armel" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>armel</processor_type>
+    </uname_state>
+    <uname_state id="oval:org.mitre.oval:ste:4776" version="1" comment="processor_type is arm" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>arm</processor_type>
+    </uname_state>
+    <uname_state id="oval:org.mitre.oval:ste:5377" version="1" comment="processor_type is i686" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>i686</processor_type>
+    </uname_state>
+    <uname_state id="oval:org.mitre.oval:ste:5760" version="1" comment="processor_type is ia64" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>ia64</processor_type>
+    </uname_state>
+    <uname_state id="oval:org.mitre.oval:ste:5636" version="1" comment="processor_type is alpha" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>alpha</processor_type>
+    </uname_state>
+    <uname_state id="oval:org.mitre.oval:ste:5470" version="1" comment="processor_type is x86-64" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+      <processor_type>x86-64</processor_type>
+    </uname_state>
+  </states>
+</oval_definitions>

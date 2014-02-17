@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file_object id="oval:org.mitre.oval:obj:222" version="1" comment="The path to the mshtml.dll file in the system root" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows"
+xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" 
+xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+
+      <path var_ref="oval:org.mitre.oval:var:200" var_check="all"/>
+      <filename>mshtml.dll</filename>
+</file_object>

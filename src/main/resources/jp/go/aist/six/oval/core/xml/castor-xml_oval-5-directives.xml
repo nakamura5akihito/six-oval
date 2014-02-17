@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<!-- /////////////////////////////////////////////////////////// -->
+<!-- // Project SIX: OVAL                                     // -->
+<!-- //                                                       // -->
+<!-- // Castor XML Mapping Specification                      // -->
+<!-- /////////////////////////////////////////////////////////// -->
+
+<!-- @author    Akihito Nakamura, AIST -->
+<!-- @version   $Id: castor-xml_oval-5-directives.xml 2949 2012-09-18 09:55:33Z nakamura5akihito@gmail.com $ -->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  xmlns:oval-directives-5                            % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <class name="jp.go.aist.six.oval.model.directives.OvalDirectives"
+        extends="jp.go.aist.six.oval.model.Document">
+        <map-to xml="oval_directives"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-directives-5"/>
+        <field name="generator" 
+            type="jp.go.aist.six.oval.model.common.GeneratorType">
+            <bind-xml name="generator" node="element"/>
+        </field>
+        <field name="directives" 
+            type="jp.go.aist.six.oval.model.results.DefaultDirectivesType">
+            <bind-xml name="directives" node="element"/>
+        </field>
+        <field name="classDirectives" 
+            type="jp.go.aist.six.oval.model.results.ClassDirectivesType"
+            collection="collection">
+            <bind-xml name="class_directives" node="element"/>
+        </field>
+    </class>
+
+</mapping>

@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<oval_system_characteristics xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:win-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5 oval-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows windows-system-characteristics-schema.xsd">
+
+  <generator>
+    <oval:product_name>cpe:/a:mitre:ovaldi:5.10.1.2</oval:product_name>
+    <oval:product_version>5.10.1 Build: 2</oval:product_version>
+    <oval:schema_version>5.10.1</oval:schema_version>
+    <oval:timestamp>2012-05-07T15:04:32</oval:timestamp>
+    <vendor>The MITRE Corporation</vendor>
+  </generator>
+
+  <system_info>
+    <os_name>Windows XP Professional Service Pack 3</os_name>
+    <os_version>5.1.2600</os_version>
+    <architecture>AMD64</architecture>
+    <primary_host_name>host55.foo.com</primary_host_name>
+    <interfaces>
+      <interface>
+        <interface_name>Super Network Adopter</interface_name>
+        <ip_address>192.168.10.55</ip_address>
+        <mac_address>00-50-56-C0-00-55</mac_address>
+      </interface>
+    </interfaces>
+  </system_info>
+
+  <collected_objects>
+    <object comment="Retrieve file object with path that matches '^C:\\Program Files\\Internet Explorer.*' and filename that matches '^i.*'." flag="complete" id="oval:org.mitre.oval.test:obj:1029" version="2">
+      <reference item_ref="6"/>
+      <reference item_ref="7"/>
+      <reference item_ref="8"/>
+      <reference item_ref="9"/>
+      <reference item_ref="10"/>
+      <reference item_ref="11"/>
+      <reference item_ref="12"/>
+      <reference item_ref="5"/>
+      <reference item_ref="13"/>
+      <reference item_ref="14"/>
+      <reference item_ref="15"/>
+      <reference item_ref="16"/>
+      <reference item_ref="17"/>
+      <reference item_ref="18"/>
+      <reference item_ref="19"/>
+      <reference item_ref="20"/>
+      <reference item_ref="21"/>
+    </object>
+    <object comment="Retrieve file object with path equals 'C:\Program Files\Internet Explorer'." flag="complete" id="oval:org.mitre.oval.test:obj:1060" version="1">
+      <reference item_ref="1"/>
+    </object>
+    <object comment="Retrieve file object with path equals 'C:\Program Files\Internet Explorer' and filename that matches '^i.*'." flag="complete" id="oval:org.mitre.oval.test:obj:1066" version="1">
+      <reference item_ref="6"/>
+      <reference item_ref="7"/>
+      <reference item_ref="8"/>
+      <reference item_ref="9"/>
+      <reference item_ref="10"/>
+      <reference item_ref="11"/>
+      <reference item_ref="12"/>
+      <reference item_ref="5"/>
+    </object>
+    <object comment="Retrieve file object with path starting at 'C:\Program Files', recursing down infinitely, and filename equals 'install.ins'." flag="complete" id="oval:org.mitre.oval.test:obj:130" version="1">
+      <reference item_ref="13"/>
+    </object>
+    <object comment="Retrieve file object with path that matches '^C:\\Program Files\\Internet Explorer.*'." flag="complete" id="oval:org.mitre.oval.test:obj:614" version="2">
+      <reference item_ref="1"/>
+      <reference item_ref="2"/>
+      <reference item_ref="3"/>
+      <reference item_ref="4"/>
+    </object>
+    <object comment="Retrieve file object with path starting at 'C:\Program Files\Internet Explorer\SIGNUP', recursing up 1 level, and filename equals 'iexplore.exe'." flag="complete" id="oval:org.mitre.oval.test:obj:694" version="1">
+      <reference item_ref="5"/>
+    </object>
+    <object comment="Retrieve file object with path starting at 'C:\Program Files', recursing down 1 level, and filename equals 'iexplore.exe'." flag="complete" id="oval:org.mitre.oval.test:obj:765" version="1">
+      <reference item_ref="5"/>
+    </object>
+    <object comment="Retrieve file object with path equals 'C:\Program Files\Internet Explorer' and filename equals 'iexplore.exe'." flag="complete" id="oval:org.mitre.oval.test:obj:979" version="1">
+      <reference item_ref="5"/>
+    </object>
+  </collected_objects>
+
+  <system_data>
+    <file_item id="6" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <oval-sc:message>(FileProbe) No version information available for the file: 'C:\Program Files\Internet Explorer\ie9props.propdesc'</oval-sc:message>
+      <filepath>C:\Program Files\Internet Explorer\ie9props.propdesc</filepath>
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename>ie9props.propdesc</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">2535</size>
+      <a_time datatype="int">129701776750777890</a_time>
+      <c_time datatype="int">129701776750777890</c_time>
+      <m_time datatype="int">129701776750777890</m_time>
+      <ms_checksum>59601</ms_checksum>
+      <version datatype="version" status="does not exist"></version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class status="does not exist"></development_class>
+      <company status="does not exist"></company>
+      <internal_name status="does not exist"></internal_name>
+      <language status="does not exist"></language>
+      <original_filename status="does not exist"></original_filename>
+      <product_name status="does not exist"></product_name>
+      <product_version datatype="version" status="does not exist"></product_version>
+    </file_item>
+    <file_item id="7" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\iecleanup.exe</filepath>
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename>iecleanup.exe</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">119808</size>
+      <a_time datatype="int">129701776750621889</a_time>
+      <c_time datatype="int">129701776750621889</c_time>
+      <m_time datatype="int">129701776750621889</m_time>
+      <ms_checksum>174769</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>IECleanup</internal_name>
+      <language status="not collected"></language>
+      <original_filename>IECleanup.exe</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="8" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\iedvtool.dll</filepath>
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename>iedvtool.dll</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">887296</size>
+      <a_time datatype="int">129785822764526839</a_time>
+      <c_time datatype="int">129785822764526839</c_time>
+      <m_time datatype="int">129748855112533621</m_time>
+      <ms_checksum>893432</ms_checksum>
+      <version datatype="version">9.0.8112.16443</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>iedvtool.dll</internal_name>
+      <language status="not collected"></language>
+      <original_filename>iedvtool.dll.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="9" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\ieinstal.exe</filepath>
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename>ieinstal.exe</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">480256</size>
+      <a_time datatype="int">129701776749685888</a_time>
+      <c_time datatype="int">129701776749685888</c_time>
+      <m_time datatype="int">129701776749685888</m_time>
+      <ms_checksum>492200</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>ieinstal.exe</internal_name>
+      <language status="not collected"></language>
+      <original_filename>ieinstal.exe.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="10" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\ielowutil.exe</filepath>
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename>ielowutil.exe</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">223232</size>
+      <a_time datatype="int">129701776749529887</a_time>
+      <c_time datatype="int">129701776749529887</c_time>
+      <m_time datatype="int">129701776749529887</m_time>
+      <ms_checksum>272256</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>ielowutil.exe</internal_name>
+      <language status="not collected"></language>
+      <original_filename>ielowutil.exe.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="11" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\ieproxy.dll</filepath>
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename>ieproxy.dll</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">546816</size>
+      <a_time datatype="int">129701776749217887</a_time>
+      <c_time datatype="int">129701776749217887</c_time>
+      <m_time datatype="int">129701776749217887</m_time>
+      <ms_checksum>552033</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>ieproxy.dll</internal_name>
+      <language status="not collected"></language>
+      <original_filename>ieproxy.dll</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="12" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\ieproxy.dll_old0</filepath>
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename>ieproxy.dll_old0</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">451072</size>
+      <a_time datatype="int">129701767878436116</a_time>
+      <c_time datatype="int">129701767878436116</c_time>
+      <m_time datatype="int">129649450572320000</m_time>
+      <ms_checksum>516165</ms_checksum>
+      <version datatype="version">8.0.7601.17720</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>win7sp1_gdr</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>ieproxy.dll</internal_name>
+      <language status="not collected"></language>
+      <original_filename>ieproxy.dll</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">8.00.7601.17720</product_version>
+    </file_item>
+    <file_item id="5" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\iexplore.exe</filepath>
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename>iexplore.exe</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">754480</size>
+      <a_time datatype="int">129701776750777890</a_time>
+      <c_time datatype="int">129701776750777890</c_time>
+      <m_time datatype="int">129701776750777890</m_time>
+      <ms_checksum>785964</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>iexplore</internal_name>
+      <language status="not collected"></language>
+      <original_filename>IEXPLORE.EXE.MUI</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="13" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <oval-sc:message>(FileProbe) No version information available for the file: 'C:\Program Files\Internet Explorer\SIGNUP\install.ins'</oval-sc:message>
+      <filepath>C:\Program Files\Internet Explorer\SIGNUP\install.ins</filepath>
+      <path>C:\Program Files\Internet Explorer\SIGNUP</path>
+      <filename>install.ins</filename>
+      <owner>NT AUTHORITY\SYSTEM</owner>
+      <size datatype="int">460</size>
+      <a_time datatype="int">129701776942658227</a_time>
+      <c_time datatype="int">128920231589909528</c_time>
+      <m_time datatype="int">129701776942658227</m_time>
+      <ms_checksum>17171</ms_checksum>
+      <version datatype="version" status="does not exist"></version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class status="does not exist"></development_class>
+      <company status="does not exist"></company>
+      <internal_name status="does not exist"></internal_name>
+      <language status="does not exist"></language>
+      <original_filename status="does not exist"></original_filename>
+      <product_name status="does not exist"></product_name>
+      <product_version datatype="version" status="does not exist"></product_version>
+    </file_item>
+    <file_item id="14" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\en-US\iedvtool.dll.mui</filepath>
+      <path>C:\Program Files\Internet Explorer\en-US</path>
+      <filename>iedvtool.dll.mui</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">28160</size>
+      <a_time datatype="int">129701776751245890</a_time>
+      <c_time datatype="int">129701776751245890</c_time>
+      <m_time datatype="int">129701776751245890</m_time>
+      <ms_checksum>33700</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>iedvtool.dll</internal_name>
+      <language status="not collected"></language>
+      <original_filename>iedvtool.dll.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="15" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\en-US\ieinstal.exe.mui</filepath>
+      <path>C:\Program Files\Internet Explorer\en-US</path>
+      <filename>ieinstal.exe.mui</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">2048</size>
+      <a_time datatype="int">129701776751401891</a_time>
+      <c_time datatype="int">129701776751401891</c_time>
+      <m_time datatype="int">129701776751401891</m_time>
+      <ms_checksum>12864</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>ieinstal.exe</internal_name>
+      <language status="not collected"></language>
+      <original_filename>ieinstal.exe.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="16" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\en-US\ielowutil.exe.mui</filepath>
+      <path>C:\Program Files\Internet Explorer\en-US</path>
+      <filename>ielowutil.exe.mui</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">2048</size>
+      <a_time datatype="int">129701776750933890</a_time>
+      <c_time datatype="int">129701776750933890</c_time>
+      <m_time datatype="int">129701776750933890</m_time>
+      <ms_checksum>61726</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>ielowutil.exe</internal_name>
+      <language status="not collected"></language>
+      <original_filename>ielowutil.exe.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="17" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\en-US\iexplore.exe.mui</filepath>
+      <path>C:\Program Files\Internet Explorer\en-US</path>
+      <filename>iexplore.exe.mui</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">5632</size>
+      <a_time datatype="int">129701776751557891</a_time>
+      <c_time datatype="int">129701776751557891</c_time>
+      <m_time datatype="int">129701776751557891</m_time>
+      <ms_checksum>66993</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>iexplore</internal_name>
+      <language status="not collected"></language>
+      <original_filename>IEXPLORE.EXE.MUI</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="18" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\ja-JP\iedvtool.dll.mui</filepath>
+      <path>C:\Program Files\Internet Explorer\ja-JP</path>
+      <filename>iedvtool.dll.mui</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">24064</size>
+      <a_time datatype="int">129701777086334479</a_time>
+      <c_time datatype="int">129701777086334479</c_time>
+      <m_time datatype="int">129701777086334479</m_time>
+      <ms_checksum>26667</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>iedvtool.dll</internal_name>
+      <language status="not collected"></language>
+      <original_filename>iedvtool.dll.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="19" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\ja-JP\ieinstal.exe.mui</filepath>
+      <path>C:\Program Files\Internet Explorer\ja-JP</path>
+      <filename>ieinstal.exe.mui</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">2048</size>
+      <a_time datatype="int">129701777086646480</a_time>
+      <c_time datatype="int">129701777086646480</c_time>
+      <m_time datatype="int">129701777086646480</m_time>
+      <ms_checksum>43464</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>ieinstal.exe</internal_name>
+      <language status="not collected"></language>
+      <original_filename>ieinstal.exe.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="20" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\ja-JP\ielowutil.exe.mui</filepath>
+      <path>C:\Program Files\Internet Explorer\ja-JP</path>
+      <filename>ielowutil.exe.mui</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">2048</size>
+      <a_time datatype="int">129701777086802480</a_time>
+      <c_time datatype="int">129701777086802480</c_time>
+      <m_time datatype="int">129701777086802480</m_time>
+      <ms_checksum>61721</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>ielowutil.exe</internal_name>
+      <language status="not collected"></language>
+      <original_filename>ielowutil.exe.mui</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="21" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <filepath>C:\Program Files\Internet Explorer\ja-JP\iexplore.exe.mui</filepath>
+      <path>C:\Program Files\Internet Explorer\ja-JP</path>
+      <filename>iexplore.exe.mui</filename>
+      <owner>NT SERVICE\TrustedInstaller</owner>
+      <size datatype="int">4608</size>
+      <a_time datatype="int">129701777086802480</a_time>
+      <c_time datatype="int">129701777086802480</c_time>
+      <m_time datatype="int">129701777086802480</m_time>
+      <ms_checksum>44309</ms_checksum>
+      <version datatype="version">9.0.8112.16421</version>
+      <type>FILE_TYPE_DISK</type>
+      <development_class>WIN7_IE9_RTM</development_class>
+      <company>Microsoft Corporation</company>
+      <internal_name>iexplore</internal_name>
+      <language status="not collected"></language>
+      <original_filename>IEXPLORE.EXE.MUI</original_filename>
+      <product_name>WindowsR Internet Explorer</product_name>
+      <product_version datatype="version">9.00.8112.16421</product_version>
+    </file_item>
+    <file_item id="1" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <path>C:\Program Files\Internet Explorer</path>
+      <filename status="not collected" xsi:nil="true"></filename>
+    </file_item>
+    <file_item id="2" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <path>C:\Program Files\Internet Explorer\SIGNUP</path>
+      <filename status="not collected" xsi:nil="true"></filename>
+    </file_item>
+    <file_item id="3" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <path>C:\Program Files\Internet Explorer\en-US</path>
+      <filename status="not collected" xsi:nil="true"></filename>
+    </file_item>
+    <file_item id="4" xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows">
+      <path>C:\Program Files\Internet Explorer\ja-JP</path>
+      <filename status="not collected" xsi:nil="true"></filename>
+    </file_item>
+  </system_data>
+
+</oval_system_characteristics>
