@@ -35,6 +35,7 @@ public class OvalTransformXmlMapperTest
 
         String  tmp_dirpath = System.getProperty( "java.io.tmpdir" );
         _outputDir = new File( tmp_dirpath, "six-oval" );
+//        System.out.println( "tmp output dir: " + _outputDir );
         _outputDir.mkdirs();
     }
 
@@ -66,7 +67,7 @@ public class OvalTransformXmlMapperTest
         File  input_dir = new File( input_rootdir_path, input_subdir_path );
         File[]  input_xml_files = TestUtil.listXmlFiles( input_dir );
         for (File  input_xml_file : input_xml_files) {
-            System.out.println( "OVAL Document: filepath=" + input_xml_file );
+            System.out.println( input_subdir_path + " : " + input_xml_file.getName() );
             /* (1) unmarshal */
             Object  obj = _getXmlMapper().unmarshal( new FileInputStream( input_xml_file ) );
 
@@ -82,34 +83,26 @@ public class OvalTransformXmlMapperTest
 
 
     /**
-     * XML test: Mitre OVAL Repository content and ovaldi output results.
+     * Mitre OVAL Repository / definition / 5.10
      *
      * @see http://oval.mitre.org/repository/
      */
     @RunWith( Theories.class )
-    public static class MitreOvalRepositoryContent
+    public static class MitreOvalDef510
     extends OvalTransformXmlMapperTest
     {
 
-        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval5/mitre";
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/mitre/oval-def-5_10";
 
 
         @DataPoints
         public static String[]  INPUT_SUBDIR_PATHS = new String[] {
-//            "20130313"
-            "aix",
-            "esx",
-            "ios",
-            "linux",
-            "macos",
-            "pixos",
-            "solaris",
-            "windows"
+            "unix"
         };
 
 
 
-        public MitreOvalRepositoryContent()
+        public MitreOvalDef510()
         {
         }
 
@@ -125,38 +118,88 @@ public class OvalTransformXmlMapperTest
         }
 
     }
-    //MitreOvalRepositoryContent
+    //
+
+
+
+
+//    /**
+//     * XML test: Mitre OVAL Repository content and ovaldi output results.
+//     *
+//     * @see http://oval.mitre.org/repository/
+//     */
+//    @RunWith( Theories.class )
+//    public static class MitreOvalRepositoryContent
+//    extends OvalTransformXmlMapperTest
+//    {
+//
+//        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval5/mitre";
+//
+//
+//        @DataPoints
+//        public static String[]  INPUT_SUBDIR_PATHS = new String[] {
+////            "20130313"
+//            "aix",
+//            "esx",
+//            "ios",
+//            "linux",
+//            "macos",
+//            "pixos",
+//            "solaris",
+//            "windows"
+//        };
+//
+//
+//
+//        public MitreOvalRepositoryContent()
+//        {
+//        }
+//
+//
+//
+//        @Theory
+//        public void testUnmarshal(
+//                        final String input_subdir_path
+//                        )
+//        throws Exception
+//        {
+//            _testUnmarshalAllXmlsInDir( INPUT_ROOTDIR_PATH, input_subdir_path );
+//        }
+//
+//    }
+//    //MitreOvalRepositoryContent
 
 
 
     /**
-     * XML test: OVAL test content.
+     * OVAL test content / definition / 5.10
      *
      * @see http://oval.mitre.org/repository/about/testcontent.html
      */
     @RunWith( Theories.class )
-    public static class OvalTestContent
+    public static class OvalTestContent510
     extends OvalTransformXmlMapperTest
     {
 
-        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval5/ovaltc-5.10.1.3";
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/oval-test-content_5_10_1_3";
+//        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval5/ovaltc-5.10.1.3";
 
 
         @DataPoints
         public static String[]  INPUT_SUBDIR_PATHS = new String[] {
-            "definitions",
-            "independent",
+//            "definitions",
+//            "independent",
             "linux",
             "macos",
             "solaris",
-            "unix",
+//            "unix",
             "windows",
             "support/var"
         };
 
 
 
-        public OvalTestContent()
+        public OvalTestContent510()
         {
         }
 
