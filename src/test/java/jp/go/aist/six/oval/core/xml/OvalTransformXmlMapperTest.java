@@ -83,7 +83,7 @@ public class OvalTransformXmlMapperTest
 
 
     /**
-     * Mitre OVAL Repository / definition / 5.10
+     * TEST: Mitre OVAL Repository / definition / 5.10
      *
      * @see http://oval.mitre.org/repository/
      */
@@ -97,12 +97,53 @@ public class OvalTransformXmlMapperTest
 
         @DataPoints
         public static String[]  INPUT_SUBDIR_PATHS = new String[] {
-            "unix"
+            "unix",
+            "windows"
         };
 
 
 
         public MitreOvalDef510()
+        {
+        }
+
+
+
+        @Theory
+        public void testUnmarshal(
+                        final String input_subdir_path
+                        )
+        throws Exception
+        {
+            _testUnmarshalAllXmlsInDir( INPUT_ROOTDIR_PATH, input_subdir_path );
+        }
+
+    }
+    //
+
+
+
+    /**
+     * TEST: RedHat OVAL Repository / definition / 5.10
+     *
+     * @see http://oval.mitre.org/repository/
+     */
+    @RunWith( Theories.class )
+    public static class RedhatOvalDef510
+    extends OvalTransformXmlMapperTest
+    {
+
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/redhat/oval-def-5_10";
+
+
+        @DataPoints
+        public static String[]  INPUT_SUBDIR_PATHS = new String[] {
+            "unix"
+        };
+
+
+
+        public RedhatOvalDef510()
         {
         }
 
@@ -172,7 +213,7 @@ public class OvalTransformXmlMapperTest
 
 
     /**
-     * OVAL test content / definition / 5.10
+     * TEST: OVAL test content / definition / 5.10
      *
      * @see http://oval.mitre.org/repository/about/testcontent.html
      */
