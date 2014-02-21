@@ -83,7 +83,7 @@ public class OvalTransformXmlMapperTest
 
 
     /**
-     * Mitre OVAL Repository / definition / 5.10
+     * TEST: Mitre OVAL Repository / definition / 5.10
      *
      * @see http://oval.mitre.org/repository/
      */
@@ -97,7 +97,8 @@ public class OvalTransformXmlMapperTest
 
         @DataPoints
         public static String[]  INPUT_SUBDIR_PATHS = new String[] {
-            "unix"
+            "unix",
+            "windows"
         };
 
 
@@ -172,7 +173,7 @@ public class OvalTransformXmlMapperTest
 
 
     /**
-     * OVAL test content / definition / 5.10
+     * TEST: OVAL test content / definition / 5.10
      *
      * @see http://oval.mitre.org/repository/about/testcontent.html
      */
