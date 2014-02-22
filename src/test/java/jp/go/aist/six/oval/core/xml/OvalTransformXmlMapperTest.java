@@ -23,7 +23,6 @@ import org.junit.runner.RunWith;
 @RunWith( Enclosed.class )
 public class OvalTransformXmlMapperTest
 {
-
     private OvalXmlMapper  _xmlMapper = null;
     private File  _outputDir = null;
 
@@ -91,8 +90,7 @@ public class OvalTransformXmlMapperTest
     public static class MitreOvalDef510
     extends OvalTransformXmlMapperTest
     {
-
-        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/mitre/oval-def-5_10";
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/mitre/mitre-oval-def-5_10";
 
 
         @DataPoints
@@ -132,8 +130,7 @@ public class OvalTransformXmlMapperTest
     public static class RedhatOvalDef510
     extends OvalTransformXmlMapperTest
     {
-
-        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/redhat/oval-def-5_10";
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/redhat/redhat-oval-def-5_10";
 
 
         @DataPoints
@@ -221,19 +218,14 @@ public class OvalTransformXmlMapperTest
     public static class OvalTestContent510
     extends OvalTransformXmlMapperTest
     {
-
         public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/oval-test-content_5_10_1_3";
-//        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval5/ovaltc-5.10.1.3";
 
 
         @DataPoints
         public static String[]  INPUT_SUBDIR_PATHS = new String[] {
-//            "definitions",
-//            "independent",
             "linux",
             "macos",
             "solaris",
-//            "unix",
             "windows",
             "support/var"
         };
