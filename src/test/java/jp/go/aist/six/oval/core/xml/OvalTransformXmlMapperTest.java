@@ -90,7 +90,7 @@ public class OvalTransformXmlMapperTest
     public static class MitreOvalDef510
     extends OvalTransformXmlMapperTest
     {
-        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/mitre/mitre-oval-def-5_10";
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/mitre-oval-def-5_10";
 
 
         @DataPoints
@@ -130,7 +130,7 @@ public class OvalTransformXmlMapperTest
     public static class RedhatOvalDef510
     extends OvalTransformXmlMapperTest
     {
-        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/redhat/redhat-oval-def-5_10";
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/redhat-oval-def-5_10";
 
 
         @DataPoints
