@@ -1,24 +1,19 @@
 package jp.go.aist.six.oval.core.repository;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
-
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
-
 import jp.go.aist.six.oval.core.OvalTestBase;
 import jp.go.aist.six.oval.core.SixOvalContext;
 import jp.go.aist.six.oval.core.TestUtil;
-import jp.go.aist.six.oval.core.xml.OvalTransformXmlMapperTest;
 import jp.go.aist.six.oval.model.common.ClassEnumeration;
 import jp.go.aist.six.oval.model.definitions.DefinitionType;
 import jp.go.aist.six.oval.model.definitions.OvalDefinitions;
 import jp.go.aist.six.oval.repository.DefinitionQueryParams;
 import jp.go.aist.six.oval.repository.OvalRepository;
 import jp.go.aist.six.util.repository.QueryResults;
-
 import org.junit.experimental.runners.Enclosed;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
@@ -32,11 +27,11 @@ import org.junit.runner.RunWith;
 @RunWith( Enclosed.class )
 public class OvalRepositoryImplTest
 {
-	
+
 	/**
 	 * Saves given OVAL Definitions document and then find it using ID.
 	 * Also, every definition in the document is retrieved using its OVAL ID.
-	 * 
+	 *
 	 * @param repository
 	 * @param oval_defs
 	 */
@@ -49,7 +44,7 @@ public class OvalRepositoryImplTest
     	OvalDefinitions  p_oval_defs = repository.findOvalDefinitionsById( oval_defs_id );
 		assertThat( p_oval_defs, is( notNullValue() ) );
 		assertThat( oval_defs_id, is( p_oval_defs.getPersistentID() ) );
-		
+
 		for (DefinitionType  def : oval_defs.getDefinitions().getDefinition()) {
     		String  def_id = def.getOvalId();
     		DefinitionType  p_def = repository.findDefinitionById( def_id );
@@ -59,7 +54,7 @@ public class OvalRepositoryImplTest
     }
 
 
-	
+
     /**
      * TEST: OVAL test content / definitions / 5.10
      *
@@ -78,7 +73,7 @@ public class OvalRepositoryImplTest
             "macos",
             "solaris",
             "windows"
-//            "support/var" //The files are type of OvalVariables. 
+//            "support/var" //The files are type of OvalVariables.
         };
 
 
@@ -91,7 +86,7 @@ public class OvalRepositoryImplTest
 
 
         @Theory
-        public void testUnmarshal(
+        public void testSaveAndFind(
                         final String input_subdir_path
                         )
         throws Exception
@@ -100,14 +95,105 @@ public class OvalRepositoryImplTest
             for (File  input_xml_file : input_xml_files) {
                 System.out.println( input_subdir_path + " : " + input_xml_file.getName() );
                 OvalDefinitions  oval_defs = _unmarshalOvalDocument( input_xml_file, OvalDefinitions.class );
-                _testSaveAndFind(_getRepository(), oval_defs );
+                _testSaveAndFind( _getRepository(), oval_defs );
             }
         }
     }
     //
 
 
-	
+
+    /**
+     * TEST: Mitre OVAL Repository / definition / 5.10
+     *
+     * @see http://oval.mitre.org/repository/
+     */
+    @RunWith( Theories.class )
+    public static class MitreOvalDef510Repository
+    extends OvalTestBase
+    {
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/mitre-oval-def-5_10";
+
+
+        @DataPoints
+        public static String[]  INPUT_SUBDIR_PATHS = new String[] {
+            "unix",
+            "windows"
+        };
+
+
+
+        public MitreOvalDef510Repository()
+        {
+            super( SixOvalContext.repository() );
+        }
+
+
+
+        @Theory
+        public void testSaveAndFind(
+                        final String input_subdir_path
+                        )
+        throws Exception
+        {
+            File[]  input_xml_files = TestUtil.listXmlFiles( INPUT_ROOTDIR_PATH, input_subdir_path );
+            for (File  input_xml_file : input_xml_files) {
+                System.out.println( input_subdir_path + " : " + input_xml_file.getName() );
+                OvalDefinitions  oval_defs = _unmarshalOvalDocument( input_xml_file, OvalDefinitions.class );
+                _testSaveAndFind( _getRepository(), oval_defs );
+            }
+        }
+
+    }
+    //
+
+
+
+    /**
+     * TEST: RedHat OVAL Repository / definition / 5.3
+     *
+     * @see http://oval.mitre.org/repository/
+     */
+    @RunWith( Theories.class )
+    public static class RedhatOvalDef53Repository
+    extends OvalTestBase
+    {
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/redhat-oval-def-5_3";
+
+
+        @DataPoints
+        public static String[]  INPUT_SUBDIR_PATHS = new String[] {
+            "unix"
+        };
+
+
+
+        public RedhatOvalDef53Repository()
+        {
+            super( SixOvalContext.repository() );
+        }
+
+
+
+        @Theory
+        public void testSaveAndFind(
+                        final String input_subdir_path
+                        )
+        throws Exception
+        {
+            File[]  input_xml_files = TestUtil.listXmlFiles( INPUT_ROOTDIR_PATH, input_subdir_path );
+            for (File  input_xml_file : input_xml_files) {
+                System.out.println( input_subdir_path + " : " + input_xml_file.getName() );
+                OvalDefinitions  oval_defs = _unmarshalOvalDocument( input_xml_file, OvalDefinitions.class );
+                _testSaveAndFind( _getRepository(), oval_defs );
+            }
+        }
+
+    }
+    //
+
+
+
 	////////////////////////////////////////////////////////////////////////////
     /**
      * support function.

@@ -70,43 +70,6 @@
     </bean>
 
 
-
-
-
-<!-- deprecated: Use MongoClient. -->
-    <bean id="mongo-deprecated" 
-        class="com.mongodb.Mongo">
-        <constructor-arg type="java.lang.String" value="${six.oval.repository.database.host}"/>
-        <constructor-arg type="int" value="${six.oval.repository.database.port}"/>
-    </bean> 
-
-
-    <bean id="morphia-deprecated" 
-        class="jp.go.aist.six.util.core.repository.morphia.MorphiaFactory" 
-        factory-method="create"> 
-        <constructor-arg>
-            <set><!-- classes to map -->
-                <!-- value>#{ T(jp.go.aist.six.oval.model.definitions.DefinitionType) }</value -->
-            </set>
-        </constructor-arg>
-        <constructor-arg>
-            <set><!-- converters -->
-                <value>#{ T(jp.go.aist.six.oval.core.repository.morphia.OvalConverter) }</value>
-            </set>
-        </constructor-arg>
-    </bean>
-
-
-    <bean id="morphia-datastore-deprecated" 
-        factory-bean="morphia-deprecated" 
-        factory-method="createDatastore"> 
-        <constructor-arg ref="mongo-deprecated"/>
-        <constructor-arg value="${six.oval.repository.database.name}"/>
-        <constructor-arg value="${six.oval.repository.database.username}"/>
-        <constructor-arg value="${six.oval.repository.database.password}"/>
-    </bean>
-
-
 <!-- *** oval-def *** -->
     <bean id="ovalDefinitionsDAO" class="jp.go.aist.six.oval.core.repository.morphia.definitions.OvalDefinitionsDAO">
         <constructor-arg ref="morphia-datastore"/> 
