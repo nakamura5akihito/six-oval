@@ -65,10 +65,15 @@
     <bean id="morphia-datastore" 
         factory-bean="morphia" 
         factory-method="createDatastore"> 
-        <constructor-arg ref="mongo"/> 
-        <constructor-arg value="${six.oval.repository.database.name}"/>     <!-- String: database name -->
-        <constructor-arg value="${six.oval.repository.database.username}"/> <!-- String: user name -->
-        <constructor-arg value="${six.oval.repository.database.password}"/> <!-- String: user password -->
+        <constructor-arg ref="mongo"/>
+        <constructor-arg value="${six.oval.repository.database.name}"/>
+        <constructor-arg value="${six.oval.repository.database.username}"/>
+        <constructor-arg value="${six.oval.repository.database.password}"/>
+<!--
+        <constructor-arg value="test"/>
+        <constructor-arg value="six"/>
+        <constructor-arg value="#{(new String('${six.oval.repository.database.password}')).toCharArray()}"/>
+-->
     </bean>
 
 

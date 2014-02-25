@@ -1,6 +1,9 @@
 package jp.go.aist.six.oval.core;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import jp.go.aist.six.oval.repository.OvalRepository;
 import jp.go.aist.six.oval.xml.OvalXmlMapper;
 
@@ -73,5 +76,18 @@ public abstract class OvalTestBase
         return xml_files;
     }
 
+    
+    
+    protected <T> T _unmarshalOvalDocument( 
+    		final File xml, 
+    		final Class<T> type 
+    		) 
+    		throws FileNotFoundException
+    {
+        T  doc = _getXmlMapper().unmarshal( new FileInputStream( xml ), type );
+    	return doc;
+    }
+    
+    
 }
 //
