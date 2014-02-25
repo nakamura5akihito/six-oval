@@ -39,14 +39,49 @@
     <!-- *  Repository                                                * -->
     <!-- ************************************************************** -->
 
-    <bean id="mongo" 
+    <bean id="mongo-client" 
+        class="com.mongodb.MongoClient">
+        <constructor-arg type="java.lang.String" value="${six.oval.repository.database.host}"/>
+        <constructor-arg type="int" value="${six.oval.repository.database.port}"/>
+    </bean> 
+
+    <bean id="morphia-factory" 
+        class="jp.go.aist.six.util.core.repository.morphia.MorphiaFactory"> 
+        <constructor-arg>
+            <set><!-- classes to map -->
+                <!-- value>#{ T(jp.go.aist.six.oval.model.definitions.DefinitionType) }</value -->
+            </set>
+        </constructor-arg>
+        <constructor-arg>
+            <set><!-- converters -->
+                <value>#{ T(jp.go.aist.six.oval.core.repository.morphia.OvalConverter) }</value>
+            </set>
+        </constructor-arg>
+
+        <property name="mongoClient" ref="mongo-client"/>
+    </bean>
+
+    <bean id="morphia-datastore" 
+        factory-bean="morphia-factory" 
+        factory-method="createDatastore"> 
+        <constructor-arg value="${six.oval.repository.database.name}"/>
+        <constructor-arg value="${six.oval.repository.database.username}"/>
+        <constructor-arg value="${six.oval.repository.database.password}"/>
+    </bean>
+
+
+
+
+
+<!-- deprecated: Use MongoClient. -->
+    <bean id="mongo-deprecated" 
         class="com.mongodb.Mongo">
         <constructor-arg type="java.lang.String" value="${six.oval.repository.database.host}"/>
         <constructor-arg type="int" value="${six.oval.repository.database.port}"/>
     </bean> 
 
 
-    <bean id="morphia" 
+    <bean id="morphia-deprecated" 
         class="jp.go.aist.six.util.core.repository.morphia.MorphiaFactory" 
         factory-method="create"> 
         <constructor-arg>
@@ -62,18 +97,13 @@
     </bean>
 
 
-    <bean id="morphia-datastore" 
-        factory-bean="morphia" 
+    <bean id="morphia-datastore-deprecated" 
+        factory-bean="morphia-deprecated" 
         factory-method="createDatastore"> 
-        <constructor-arg ref="mongo"/>
+        <constructor-arg ref="mongo-deprecated"/>
         <constructor-arg value="${six.oval.repository.database.name}"/>
         <constructor-arg value="${six.oval.repository.database.username}"/>
         <constructor-arg value="${six.oval.repository.database.password}"/>
-<!--
-        <constructor-arg value="test"/>
-        <constructor-arg value="six"/>
-        <constructor-arg value="#{(new String('${six.oval.repository.database.password}')).toCharArray()}"/>
--->
     </bean>
 
 
