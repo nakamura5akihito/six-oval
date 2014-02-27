@@ -100,7 +100,7 @@ Project SIX: OVAL - Maven Project Object Model (POM)
         <org.springframework.version>3.2.4.RELEASE</org.springframework.version>
         <javax.servlet.version>2.5</javax.servlet.version>
 
-        <six-util.version>3.7.1-SNAPSHOT</six-util.version>
+        <six-util.version>3.7.1</six-util.version>
         <!-- six-util.version>3.5.0-SNAPSHOT</six-util.version -->
 
 <!-- pending... Now, we use GitHub Morphia for repository implementation.
