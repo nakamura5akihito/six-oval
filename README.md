@@ -10,7 +10,8 @@ This project has moved from [Google Code](https://code.google.com/p/six-oval/).
 
 # Introduction
 SIX OVAL is intended for developers of applications like vulnerability assessment, 
-policy compliance management, configuration management, etc using OVAL. 
+policy compliance management, configuration management, etc using 
+[OVAL](http://oval.mitre.org/index.html). 
 Also, system administrators can use several utilities immediately. 
 The features included are:
 * Domain Object Model
