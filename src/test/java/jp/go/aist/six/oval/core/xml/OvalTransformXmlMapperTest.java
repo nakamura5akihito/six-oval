@@ -122,15 +122,15 @@ public class OvalTransformXmlMapperTest
 
 
     /**
-     * TEST: RedHat OVAL Repository / definition / 5.10
+     * TEST: RedHat OVAL Repository / definition / 5.3
      *
      * @see http://oval.mitre.org/repository/
      */
     @RunWith( Theories.class )
-    public static class RedhatOvalDef510
+    public static class RedhatOvalDef53
     extends OvalTransformXmlMapperTest
     {
-        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/redhat-oval-def-5_10";
+        public static final String  INPUT_ROOTDIR_PATH = "src/test/resources/data/oval/redhat-oval-def-5_3";
 
 
         @DataPoints
@@ -140,7 +140,7 @@ public class OvalTransformXmlMapperTest
 
 
 
-        public RedhatOvalDef510()
+        public RedhatOvalDef53()
         {
         }
 
