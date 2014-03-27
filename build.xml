@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ====================================================================== -->
+<!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
+<!-- ====================================================================== -->
+
+<project name="six-oval" default="package" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- Import maven-build.xml into the current project                        -->
+  <!-- ====================================================================== -->
+
+  <import file="maven-build.xml"/>
+
+
+	<!-- ************************************************************** -->
+    <!-- *  Data Installation                                         * -->
+    <!-- ************************************************************** -->
+
+    <property name="oval.mitre.dir" value="/var/tmp/oval_mitre_vuln"/>
+    <target name="oval.mitre.install-all-files">
+        <record name="build.log" loglevel="verbose" />
+        <java
+            classname="jp.go.aist.six.oval.core.repository.OvalDocumentInstaller"
+            fork="true"
+            maxmemory="768m"
+            >
+        	<!-- If we shoose 512m maxmemory, it ends up with out-of-memory error. -->
+            <arg value="${oval.mitre.dir}/ios.xml"/>
+            <arg value="${oval.mitre.dir}/macos.xml"/>
+            <arg value="${oval.mitre.dir}/pixos.xml"/>
+            <arg value="${oval.mitre.dir}/unix.xml"/>
+            <arg value="${oval.mitre.dir}/windows.xml"/>
+            <classpath>
+                <path refid="build.classpath"/>
+                <pathelement location="${maven.build.outputDir}"/>
+                <pathelement location="${maven.build.resourceDir.0}"/>
+                <pathelement location="${maven.build.testResourceDir.0}"/>
+            </classpath>
+        </java>
+    </target>
+
+	
+  <!-- ====================================================================== -->
+  <!-- Help target                                                            -->
+  <!-- ====================================================================== -->
+
+  <target name="help">
+    <echo message="Please run: $ant -projecthelp"/>
+  </target>
+
+</project>

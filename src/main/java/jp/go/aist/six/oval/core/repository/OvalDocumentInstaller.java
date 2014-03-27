@@ -122,7 +122,6 @@ public class OvalDocumentInstaller
                     )
     throws Exception
     {
-        _printMessage( "install OVAL document from file: " + file );
         _install( file.getCanonicalPath(), new FileInputStream( file ) );
     }
 
@@ -133,7 +132,6 @@ public class OvalDocumentInstaller
                     )
     throws Exception
     {
-        _printMessage( "install OVAL document from URL: " + url );
         _install( url.toString(), url.openStream() );
     }
 
@@ -145,7 +143,12 @@ public class OvalDocumentInstaller
                     )
     throws Exception
     {
+        _printMessage( "install OVAL document: " + source );
+
+        long  timestamp_begin, timestamp_end;
+
         _printMessage( "unmarshalling OVAL document...: " + source );
+        timestamp_begin = System.currentTimeMillis();
         Object  obj = _xml_mapper.unmarshal( stream );
         _printMessage( "...unmarshalling DONE: " + source );
 
@@ -154,11 +157,16 @@ public class OvalDocumentInstaller
             _oval_repository.saveOvalDefinitions( OvalDefinitions.class.cast( obj ) );
         } else if (obj instanceof OvalResults) {
             _oval_repository.saveOvalResults( OvalResults.class.cast( obj ) );
-        } else if (obj instanceof OvalResults) {
+        } else if (obj instanceof OvalSystemCharacteristics) {
             _oval_repository.saveOvalSystemCharacteristics( OvalSystemCharacteristics.class.cast( obj ) );
+        } else {
+            _printMessage( "...installation of OVAL document FAILED - unknown document type: " + source );
+            throw new IllegalArgumentException( "unknown document type: " + source );
         }
+        timestamp_end = System.currentTimeMillis();
 
-        _printMessage( "...installation of OVAL document COMPLETED: " + source );
+        _printMessage( "...installation of OVAL document COMPLETED: "
+                        + (timestamp_end - timestamp_begin) + " (ms), " + source );
     }
 
 
