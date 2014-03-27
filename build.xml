@@ -17,7 +17,7 @@
     <!-- *  Data Installation                                         * -->
     <!-- ************************************************************** -->
 
-    <property name="oval.mitre.dir" value="/var/tmp/oval_mitre_vuln"/>
+    <property name="oval.mitre.dir" value="/tmp/oval_mitre_20140331"/>
     <target name="oval.mitre.install-all-files">
         <record name="build.log" loglevel="verbose" />
         <java
@@ -41,6 +41,25 @@
     </target>
 
 	
+    <property name="oval.redhat.dir" value="/tmp/oval_redhat_20140331"/>
+    <target name="oval.redhat.install-all-files">
+        <record name="build.log" loglevel="verbose" />
+        <java
+            classname="jp.go.aist.six.oval.core.repository.OvalDocumentInstaller"
+            fork="true"
+            maxmemory="512m"
+            >
+            <arg value="${oval.redhat.dir}/com.redhat.rhsa-all.xml"/>
+            <classpath>
+                <path refid="build.classpath"/>
+                <pathelement location="${maven.build.outputDir}"/>
+                <pathelement location="${maven.build.resourceDir.0}"/>
+                <pathelement location="${maven.build.testResourceDir.0}"/>
+            </classpath>
+        </java>
+    </target>
+
+    
   <!-- ====================================================================== -->
   <!-- Help target                                                            -->
   <!-- ====================================================================== -->
