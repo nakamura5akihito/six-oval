@@ -40,7 +40,6 @@
         </java>
     </target>
 
-	
     <property name="oval.redhat.dir" value="/tmp/oval_redhat_20140331"/>
     <target name="oval.redhat.install-all-files">
         <record name="build.log" loglevel="verbose" />
