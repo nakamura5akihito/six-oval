@@ -7,7 +7,7 @@ Java utilities for Open Vulnerability and Assessment Language (OVAL)
 # Old Project Hosting
 This project has moved from [Google Code](https://code.google.com/p/six-oval/).
 
-> NOTE: Google Code Project Hosting will be shut down, maybe early next year.
+> NOTE: Google Code Project Hosting [will be shut down](http://google-opensource.blogspot.jp/2015/03/farewell-to-google-code.html), maybe early 2016.
 
 
 # Introduction
