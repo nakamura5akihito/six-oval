@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // SIX OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  xmlns:oval-variables-5                             % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <class name="io.opensec.six.oval.model.variables.OvalVariables"
+        extends="io.opensec.six.oval.model.Document">
+        <map-to xml="oval_variables"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-variables-5"
+            ns-prefix=""/>
+        <field name="generator" 
+            type="io.opensec.six.oval.model.common.GeneratorType">
+            <bind-xml name="generator" node="element"/>
+        </field>
+        <field name="variables" 
+            type="io.opensec.six.oval.model.variables.VariablesType">
+            <bind-xml name="variables" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.variables.VariablesType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-variables-5"/>
+        <field name="variable" 
+            type="io.opensec.six.oval.model.variables.VariableType"
+            collection="collection">
+            <bind-xml name="variable" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.variables.VariableType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-variables-5"/>
+        <field name="ovalId" type="string">
+            <bind-xml name="id" node="attribute"/>
+        </field>
+        <field name="datatype" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.DatatypeEnumerationHandler">
+            <bind-xml name="datatype" node="attribute"/>
+        </field>
+        <field name="comment" type="string">
+            <bind-xml name="comment" node="attribute"/>
+        </field>
+        <field name="value" type="string"
+            collection="collection">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+</mapping>

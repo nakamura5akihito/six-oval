@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ // SIX OVAL
+ // Spring Application Context - xml
+ //
+ // @author	Akihito Nakamura
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" 
+    xsi:schemaLocation="
+      http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context 
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/util 
+      http://www.springframework.org/schema/util/spring-util.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- ************************************************************** -->
+    <!-- *  XML                                                       * -->
+    <!-- ************************************************************** -->
+    <bean id="oval-marshaller" 
+       class="org.springframework.oxm.castor.CastorMarshaller">
+        <property name="mappingLocations">
+            <list>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-six.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-common.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-definitions.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-sc.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-results.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-variables.xml</value>
+
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-aix.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-esx.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-hpux.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-independent.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-ios.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-linux.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-macos.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-pixos.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-solaris.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-unix.xml</value>
+                 <value>classpath:io/opensec/six/oval/core/xml/castor-xml_oval-5-windows.xml</value>
+                 
+                 <value>classpath:io/opensec/util/core/xml/castor/castor-xml_opensec-util.xml</value>
+            </list>
+        </property>
+        <property name="ignoreExtraAttributes" value="false"/>
+        <property name="ignoreExtraElements"   value="false"/>
+        <property name="suppressXsiType"       value="true"/>
+        <property name="encoding"              value="UTF-8"/>
+
+<!-- TODO: Spring 3.1 supports this???
+Spring 3.0 does NOT support such a property of CastorMarshaller!!!
+        <property name="schemaLocation"
+                value="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5 oval-system-characteristics-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-results-5 oval-results-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows windows-system-characteristics-schema.xsd"/>
+-->
+<!-- @since Spring 3.1, schemaLocation property supported. -->
+        <property name="schemaLocation" value="${six.oval.xml.schemaLocation}"/>  
+
+        <property name="namespaceMappings">
+            <map>
+                <entry key="xsi"        value="http://www.w3.org/2001/XMLSchema-instance"/>
+                <entry key="oval"       value="http://oval.mitre.org/XMLSchema/oval-common-5"/>
+                <entry key="oval-def"   value="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+                <entry key="oval-sc"    value="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+                <entry key="oval-res"   value="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+                <entry key="opensearch" value="http://a9.com/-/spec/opensearch/1.1/"/>
+
+<!--
+                <entry key="opensec-oval" value="http://opensec.io/opensec/oval"/>
+                <entry key="oval-sc-windows"
+                    value="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows"/>
+-->
+            </map>
+        </property>
+    </bean> 
+
+    <bean id="oval-xml-transformer" 
+       class="io.opensec.util.xml.XmlTransformer"> 
+        <constructor-arg type="java.net.URL" 
+                        value="classpath:io/opensec/six/oval/core/xml/oval5-transform.xsl"/>
+
+<!-- The following constructor-based DI does NOT work, 
+     because there is a constructor with a String argument: XmlTransformer( String stylesheet ).
+        <constructor-arg>
+            <value>classpath:oval5-transform.xsl</value>
+        </constructor-arg>
+-->
+    </bean>
+
+    <bean id="oval-xml-mapper" 
+       class="io.opensec.six.oval.core.xml.OvalTransformXmlMapper">
+        <property name="marshaller"   ref="oval-marshaller"/>
+        <property name="unmarshaller" ref="oval-marshaller"/>
+        <property name="transformer"  ref="oval-xml-transformer"/>
+    </bean>
+
+</beans>

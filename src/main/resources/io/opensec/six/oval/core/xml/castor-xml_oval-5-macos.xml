@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // SIX OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  #macos                                             % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <!-- ******************************************************* -->
+    <!-- entity & behavior                                       -->
+    <!-- ******************************************************* -->
+
+<!-- PermissionCompare -->
+    <class name="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+<!-- PermissionCompare -->
+    <class name="io.opensec.six.oval.model.macos.EntityStatePlistTypeType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.macos.EntityItemPlistTypeType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- AccountInfo                                             -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.macos.AccountInfoTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="accountinfo_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.AccountInfoObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="accountinfo_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="username"
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.AccountInfoState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="accountinfo_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="username" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="password" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="password" node="element"/>
+        </field>
+        <field name="uid" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="uid" node="element"/>
+        </field>
+        <field name="gid" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="gid" node="element"/>
+        </field>
+        <field name="realname" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="realname" node="element"/>
+        </field>
+        <field name="homeDir" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="home_dir" node="element"/>
+        </field>
+        <field name="loginShell" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="login_shell" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.macos.AccountInfoItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="accountinfo_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos"
+            ns-prefix=""/>
+        <field name="username" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="password" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="password" node="element"/>
+        </field>
+        <field name="uid" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="uid" node="element"/>
+        </field>
+        <field name="gid" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="gid" node="element"/>
+        </field>
+        <field name="realname" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="realname" node="element"/>
+        </field>
+        <field name="homeDir" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="home_dir" node="element"/>
+        </field>
+        <field name="loginShell" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="login_shell" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- diskutil                                                -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.macos.DiskUtilTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="diskutil_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.DiskUtilObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="diskutil_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="device" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="device" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.DiskUtilState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="diskutil_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="device" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="device" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="uread" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="uread" node="element"/>
+        </field>
+        <field name="uwrite" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="uwrite" node="element"/>
+        </field>
+        <field name="uexec" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="uexec" node="element"/>
+        </field>
+        <field name="gread" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="gread" node="element"/>
+        </field>
+        <field name="gwrite" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="gwrite" node="element"/>
+        </field>
+        <field name="gexec" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="gexec" node="element"/>
+        </field>
+        <field name="oread" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="oread" node="element"/>
+        </field>
+        <field name="owrite" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="owrite" node="element"/>
+        </field>
+        <field name="oexec" 
+            type="io.opensec.six.oval.model.macos.EntityStatePermissionCompareType">
+            <bind-xml name="oexec" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.macos.DiskUtilItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="diskutil_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos"
+            ns-prefix=""/>
+        <field name="device" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="device" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="uread" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="uread" node="element"/>
+        </field>
+        <field name="uwrite" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="uwrite" node="element"/>
+        </field>
+        <field name="uexec" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="uexec" node="element"/>
+        </field>
+        <field name="gread" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="gread" node="element"/>
+        </field>
+        <field name="gwrite" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="gwrite" node="element"/>
+        </field>
+        <field name="gexec" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="gexec" node="element"/>
+        </field>
+        <field name="oread" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="oread" node="element"/>
+        </field>
+        <field name="owrite" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="owrite" node="element"/>
+        </field>
+        <field name="oexec" 
+            type="io.opensec.six.oval.model.macos.EntityItemPermissionCompareType">
+            <bind-xml name="oexec" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- inetlisteningserver (XSLT), 510                         -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.macos.InetListeningServers510Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="inetlisteningservers510_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.InetListeningServers510Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="inetlisteningservers510_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="protocol" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="protocol" node="element"/>
+        </field>
+        <field name="localAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectIPAddressStringType">
+            <bind-xml name="local_address" node="element"/>
+        </field>
+        <field name="localPort" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectIntType" >
+            <bind-xml name="local_port" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.InetListeningServers510State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="inetlisteningservers510_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="protocol" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="protocol" node="element"/>
+        </field>
+        <field name="localAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIPAddressStringType">
+            <bind-xml name="local_address" node="element"/>
+        </field>
+        <field name="localPort" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType" >
+            <bind-xml name="local_port" node="element"/>
+        </field>
+        <field name="localFullAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="local_full_address" node="element"/>
+        </field>
+        <field name="programName" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="program_name" node="element"/>
+        </field>
+        <field name="foreignAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIPAddressStringType">
+            <bind-xml name="foreign_address" node="element"/>
+        </field>
+        <field name="foreignPort" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType" >
+            <bind-xml name="foreign_port" node="element"/>
+        </field>
+        <field name="foreignFullAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="foreign_full_address" node="element"/>
+        </field>
+        <field name="pid" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType" >
+            <bind-xml name="pid" node="element"/>
+        </field>
+        <field name="userId" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType" >
+            <bind-xml name="user_id" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.macos.InetListeningServers510Item"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="inetlisteningservers510_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos"
+            ns-prefix=""/>
+        <field name="protocol" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="protocol" node="element"/>
+        </field>
+        <field name="localAddress" 
+            type="io.opensec.six.oval.model.sc.EntityItemIPAddressStringType">
+            <bind-xml name="local_address" node="element"/>
+        </field>
+        <field name="localPort" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType" >
+            <bind-xml name="local_port" node="element"/>
+        </field>
+        <field name="localFullAddress" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="local_full_address" node="element"/>
+        </field>
+        <field name="programName" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="program_name" node="element"/>
+        </field>
+        <field name="foreignAddress" 
+            type="io.opensec.six.oval.model.sc.EntityItemIPAddressStringType">
+            <bind-xml name="foreign_address" node="element"/>
+        </field>
+        <field name="foreignPort" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType" >
+            <bind-xml name="foreign_port" node="element"/>
+        </field>
+        <field name="foreignFullAddress" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="foreign_full_address" node="element"/>
+        </field>
+        <field name="pid" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType" >
+            <bind-xml name="pid" node="element"/>
+        </field>
+        <field name="userId" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType" >
+            <bind-xml name="user_id" node="element"/>
+        </field>
+    </class>
+
+
+    <class name="io.opensec.six.oval.model.macos.InetListeningServersTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="macos_inetlisteningservers_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.InetListeningServersObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="macos_inetlisteningservers_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="programName" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="program_name" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.InetListeningServersState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="macos_inetlisteningservers_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="programName" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="program_name" node="element"/>
+        </field>
+        <field name="localAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIPAddressStringType">
+            <bind-xml name="local_address" node="element"/>
+        </field>
+        <field name="localFullAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="local_full_address" node="element"/>
+        </field>
+        <field name="localPort" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType" >
+            <bind-xml name="local_port" node="element"/>
+        </field>
+        <field name="foreignAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIPAddressStringType">
+            <bind-xml name="foreign_address" node="element"/>
+        </field>
+        <field name="foreignFullAddress" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="foreign_full_address" node="element"/>
+        </field>
+        <field name="foreignPort" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType" >
+            <bind-xml name="foreign_port" node="element"/>
+        </field>
+        <field name="pid" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType" >
+            <bind-xml name="pid" node="element"/>
+        </field>
+        <field name="protocol" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="protocol" node="element"/>
+        </field>
+        <field name="userId" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType" >
+            <bind-xml name="user_id" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.macos.InetListeningServersItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="macos_inetlisteningservers_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos"
+            ns-prefix=""/>
+        <field name="programName" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="program_name" node="element"/>
+        </field>
+        <field name="localAddress" 
+            type="io.opensec.six.oval.model.sc.EntityItemIPAddressStringType">
+            <bind-xml name="local_address" node="element"/>
+        </field>
+        <field name="localFullAddress" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="local_full_address" node="element"/>
+        </field>
+        <field name="localPort" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType" >
+            <bind-xml name="local_port" node="element"/>
+        </field>
+        <field name="foreignAddress" 
+            type="io.opensec.six.oval.model.sc.EntityItemIPAddressStringType">
+            <bind-xml name="foreign_address" node="element"/>
+        </field>
+        <field name="foreignFullAddress" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="foreign_full_address" node="element"/>
+        </field>
+        <field name="foreignPort" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType" >
+            <bind-xml name="foreign_port" node="element"/>
+        </field>
+        <field name="pid" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType" >
+            <bind-xml name="pid" node="element"/>
+        </field>
+        <field name="protocol" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="protocol" node="element"/>
+        </field>
+        <field name="userId" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType" >
+            <bind-xml name="user_id" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- nvram                                                   -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.macos.NvramTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="nvram_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.NvramObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="nvram_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="nvramVar" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="nvram_var" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.NvramState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="nvram_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="nvramVar" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="nvram_var" node="element"/>
+        </field>
+        <field name="nvramValue" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="nvram_value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.macos.NvramItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="nvram_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos"
+            ns-prefix=""/>
+        <field name="nvramVar" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="nvram_var" node="element"/>
+        </field>
+        <field name="nvramValue" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="nvram_value" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- plist, 510                                              -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.macos.Plist510Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="plist510_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.Plist510Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="plist510_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="key" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="key" node="element"/>
+        </field>
+        <field name="appId" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="app_id" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="instance" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.Plist510State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="plist510_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="key" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="key" node="element"/>
+        </field>
+        <field name="appId" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="app_id" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="instance" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+        <field name="type" 
+            type="io.opensec.six.oval.model.macos.EntityStatePlistTypeType">
+            <bind-xml name="type" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <class name="io.opensec.six.oval.model.macos.PlistTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="plist_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.PlistObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="plist_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="key" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="key" node="element"/>
+        </field>
+        <field name="appId" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="app_id" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.PlistState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="plist_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="key" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="key" node="element"/>
+        </field>
+        <field name="appId" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="app_id" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="instance" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+        <field name="type" 
+            type="io.opensec.six.oval.model.macos.EntityStatePlistTypeType">
+            <bind-xml name="type" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.macos.PlistItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="plist_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos"
+            ns-prefix=""/>
+        <field name="key" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType"
+            nillable="true">
+            <bind-xml name="key" node="element"/>
+        </field>
+        <field name="appId" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="app_id" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="instance" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+        <field name="type" 
+            type="io.opensec.six.oval.model.macos.EntityItemPlistTypeType">
+            <bind-xml name="type" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType"
+            collection="collection">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- pwpolicy, 59                                           -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.macos.PwPolicy59Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="pwpolicy59_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.PwPolicy59Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="pwpolicy59_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="targetUser" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="target_user" node="element"/>
+        </field>
+        <field name="username" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="userpass" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="userpass" node="element"/>
+        </field>
+        <field name="directoryNode" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="directory_node" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.PwPolicy59State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="pwpolicy59_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="targetUser" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="target_user" node="element"/>
+        </field>
+        <field name="username" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="userpass" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="userpass" node="element"/>
+        </field>
+        <field name="directoryNode" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="directory_node" node="element"/>
+        </field>
+        <field name="maxChars" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="maxChars" node="element"/>
+        </field>
+        <field name="maxFailedLoginAttempts" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="maxFailedLoginAttempts" node="element"/>
+        </field>
+        <field name="minChars" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="minChars" node="element"/>
+        </field>
+        <field name="passwordCannotBeName" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="passwordCannotBeName" node="element"/>
+        </field>
+        <field name="requiresAlpha" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="requiresAlpha" node="element"/>
+        </field>
+        <field name="requiresNumeric" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="requiresNumeric" node="element"/>
+        </field>
+        <field name="maxMinutesUntilChangePassword" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="maxMinutesUntilChangePassword" node="element"/>
+        </field>
+        <field name="minMinutesUntilChangePassword" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="minMinutesUntilChangePassword" node="element"/>
+        </field>
+        <field name="requiresMixedCase" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="requiresMixedCase" node="element"/>
+        </field>
+        <field name="requiresSymbol" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="requiresSymbol" node="element"/>
+        </field>
+        <field name="minutesUntilFailedLoginReset" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="minutesUntilFailedLoginReset" node="element"/>
+        </field>
+        <field name="usingHistory" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="usingHistory" node="element"/>
+        </field>
+        <field name="canModifyPasswordforSelf" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="canModifyPasswordforSelf" node="element"/>
+        </field>
+        <field name="usingExpirationDate" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="usingExpirationDate" node="element"/>
+        </field>
+        <field name="usingHardExpirationDate" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="usingHardExpirationDate" node="element"/>
+        </field>
+        <field name="expirationDateGMT" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="expirationDateGMT" node="element"/>
+        </field>
+        <field name="hardExpireDateGMT" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="hardExpireDateGMT" node="element"/>
+        </field>
+        <field name="maxMinutesUntilDisabled" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="maxMinutesUntilDisabled" node="element"/>
+        </field>
+        <field name="maxMinutesOfNonUse" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="maxMinutesOfNonUse" node="element"/>
+        </field>
+        <field name="newPasswordRequired" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="newPasswordRequired" node="element"/>
+        </field>
+        <field name="notGuessablePattern" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="notGuessablePattern" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.macos.PwPolicy59Item"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="pwpolicy59_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos"
+            ns-prefix=""/>
+        <field name="targetUser" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="target_user" node="element"/>
+        </field>
+        <field name="username" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType"
+            nillable="true">
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="userpass" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType"
+            nillable="true">
+            <bind-xml name="userpass" node="element"/>
+        </field>
+        <field name="directoryNode" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType"
+            nillable="true">
+            <bind-xml name="directory_node" node="element"/>
+        </field>
+        <field name="maxChars" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="maxChars" node="element"/>
+        </field>
+        <field name="maxFailedLoginAttempts" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="maxFailedLoginAttempts" node="element"/>
+        </field>
+        <field name="minChars" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="minChars" node="element"/>
+        </field>
+        <field name="passwordCannotBeName" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="passwordCannotBeName" node="element"/>
+        </field>
+        <field name="requiresAlpha" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="requiresAlpha" node="element"/>
+        </field>
+        <field name="requiresNumeric" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="requiresNumeric" node="element"/>
+        </field>
+        <field name="maxMinutesUntilChangePassword" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="maxMinutesUntilChangePassword" node="element"/>
+        </field>
+        <field name="minMinutesUntilChangePassword" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="minMinutesUntilChangePassword" node="element"/>
+        </field>
+        <field name="requiresMixedCase" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="requiresMixedCase" node="element"/>
+        </field>
+        <field name="requiresSymbol" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="requiresSymbol" node="element"/>
+        </field>
+        <field name="minutesUntilFailedLoginReset" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="minutesUntilFailedLoginReset" node="element"/>
+        </field>
+        <field name="usingHistory" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="usingHistory" node="element"/>
+        </field>
+        <field name="canModifyPasswordforSelf" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="canModifyPasswordforSelf" node="element"/>
+        </field>
+        <field name="usingExpirationDate" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="usingExpirationDate" node="element"/>
+        </field>
+        <field name="usingHardExpirationDate" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="usingHardExpirationDate" node="element"/>
+        </field>
+        <field name="expirationDateGMT" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="expirationDateGMT" node="element"/>
+        </field>
+        <field name="hardExpireDateGMT" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="hardExpireDateGMT" node="element"/>
+        </field>
+        <field name="maxMinutesUntilDisabled" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="maxMinutesUntilDisabled" node="element"/>
+        </field>
+        <field name="maxMinutesOfNonUse" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="maxMinutesOfNonUse" node="element"/>
+        </field>
+        <field name="newPasswordRequired" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="newPasswordRequired" node="element"/>
+        </field>
+        <field name="notGuessablePattern" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="notGuessablePattern" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.PwPolicyTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="pwpolicy_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.PwPolicyObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="pwpolicy_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="username" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="userpass" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="userpass" node="element"/>
+        </field>
+        <field name="directoryNode" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="directory_node" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.macos.PwPolicyState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="pwpolicy_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos"
+            ns-prefix=""/>
+        <field name="username" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="userpass" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="userpass" node="element"/>
+        </field>
+        <field name="directoryNode" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="directory_node" node="element"/>
+        </field>
+        <field name="maxChars" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="maxChars" node="element"/>
+        </field>
+        <field name="maxFailedLoginAttempts" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="maxFailedLoginAttempts" node="element"/>
+        </field>
+        <field name="minChars" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="minChars" node="element"/>
+        </field>
+        <field name="passwordCannotBeName" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="passwordCannotBeName" node="element"/>
+        </field>
+        <field name="requiresAlpha" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="requiresAlpha" node="element"/>
+        </field>
+        <field name="requiresNumeric" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="requiresNumeric" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.macos.PwPolicyItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="pwpolicy_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos"
+            ns-prefix=""/>
+        <field name="username" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="username" node="element"/>
+        </field>
+        <field name="userpass" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="userpass" node="element"/>
+        </field>
+        <field name="directoryNode" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="directory_node" node="element"/>
+        </field>
+        <field name="maxChars" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="maxChars" node="element"/>
+        </field>
+        <field name="maxFailedLoginAttempts" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="maxFailedLoginAttempts" node="element"/>
+        </field>
+        <field name="minChars" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="minChars" node="element"/>
+        </field>
+        <field name="passwordCannotBeName" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="passwordCannotBeName" node="element"/>
+        </field>
+        <field name="requiresAlpha" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="requiresAlpha" node="element"/>
+        </field>
+        <field name="requiresNumeric" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="requiresNumeric" node="element"/>
+        </field>
+    </class>
+
+</mapping>

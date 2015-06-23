@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ // SIX OVAL
+ // Spring Application Context - server
+ //
+ // @author	Akihito Nakamura
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" 
+    xsi:schemaLocation="
+      http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context 
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/util 
+      http://www.springframework.org/schema/util/spring-util.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <import resource="six-oval_context-basic.xml"/>
+
+
+
+    <!-- ************************************************************** -->
+    <!-- *  Repository                                                * -->
+    <!-- ************************************************************** -->
+
+    <bean id="mongo" 
+        class="com.mongodb.Mongo">
+        <constructor-arg type="java.lang.String" value="${six.oval.repository.database.host}"/>
+        <constructor-arg type="int" value="${six.oval.repository.database.port}"/>
+    </bean> 
+
+
+    <bean id="morphia" 
+        class="io.opensec.util.core.repository.morphia.MorphiaFactory" 
+        factory-method="create"> 
+        <constructor-arg>
+            <set><!-- classes to map -->
+                <!-- value>#{ T(io.opensec.six.oval.model.definitions.DefinitionType) }</value -->
+            </set>
+        </constructor-arg>
+        <constructor-arg>
+            <set><!-- converters -->
+                <value>#{ T(io.opensec.six.oval.core.repository.morphia.OvalConverter) }</value>
+            </set>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="morphiaDatastore" 
+        factory-bean="morphia" 
+        factory-method="createDatastore"> 
+        <constructor-arg ref="mongo"/> 
+        <constructor-arg value="${six.oval.repository.database.name}"/>     <!-- String: database name -->
+        <constructor-arg value="${six.oval.repository.database.username}"/> <!-- String: user name -->
+        <constructor-arg value="${six.oval.repository.database.password}"/> <!-- String: user password -->
+    </bean>
+
+
+<!-- *** oval-def *** -->
+    <bean id="ovalDefinitionsDAO" class="io.opensec.six.oval.core.repository.morphia.definitions.OvalDefinitionsDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+    <bean id="definitionDAO" class="io.opensec.six.oval.core.repository.morphia.definitions.DefinitionDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+    <bean id="testDAO" class="io.opensec.six.oval.core.repository.morphia.definitions.TestDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+    <bean id="systemObjectDAO" class="io.opensec.six.oval.core.repository.morphia.definitions.SystemObjectDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+    <bean id="stateDAO" class="io.opensec.six.oval.core.repository.morphia.definitions.StateDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+    <bean id="defVariableDAO" class="io.opensec.six.oval.core.repository.morphia.definitions.VariableDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+
+    <bean id="definitionsElementAssocDAO" class="io.opensec.six.oval.core.repository.morphia.definitions.DefinitionsElementAssocDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+
+<!-- *** oval-sc *** -->
+    <bean id="ovalSystemCharacteristicsDAO" class="io.opensec.six.oval.core.repository.morphia.sc.OvalSystemCharacteristicsDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+
+<!-- *** oval-res *** -->
+    <bean id="ovalResultsDAO" class="io.opensec.six.oval.core.repository.morphia.results.OvalResultsDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+
+<!-- *** oval-var *** -->
+    <bean id="ovalVariablesDAO" class="io.opensec.six.oval.core.repository.morphia.variables.OvalVariablesDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+    <bean id="varVariableDAO" class="io.opensec.six.oval.core.repository.morphia.variables.VariableDAO">
+        <constructor-arg ref="morphiaDatastore"/> 
+    </bean>
+
+
+
+    <!-- ******************************************************* -->
+
+    <bean id="ovalDatastore" 
+        class="io.opensec.six.oval.core.repository.morphia.OvalDatastore"> 
+        <property name="DAO">
+            <set>
+                <ref bean="ovalDefinitionsDAO"/>
+                <ref bean="definitionDAO"/>
+                <ref bean="testDAO"/>
+                <ref bean="systemObjectDAO"/>
+                <ref bean="stateDAO"/>
+                <ref bean="defVariableDAO"/>
+                <ref bean="definitionsElementAssocDAO"/>
+
+                <ref bean="ovalSystemCharacteristicsDAO"/>
+                <ref bean="ovalResultsDAO"/>
+                <ref bean="ovalVariablesDAO"/>
+                <ref bean="varVariableDAO"/>
+            </set>
+        </property>
+    </bean>
+
+
+    <bean id="ovalRepository" 
+        class="io.opensec.six.oval.core.repository.OvalRepositoryImpl">
+        <property name="datastore" ref="ovalDatastore"/>
+    </bean>
+
+
+    <bean id="ovalDefinitionsGenerator" 
+        class="io.opensec.six.oval.core.repository.OvalDefinitionsGenerator">
+<!--
+        <property name="datastore" ref="ovalDatastore"/>
+-->
+    </bean>
+
+</beans>

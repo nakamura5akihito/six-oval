@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // Opensec OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  #esx                                               % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <!-- ******************************************************* -->
+    <!-- patch, patch56                                          -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.esx.Patch56Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="patch56_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.Patch56Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="patch56_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.esx.Patch56Behaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="patchName" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="patch_name" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.Patch56State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="patch56_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="patchName" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="patch_name" node="element"/>
+        </field>
+        <field name="knowledgeBaseId" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="knowledge_base_id" node="element"/>
+        </field>
+        <field name="bundleId" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="bundle_id" node="element"/>
+        </field>
+        <field name="classification" 
+            type="io.opensec.six.oval.model.esx.EntityStateClassificationType">
+            <bind-xml name="classification" node="element"/>
+        </field>
+        <field name="supportLevel" 
+            type="io.opensec.six.oval.model.esx.EntityStateSupportLevelType">
+            <bind-xml name="support_level" node="element"/>
+        </field>
+        <field name="installationStatus" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="status" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.PatchTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="esx_patch_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.PatchObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="esx_patch_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.esx.PatchBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="patchNumber" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="patch_number" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.PatchState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="esx_patch_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="patchNumber" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="patch_number" node="element"/>
+        </field>
+        <field name="installationStatus" 
+            type="io.opensec.six.oval.model.definitions.EntityStateBoolType">
+            <bind-xml name="status" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.esx.PatchItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="patch_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#esx"
+            ns-prefix=""/>
+        <field name="patchNumber" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="patch_number" node="element"/>
+        </field>
+        <field name="patchName" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="patch_name" node="element"/>
+        </field>
+        <field name="knowledgeBaseId" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="knowledge_base_id" node="element"/>
+        </field>
+        <field name="bundleId" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="bundle_id" node="element"/>
+        </field>
+        <field name="classification" 
+            type="io.opensec.six.oval.model.esx.EntityItemClassificationType">
+            <bind-xml name="classification" node="element"/>
+        </field>
+        <field name="supportLevel" 
+            type="io.opensec.six.oval.model.esx.EntityItemSupportLevelType">
+            <bind-xml name="support_level" node="element"/>
+        </field>
+        <field name="installtaionStatus" 
+            type="io.opensec.six.oval.model.sc.EntityItemBoolType">
+            <bind-xml name="status" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- version                                                 -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.esx.VersionTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="version_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.VersionObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="version_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.VersionState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="version_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="release" 
+            type="io.opensec.six.oval.model.definitions.EntityStateVersionType">
+            <bind-xml name="release" node="element"/>
+        </field>
+        <field name="build" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="build" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.esx.VersionItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="version_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#esx"
+            ns-prefix=""/>
+        <field name="release" 
+            type="io.opensec.six.oval.model.sc.EntityItemVersionType">
+            <bind-xml name="release" node="element"/>
+        </field>
+        <field name="build" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="build" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- visdkmanagedobject                                      -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.esx.ViSdkManagedObjectTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="visdkmanagedobject_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.ViSdkManagedObjectObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="visdkmanagedobject_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.esx.ViSdkManagedEntityBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="property" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="property" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.esx.ViSdkManagedObjectState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="visdkmanagedobject_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx"
+            ns-prefix=""/>
+        <field name="property" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="property" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.esx.ViSdkManagedObjectItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="visdkmanagedobject_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#esx"
+            ns-prefix=""/>
+        <field name="property" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="property" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType"
+            collection="collection">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- entity attribute types                                  -->
+    <!-- ******************************************************* -->
+
+<!-- classification -->
+    <class name="io.opensec.six.oval.model.esx.EntityStateClassificationType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.esx.EntityItemClassificationType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+<!-- patch, 56 -->
+    <class name="io.opensec.six.oval.model.esx.Patch56Behaviors"
+        extends="io.opensec.six.oval.model.OvalObject">
+        <field name="supersedence" type="boolean">
+            <bind-xml name="supersedence" node="attribute"/>
+        </field>
+    </class>
+    <class name="io.opensec.six.oval.model.esx.PatchBehaviors"
+        extends="io.opensec.six.oval.model.OvalObject">
+        <field name="supersedence" type="boolean">
+            <bind-xml name="supersedence" node="attribute"/>
+        </field>
+    </class>
+
+<!-- support level -->
+    <class name="io.opensec.six.oval.model.esx.EntityStateSupportLevelType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.esx.EntityItemSupportLevelType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+<!-- visdkmanagedobject -->
+    <class name="io.opensec.six.oval.model.esx.ViSdkManagedEntityBehaviors"
+        extends="io.opensec.six.oval.model.OvalObject">
+        <field name="managedEntityType" type="string">
+            <bind-xml name="managed_entity_type" node="attribute"/>
+        </field>
+    </class>
+
+</mapping>
+

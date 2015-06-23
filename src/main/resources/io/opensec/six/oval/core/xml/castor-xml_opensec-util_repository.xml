@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<!--
+// SIX: OVAL - Castor XML Mapping Specification
+//
+// @author    Akihito Nakamura, AIST
+-->
+
+<mapping>
+    <class name="io.opensec.util.repository.QueryResults">
+        <map-to xml="query_results"
+            ns-uri="http://opensec.io/util/"/>
+        <field name="timestamp" type="date">
+            <bind-xml name="timestamp" node="element"/>
+        </field>
+        <field name="totalResults" type="long">
+            <bind-xml name="totalResults" node="element"
+                xmlns="http://a9.com/-/spec/opensearch/1.1/"/>
+        </field>
+        <field name="startIndex" type="long">
+            <bind-xml name="startIndex" node="element"
+                xmlns="http://a9.com/-/spec/opensearch/1.1/"/>
+        </field>
+        <field name="itemsPerPage" type="long">
+            <bind-xml name="itemsPerPage" node="element"
+                xmlns="http://a9.com/-/spec/opensearch/1.1/"/>
+        </field>
+        <field name="resultsElements" 
+            type="io.opensec.util.repository.QueryResultsElements"
+            container="false">
+            <bind-xml name="result_elements" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.util.repository.QueryResultsElements">
+        <map-to xml="result_elements"
+            />
+<!--
+            type="java.io.Serializable" OK
+            type="java.lang.Object"     NG
+-->
+        <field name="elements" 
+            type="java.io.Serializable"
+            collection="collection">
+            <bind-xml auto-naming="deriveByClass" node="element"/>
+        </field>
+    </class>
+
+</mapping>
+

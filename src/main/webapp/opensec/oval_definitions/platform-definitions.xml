@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+  <generator>
+    <oval:product_name>The OVAL Repository</oval:product_name>
+    <oval:schema_version>5.6</oval:schema_version>
+    <oval:timestamp>2010-05-11T04:30:56.169-04:00</oval:timestamp>
+  </generator>
+  <definitions>
+  
+    <!-- ******************************************************* -->
+    <!-- * windows                                               -->
+    <!-- ******************************************************* -->
+
+    <definition id="oval:org.mitre.oval:def:105" version="5" class="inventory">
+      <metadata>
+        <title>Microsoft Windows XP is installed</title>
+        <affected family="windows">
+          <platform>Microsoft Windows XP</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:microsoft:windows_xp"/>
+        <description>The operating system installed on the system is Microsoft Windows XP.</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2006-06-26T12:55:00.000-04:00">
+              <contributor organization="The MITRE Corporation">Andrew Buttner</contributor>
+            </submitted>
+            <status_change date="2006-06-26T12:55:00.000-04:00">ACCEPTED</status_change>
+            <modified comment="Added CPE reference." date="2007-04-30T07:48:00.244-04:00">
+              <contributor organization="The MITRE Corporation">Jonathan Baker</contributor>
+            </modified>
+            <status_change date="2007-04-30T08:01:55.267-04:00">INTERIM</status_change>
+            <status_change date="2007-05-23T15:05:25.969-04:00">ACCEPTED</status_change>
+            <modified comment="Changed the CPE reference" date="2008-04-04T11:17:00.073-04:00">
+              <contributor organization="The MITRE Corporation">Andrew Buttner</contributor>
+            </modified>
+            <status_change date="2008-04-04T11:27:52.098-04:00">INTERIM</status_change>
+            <status_change date="2008-04-21T04:00:10.499-04:00">ACCEPTED</status_change>
+            <modified comment="Changed the test for windows to be case insensitive and replaced the test for Windows 5.1 with a new test for Windows XP" date="2009-12-02T16:05:00.749-04:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <status_change date="2009-12-02T16:05:00.749-04:00">INTERIM</status_change>
+            <modified comment="Added anchors and spaces to regular expression" date="2009-12-04T14:56:00.359-05:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <modified comment="Updating regex to include parenthesis" date="2009-12-08T17:32:00.792-05:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <status_change date="2010-01-04T04:01:15.920-05:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria operator="AND">
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.mitre.oval:tst:99"/>
+        <criterion comment="Windows XP is installed" test_ref="oval:org.mitre.oval:tst:11179"/>
+      </criteria>
+    </definition>
+
+    <definition id="oval:org.mitre.oval:def:228" version="5" class="inventory">
+      <metadata>
+        <title>Microsoft Windows Vista is installed</title>
+        <affected family="windows">
+          <platform>Microsoft Windows Vista</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:microsoft:windows_vista"/>
+        <description>The operating system installed on the system is Microsoft Windows Vista</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2007-02-13T12:46:06">
+              <contributor organization="Secure Elements, Inc.">Dragos Prisaca</contributor>
+            </submitted>
+            <status_change date="2007-02-13T14:53:06-04:00">DRAFT</status_change>
+            <status_change date="2007-03-21T16:17:12.775-04:00">INTERIM</status_change>
+            <status_change date="2007-04-13T15:13:39.760-04:00">ACCEPTED</status_change>
+            <modified comment="Added CPE reference." date="2007-04-30T07:48:00.893-04:00">
+              <contributor organization="The MITRE Corporation">Jonathan Baker</contributor>
+            </modified>
+            <status_change date="2007-04-30T07:56:25.929-04:00">INTERIM</status_change>
+            <status_change date="2007-05-23T15:05:40.286-04:00">ACCEPTED</status_change>
+            <modified comment="Vista test updated because of the conflictions with Server 2008" date="2008-03-26T10:51:02.210-04:00">
+              <contributor organization="Secure Elements, Inc.">Sudhir Gandhe</contributor>
+            </modified>
+            <status_change date="2008-03-31T04:00:22.690-04:00">INTERIM</status_change>
+            <modified comment="Changed the CPE reference" date="2008-04-04T11:17:00.315-04:00">
+              <contributor organization="The MITRE Corporation">Andrew Buttner</contributor>
+            </modified>
+            <status_change date="2008-04-21T04:00:18.129-04:00">ACCEPTED</status_change>
+            <modified comment="Changed the tests for Vista and windows to be case insensitive" date="2009-12-02T16:05:00.749-04:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <status_change date="2009-12-02T16:05:00.749-04:00">INTERIM</status_change>
+            <modified comment="Added anchors and spaces to regular expression" date="2009-12-04T14:55:00.401-05:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <modified comment="Updating regex to include parenthesis" date="2009-12-08T17:31:00.669-05:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <status_change date="2009-12-28T04:00:11.598-05:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.mitre.oval:tst:99"/>
+        <criterion comment="Windows Vista is installed" test_ref="oval:org.mitre.oval:tst:7914"/>
+      </criteria>
+    </definition>
+
+    <definition id="oval:org.mitre.oval:def:5950" version="3" class="inventory">
+      <metadata>
+        <title>Microsoft Windows 7 x64 Edition is installed</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 7</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:microsoft:windows_7:::x64"/>
+        <description>The operating system installed on the system is Microsoft Windows 7 x64 Edition</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2009-09-08T11:27:37.975-04:00">
+              <contributor organization="Hewlett-Packard">Pai Peng</contributor>
+            </submitted>
+            <status_change date="2009-09-08T20:49:38.713-04:00">DRAFT</status_change>
+            <status_change date="2009-09-28T04:00:13.304-04:00">INTERIM</status_change>
+            <status_change date="2009-10-26T04:00:04.351-04:00">ACCEPTED</status_change>
+            <modified comment="Changed registry check for amd64 to be case insensitive equals" date="2009-11-19T18:33:00.593-05:00">
+              <contributor organization="Hewlett-Packard">Todd Dolinsky</contributor>
+            </modified>
+            <status_change date="2009-11-19T18:35:09.654-05:00">INTERIM</status_change>
+            <modified comment="Changed the tests for Windows 7 and windows to be case insensitive" date="2009-12-02T16:05:00.749-04:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <modified comment="Added anchors and spaces to regular expression" date="2009-12-04T14:55:00.171-05:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <modified comment="Updating regex to include parenthesis" date="2009-12-08T17:32:00.647-05:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <status_change date="2010-01-04T04:01:41.003-05:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.mitre.oval:tst:99"/>
+        <criterion comment="Windows 7 is installed" test_ref="oval:org.mitre.oval:tst:10792"/>
+        <criterion comment="a version of Windows for the x64 architecture is installed" test_ref="oval:org.mitre.oval:tst:3653"/>
+      </criteria>
+    </definition>
+
+    <definition id="oval:org.mitre.oval:def:6165" version="3" class="inventory">
+      <metadata>
+        <title>Microsoft Windows 7 (32-bit) is installed</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 7</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:microsoft:windows_7:::x86"/>
+        <description>The operating system installed on the system is Microsoft Windows 7 (32-bit)</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2009-09-08T11:27:37.975-04:00">
+              <contributor organization="Hewlett-Packard">Pai Peng</contributor>
+            </submitted>
+            <status_change date="2009-09-08T20:49:38.394-04:00">DRAFT</status_change>
+            <status_change date="2009-09-28T04:00:16.403-04:00">INTERIM</status_change>
+            <status_change date="2009-10-19T04:00:10.283-04:00">ACCEPTED</status_change>
+            <modified comment="Replaced negation of test for x64 with a case insensitive test for x86 and changed the tests for Windows 7 and windows to be case insensitive" date="2009-12-02T16:05:00.749-04:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <status_change date="2009-12-02T16:05:00.749-04:00">INTERIM</status_change>
+            <modified comment="Added anchors and spaces to regular expression" date="2009-12-04T14:55:00.171-05:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <modified comment="Updating regex to include parenthesis" date="2009-12-08T17:32:00.647-05:00">
+              <contributor organization="National Institute of Standards and Technology">Tim Harrison</contributor>
+            </modified>
+            <status_change date="2010-01-04T04:01:43.679-05:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.mitre.oval:tst:99"/>
+        <criterion comment="Windows 7 is installed" test_ref="oval:org.mitre.oval:tst:10792"/>
+        <criterion comment="a version of Windows for the x86 architecture is installed" test_ref="oval:org.mitre.oval:tst:3823"/>
+      </criteria>
+    </definition>
+
+
+    <!-- ******************************************************* -->
+    <!-- * debian                                                -->
+    <!-- ******************************************************* -->
+
+    <definition id="oval:org.mitre.oval:def:6513" version="2" class="inventory">
+      <metadata>
+        <title>Debian 5.0 is installed</title>
+        <affected family="unix">
+          <platform>Debian GNU/Linux 5.0</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:debian:debian_linux:5.0"/>
+        <description>Debian 5.0 is installed</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2009-12-04T16:44:51-05:00">
+              <contributor organization="SecPod Technologies">SecPod Team</contributor>
+            </submitted>
+            <status_change date="2009-12-06T20:14:46.813-05:00">DRAFT</status_change>
+            <status_change date="2010-01-04T04:01:52.112-05:00">INTERIM</status_change>
+            <status_change date="2010-01-25T04:00:22.163-05:00">ACCEPTED</status_change>
+            <modified comment="EDITED oval:org.mitre.oval:def:6513 - Update textfilecontent_test to textfilecontent54_test" date="2011-01-20T13:45:00.069-05:00">
+              <contributor organization="SecPod Technologies">Preeti Subramanian</contributor>
+            </modified>
+            <status_change date="2011-01-20T13:46:58.156-05:00">INTERIM</status_change>
+          </dates>
+          <status>INTERIM</status>
+        </oval_repository>
+      </metadata>
+      <criteria>
+        <criterion comment="Debian GNU/Linux 5.0 is installed" test_ref="oval:org.mitre.oval:tst:42061"/>
+      </criteria>
+    </definition>
+
+
+
+    <!-- ******************************************************* -->
+    <!-- * RHEL                                                  -->
+    <!-- ******************************************************* -->
+
+    <definition id="oval:org.mitre.oval:def:11414" version="3" class="inventory">
+      <metadata>
+        <title>The operating system installed on the system is Red Hat Enterprise Linux 5</title>
+        <affected family="unix">
+          <platform>Red Hat Enterprise Linux 5</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:redhat:enterprise_linux:5::"/>
+        <description>The operating system installed on the system is Red Hat Enterprise Linux 5.</description>
+        <oval_repository>
+          <dates>
+            <submitted date="2010-07-06T12:00:00.000-06:00">
+              <contributor organization="SCAP.com, LLC">Aharon Chernin</contributor>
+            </submitted>
+            <status_change date="2010-07-28T14:09:29.872-04:00">DRAFT</status_change>
+            <status_change date="2010-08-16T04:09:16.744-04:00">INTERIM</status_change>
+            <status_change date="2010-09-06T04:10:00.824-04:00">ACCEPTED</status_change>
+          </dates>
+          <status>ACCEPTED</status>
+        </oval_repository>
+      </metadata>
+      <criteria>
+        <criterion comment="Red Hat Enterprise 5 is installed" test_ref="oval:org.mitre.oval:tst:3846"/>
+      </criteria>
+    </definition>
+  </definitions>
+
+
+
+  <tests>
+    <!-- ******************************************************* -->
+    <!-- * windows                                               -->
+    <!-- ******************************************************* -->
+
+    <family_test id="oval:org.mitre.oval:tst:99" version="1" comment="the installed operating system is part of the Microsoft Windows family" check_existence="at_least_one_exists" check="only one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.mitre.oval:obj:99"/>
+      <state state_ref="oval:org.mitre.oval:ste:99"/>
+    </family_test>
+
+    <registry_test id="oval:org.mitre.oval:tst:3653" version="3" comment="a version of Windows for the x64 architecture is installed" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:1576"/>
+      <state state_ref="oval:org.mitre.oval:ste:3180"/>
+    </registry_test>
+
+    <registry_test id="oval:org.mitre.oval:tst:3823" version="2" comment="a version of Windows for the x86 architecture is installed" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:1576"/>
+      <state state_ref="oval:org.mitre.oval:ste:3649"/>
+    </registry_test>
+
+    <registry_test id="oval:org.mitre.oval:tst:7914" version="4" comment="Windows Vista is installed" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:5590"/>
+      <state state_ref="oval:org.mitre.oval:ste:3828"/>
+    </registry_test>
+
+    <registry_test id="oval:org.mitre.oval:tst:10792" version="4" comment="Windows 7 is installed" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:5590"/>
+      <state state_ref="oval:org.mitre.oval:ste:5027"/>
+    </registry_test>
+
+    <registry_test id="oval:org.mitre.oval:tst:11179" version="3" comment="Windows XP is installed" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.mitre.oval:obj:5590"/>
+      <state state_ref="oval:org.mitre.oval:ste:5477"/>
+    </registry_test>
+
+
+
+    <!-- ******************************************************* -->
+    <!-- * debian                                                -->
+    <!-- ******************************************************* -->
+
+    <textfilecontent54_test id="oval:org.mitre.oval:tst:42061" version="1" comment="Debian GNU/Linux 5.0 is installed" check_existence="at_least_one_exists" check="all" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.mitre.oval:obj:15583"/>
+      <state state_ref="oval:org.mitre.oval:ste:12238"/>
+    </textfilecontent54_test>
+
+
+
+    <!-- ******************************************************* -->
+    <!-- * RHEL                                                  -->
+    <!-- ******************************************************* -->
+
+    <rpminfo_test id="oval:org.mitre.oval:tst:3846" version="1" comment="Red Hat Enterprise 5 is installed" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <object object_ref="oval:org.mitre.oval:obj:1414"/>
+      <state state_ref="oval:org.mitre.oval:ste:11314"/>
+    </rpminfo_test>
+
+  </tests>
+
+
+
+  <objects>
+    <!-- ******************************************************* -->
+    <!-- * windows                                               -->
+    <!-- ******************************************************* -->
+
+    <family_object id="oval:org.mitre.oval:obj:99" version="1" comment="This is the default family object. Only one family object should exist." xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"/>
+
+    <registry_object id="oval:org.mitre.oval:obj:1576" version="1" comment="This registry key identifies the architecture on the system" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>SYSTEM\CurrentControlSet\Control\Session Manager\Environment</key>
+      <name>PROCESSOR_ARCHITECTURE</name>
+    </registry_object>
+
+    <registry_object id="oval:org.mitre.oval:obj:5590" version="1" comment="This registry key identifies the Windows ProductName" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>SOFTWARE\Microsoft\Windows NT\CurrentVersion</key>
+      <name>ProductName</name>
+    </registry_object>
+
+
+
+    <!-- ******************************************************* -->
+    <!-- * debian                                                -->
+    <!-- ******************************************************* -->
+
+    <textfilecontent54_object id="oval:org.mitre.oval:obj:15583" version="1" comment="Object holds Debian version" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <path>/etc</path>
+      <filename>debian_version</filename>
+      <pattern operation="pattern match">^\d\.\d$</pattern>
+      <instance datatype="int">1</instance>
+    </textfilecontent54_object>
+
+
+
+    <!-- ******************************************************* -->
+    <!-- * RHEL                                                  -->
+    <!-- ******************************************************* -->
+
+    <rpminfo_object id="oval:org.mitre.oval:obj:1414" version="1" comment="the redhat-release rpm" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <name>redhat-release</name>
+    </rpminfo_object>
+  </objects>
+
+
+
+  <states>
+    <!-- ******************************************************* -->
+    <!-- * windows                                               -->
+    <!-- ******************************************************* -->
+
+    <family_state id="oval:org.mitre.oval:ste:99" version="2" comment="Microsoft Windows family" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <family operation="case insensitive equals">windows</family>
+    </family_state>
+
+    <registry_state id="oval:org.mitre.oval:ste:3180" version="3" comment="amd64 architecture" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="case insensitive equals">amd64</value>
+    </registry_state>
+
+    <registry_state id="oval:org.mitre.oval:ste:3649" version="2" comment="x86 architecture" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="case insensitive equals">x86</value>
+    </registry_state>
+
+    <registry_state id="oval:org.mitre.oval:ste:3828" version="4" comment="The registry key matches with Vista" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">^[a-zA-Z0-9\(\)\s]*[Vv][Ii][Ss][Tt][Aa][a-zA-Z0-9\(\)\s]*$</value>
+    </registry_state>
+
+    <registry_state id="oval:org.mitre.oval:ste:5027" version="4" comment="The registry key matches with Windows 7" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">^[a-zA-Z0-9\(\)\s]*[Ww][Ii][Nn][Dd][Oo][Ww][Ss] 7[a-zA-Z0-9\(\)\s]*$</value>
+    </registry_state>
+
+    <registry_state id="oval:org.mitre.oval:ste:5477" version="4" comment="The registry key matches with Windows XP" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">^[a-zA-Z0-9\(\)\s]*[Ww][Ii][Nn][Dd][Oo][Ww][Ss] [Xx][Pp][a-zA-Z0-9\(\)\s]*$</value>
+    </registry_state>
+
+
+
+    <!-- ******************************************************* -->
+    <!-- * debian                                                -->
+    <!-- ******************************************************* -->
+
+    <textfilecontent54_state id="oval:org.mitre.oval:ste:12238" version="1" comment="State matches if version is 5.0" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <text>5.0</text>
+    </textfilecontent54_state>
+
+
+
+    <!-- ******************************************************* -->
+    <!-- * RHEL                                                  -->
+    <!-- ******************************************************* -->
+
+    <rpminfo_state id="oval:org.mitre.oval:ste:11314" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux">
+      <version operation="pattern match">^.*5.</version>
+    </rpminfo_state>
+
+  </states>
+
+</oval_definitions>

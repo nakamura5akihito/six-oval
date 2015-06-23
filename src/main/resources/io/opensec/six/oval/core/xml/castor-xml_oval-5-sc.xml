@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // SIX OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  xmlns:oval-system-characteristics-5                % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <class name="io.opensec.six.oval.model.sc.OvalSystemCharacteristics"
+        extends="io.opensec.six.oval.model.Document">
+        <map-to xml="oval_system_characteristics"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"
+            ns-prefix=""/>
+        <field name="generator" 
+            type="io.opensec.six.oval.model.common.GeneratorType">
+            <bind-xml name="generator" node="element"/>
+        </field>
+        <field name="systemInfo" 
+            type="io.opensec.six.oval.model.sc.SystemInfoType"
+            required="true">
+            <bind-xml name="system_info" node="element"/>
+        </field>
+        <field name="collectedObjects" 
+            type="io.opensec.six.oval.model.sc.CollectedSystemObjectsType">
+            <bind-xml name="collected_objects" node="element"/>
+        </field>
+        <field name="systemData" 
+            type="io.opensec.six.oval.model.sc.SystemDataType">
+            <bind-xml name="system_data" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.SystemInfoType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+        <field name="osName" type="string"
+            required="true">
+            <bind-xml name="os_name" node="element"/>
+        </field>
+        <field name="osVersion" type="string"
+            required="true">
+            <bind-xml name="os_version" node="element"/>
+        </field>
+        <field name="architecture" type="string"
+            required="true">
+            <bind-xml name="architecture" node="element"/>
+        </field>
+        <field name="primaryHostName" type="string"
+            required="true">
+            <bind-xml name="primary_host_name" node="element"/>
+        </field>
+        <field name="interfaces" 
+            type="io.opensec.six.oval.model.sc.InterfacesType">
+            <bind-xml name="interfaces" node="element"/> 
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.InterfacesType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+        <field name="interface" 
+            type="io.opensec.six.oval.model.sc.InterfaceType"
+            collection="collection">
+            <bind-xml name="interface" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.sc.InterfaceType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+        <field name="interfaceName" type="string"
+            required="true">
+            <bind-xml name="interface_name" node="element"/>
+        </field>
+        <field name="ipAddress" type="string"
+            required="true">
+<!-- schema 5.9
+            type="io.opensec.six.oval.model.sc.EntityItemIPAddressStringType"
+-->
+            <bind-xml name="ip_address" node="element"/>
+        </field>
+        <field name="macAddress" type="string"
+            required="true">
+            <bind-xml name="mac_address" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.CollectedSystemObjectsType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.sc.SystemObjectType"
+            collection="collection">
+            <bind-xml name="object" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.SystemObjectType"
+        extends="io.opensec.six.oval.model.Element">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+        <field name="ovalId" type="string">
+            <bind-xml name="id" node="attribute"/>
+        </field>
+        <field name="message" 
+            type="io.opensec.six.oval.model.common.MessageType"
+            collection="collection">
+            <bind-xml name="message" node="element"/>
+        </field>
+<!--
+        <field name="message" type="string">
+            <bind-xml name="message" node="element"/>
+        </field>
+-->
+
+        <field name="variableValue" 
+            type="io.opensec.six.oval.model.sc.VariableValueType"
+            collection="collection">
+            <bind-xml name="variable_value" node="element"/>
+        </field>
+        <field name="reference" 
+            type="io.opensec.six.oval.model.sc.ReferenceType"
+            collection="collection">
+            <bind-xml name="reference" node="element"/>
+        </field>
+        <field name="variableInstance" type="int">
+            <bind-xml name="variable_instance" node="attribute"/>
+        </field>
+        <field name="comment" type="string">
+            <bind-xml name="comment" node="attribute"/>
+        </field>
+        <field name="flag"  
+            type="string"
+            handler="io.opensec.six.oval.core.xml.sc.FlagEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.sc.FlagEnumeration" -->
+            <bind-xml name="flag" node="attribute"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.sc.VariableValueType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+        <field name="variableId" type="string">
+            <bind-xml name="variable_id" node="attribute"/>
+        </field>
+        <field name="content" type="string">
+            <bind-xml node="text"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.ReferenceType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+        <field name="itemRef" type="int">
+            <bind-xml name="item_ref" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.SystemDataType">
+<!--
+If we have this ns-uri, child elements have the same namespace,
+not the family-specific one.
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"/>
+-->
+
+        <field name="item" 
+            type="io.opensec.six.oval.model.sc.ItemType"
+            collection="collection">
+            <bind-xml auto-naming="deriveByClass" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.ItemType">
+<!--
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"
+            />
+-->
+
+<!-- NOTE:
+We need the namespaceMapping property of the Caster marshaller to be configured
+to add the OVAL namspaces.
+
+If so, the "message" field's namespace and the prefix are correctly marshalled,
+i.e. "oval-sc:message".
+If NOT, it is marshalled as "<message ...>" with the parent's namespace, 
+i.e. ".../oval-system-characteristics-5#windows".
+
+The marshalling succeeds only in oval_system_characteristics documents,
+fails in oval_results ones.
+The error is avoided by using the "transient" attribute,
+i.e. the field is NOT marshalled.
+
+TODO: 
+-->
+        <field name="message"
+            transient="true" 
+            type="io.opensec.six.oval.model.common.MessageType"
+            collection="collection">
+            <bind-xml name="message" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"
+            />
+        </field>
+            <!--
+                xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"
+            -->
+
+        <field name="id" type="int">
+            <bind-xml name="id" node="attribute"/>
+        </field>
+        <field name="status" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.sc.StatusEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.sc.StatusEnumeration" -->
+            <bind-xml name="status" node="attribute"/>
+        </field>
+    </class>
+
+
+<!-- entity -->
+    <class name="io.opensec.six.oval.model.sc.EntityAttributeGroup"
+        verify-constructable="false">
+        <field name="datatype" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.DatatypeEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.common.DatatypeEnumeration" -->
+            <bind-xml name="datatype" node="attribute"/>
+        </field>
+        <field name="mask" type="boolean">
+            <bind-xml name="mask" node="attribute"/>
+        </field>
+        <field name="status" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.sc.StatusEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.sc.StatusEnumeration" -->
+            <bind-xml name="status" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType"
+        extends="io.opensec.six.oval.model.sc.EntityAttributeGroup"
+        verify-constructable="false">
+        <field name="content" type="string">
+            <bind-xml node="text"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemComplexBaseType"
+        extends="io.opensec.six.oval.model.sc.EntityAttributeGroup"
+        verify-constructable="false">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemIPAddressType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemIPAddressStringType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemAnySimpleType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemBinaryType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemBoolType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemFloatType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemIntType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemStringType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+
+<!-- TODO:
+@see io.opensec.six.oval.model.definitions.EntityStateRecordType
+    These mappings of EntityStateRecordType and EntityStateFieldType are NOT correct.
+    The namespace of "field" elements are NOT correctly marshalled;
+    NO xmlns or ns-prefix.
+    
+    Try the Castor nested mapping of classes.
+ -->
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemRecordType"
+        extends="io.opensec.six.oval.model.sc.EntityItemComplexBaseType">
+        <field name="field" 
+            type="io.opensec.six.oval.model.sc.EntityItemFieldType"
+            collection="collection">
+            <bind-xml name="field" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"
+                />
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemFieldType"
+        extends="io.opensec.six.oval.model.sc.EntityAttributeGroup">
+        <field name="content" type="string">
+            <bind-xml node="text"/>
+        </field>
+        <field name="name" type="string">
+            <bind-xml name="name" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemVersionType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemFilesetRevisionType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemIOSVersionType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+    <class name="io.opensec.six.oval.model.sc.EntityItemEVRStringType"
+        extends="io.opensec.six.oval.model.sc.EntityItemSimpleBaseType">
+    </class>
+
+</mapping>
