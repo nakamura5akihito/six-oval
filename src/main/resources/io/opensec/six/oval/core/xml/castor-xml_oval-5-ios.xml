@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // Opensec OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  #ios                                               % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    
+    <!-- ******************************************************* -->
+    <!-- entity & behavior                                       -->
+    <!-- ******************************************************* -->
+
+<!-- version -->
+    <class name="io.opensec.six.oval.model.ios.EntityStateTrainIdentifierType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- global                                                  -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.ios.GlobalTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="global_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.GlobalObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="global_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="globalCommand" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="global_command" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.GlobalState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="global_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="globalCommand" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="global_command" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO:
+    <class name ="io.opensec.six.oval.model.ios.GlobalItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="global_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#ios"
+            ns-prefix=""/>
+    </class>
+-->
+
+
+    <!-- ******************************************************* -->
+    <!-- interface                                               -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.ios.InterfaceTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="iosx_interface_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"
+            />
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.InterfaceObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="ios_interface_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="name" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.InterfaceState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="ios_interface_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="name" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="ipDirectedBroadcastCommand" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="ip_directed_broadcast_command" node="element"/>
+        </field>
+        <field name="noIpDirectedBroadcastCommand" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="no_ip_directed_broadcast_command" node="element"/>
+        </field>
+        <field name="proxyArpCommand" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="proxy_arp_command" node="element"/>
+        </field>
+        <field name="shutdownCommand" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="shutdown_command" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO: 
+    <class name ="io.opensec.six.oval.model.ios.InterfaceItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="ios_interface_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#ios"
+            ns-prefix=""/>
+    </class>
+-->
+
+
+    <!-- ******************************************************* -->
+    <!-- line                                                    -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.ios.LineTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="line_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.LineObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="line_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="showSubcommand" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="show_subcommand" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.LineState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="line_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="showSubcommand" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="show_subcommand" node="element"/>
+        </field>
+        <field name="configLine" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="config_line" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO:
+    <class name ="io.opensec.six.oval.model.ios.LineItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="line_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#ios"
+            ns-prefix=""/>
+    </class>
+-->
+
+
+    <!-- ******************************************************* -->
+    <!-- snmp                                                    -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.ios.SnmpTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="snmp_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.SnmpObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="snmp_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.SnmpState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="snmp_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="accessList" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="access_list" node="element"/>
+        </field>
+        <field name="communityName" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="community_name" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO:
+    <class name ="io.opensec.six.oval.model.ios.SnmpItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="snmp_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#ios"
+            ns-prefix=""/>
+    </class>
+-->
+
+
+    <!-- ******************************************************* -->
+    <!-- tclsh                                                   -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.ios.TclshTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="tclsh_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.TclshObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="tclsh_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.TclshState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="tclsh_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="available" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="available" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO:
+    <class name ="io.opensec.six.oval.model.ios.TclshItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="tclsh_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#ios"
+            ns-prefix=""/>
+    </class>
+-->
+
+
+    <!-- ******************************************************* -->
+    <!-- version55, version                                      -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.ios.Version55Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="version55_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.Version55Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="version55_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.Version55State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="version55_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="majorVersion" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="major_version" node="element"/>
+        </field>
+        <field name="minorVersion" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="minor_version" node="element"/>
+        </field>
+        <field name="release" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="release" node="element"/>
+        </field>
+        <field name="trainIdentifier" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="train_identifier" node="element"/>
+        </field>
+        <field name="rebuild" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="rebuild" node="element"/>
+        </field>
+        <field name="subrebuild" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="subrebuild" node="element"/>
+        </field>
+        <field name="mainlineRebuild" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="mainline_rebuild" node="element"/>
+        </field>
+        <field name="versionString" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIOSVersionType">
+            <bind-xml name="version_string" node="element"/>
+        </field>
+    </class>
+
+
+    <class name="io.opensec.six.oval.model.ios.VersionTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="ios_version_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.VersionObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="ios_version_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+    </class>
+
+    <class name="io.opensec.six.oval.model.ios.VersionState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="ios_version_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios"
+            ns-prefix=""/>
+        <field name="majorRelease" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="major_release" node="element"/>
+        </field>
+        <field name="trainNumber" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="train_number" node="element"/>
+        </field>
+        <field name="trainIdentifier" 
+            type="io.opensec.six.oval.model.ios.EntityStateTrainIdentifierType">
+            <bind-xml name="train_identifier" node="element"/>
+        </field>
+        <field name="versionString" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIOSVersionType">
+            <bind-xml name="version_string" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO:
+    <class name ="io.opensec.six.oval.model.ios.VersionItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="ios_version_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#ios"
+            ns-prefix=""/>
+
+    </class>
+-->
+
+</mapping>

@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // Opensec OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  #independent                                       % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <!-- ******************************************************* -->
+    <!-- entity & behavior                                       -->
+    <!-- ******************************************************* -->
+
+<!-- family -->
+    <class name="io.opensec.six.oval.model.independent.EntityStateFamilyType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+        <!--
+        <field name="content"
+            type="string"
+            handler="io.opensec.six.oval.core.xml.FamilyEnumerationHandler">
+            <bind-xml node="text"/>
+        </field>
+        -->
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityItemFamilyType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+<!-- file -->
+    <class name="io.opensec.six.oval.model.independent.FileBehaviors"
+        extends="io.opensec.six.oval.model.common.AbstractRecurseFileBehaviors">
+        <field name="windowsView"
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.WindowsViewEnumerationHandler">
+            <bind-xml name="windows_view" node="attribute"/>
+        </field>
+    </class>
+
+<!-- hash type -->
+    <class name="io.opensec.six.oval.model.independent.EntityObjectHashTypeType"
+        extends="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityStateHashTypeType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityItemHashTypeType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+<!-- ldap -->
+    <class name="io.opensec.six.oval.model.independent.LdapBehaviors">
+        <field name="scope"
+            type="io.opensec.six.oval.model.independent.LdapBehaviorsEnumeration">
+            <bind-xml name="scope" node="attribute"/>
+        </field>
+    </class>
+
+<!-- ldap type -->
+    <class name="io.opensec.six.oval.model.independent.EntityStateLdaptypeType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityItemLdaptypeType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+<!-- sql engine -->
+    <class name="io.opensec.six.oval.model.independent.EntityObjectEngineType"
+        extends="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityStateEngineType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityItemEngineType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+<!-- textfilecontent -->
+    <class name="io.opensec.six.oval.model.independent.TextfileContent54Behaviors"
+        extends="io.opensec.six.oval.model.independent.FileBehaviors">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="ignoreCase" type="boolean">
+            <bind-xml name="ignore_case" node="attribute"/>
+        </field>
+        <field name="multiline" type="boolean">
+            <bind-xml name="multiline" node="attribute"/>
+        </field>
+        <field name="singleline" type="boolean">
+            <bind-xml name="singleline" node="attribute"/>
+        </field>
+    </class>
+
+<!-- variable ref -->
+    <class name="io.opensec.six.oval.model.independent.EntityObjectVariableRefType"
+        extends="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityStateVariableRefType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityItemVariableRefType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+<!-- windows view -->
+    <class name="io.opensec.six.oval.model.independent.EntityStateWindowsViewType"
+        extends="io.opensec.six.oval.model.definitions.EntityStateStringType">
+    </class>
+    <class name="io.opensec.six.oval.model.independent.EntityItemWindowsViewType"
+        extends="io.opensec.six.oval.model.sc.EntityItemStringType">
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- environmentvariable, 58                                 -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.independent.EnvironmentVariableTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="environmentvariable_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.EnvironmentVariableObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="environmentvariable_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="name" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.EnvironmentVariableState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="environmentvariable_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="name" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.EnvironmentVariableItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="environmentvariable_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+
+        <field name="name" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+
+        <field name="value" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <class name="io.opensec.six.oval.model.independent.EnvironmentVariable58Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="environmentvariable58_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.EnvironmentVariable58Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="environmentvariable58_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="pid" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectIntType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="pid" node="element"/>
+        </field>
+        <field name="name" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.EnvironmentVariable58State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="environmentvariable58_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="pid" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="pid" node="element"/>
+        </field>
+        <field name="name" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.EnvironmentVariable58Item"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="environmentvariable58_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="pid" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="pid" node="element"/>
+        </field>
+        <field name="name" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- family                                                  -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.independent.FamilyTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="family_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.FamilyObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="family_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.FamilyState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="family_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="family" 
+            type="io.opensec.six.oval.model.independent.EntityStateFamilyType">
+            <bind-xml name="family" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.FamilyItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="family_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="family" 
+            type="io.opensec.six.oval.model.independent.EntityItemFamilyType">
+            <bind-xml name="family" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- filehash, 58                                            -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.independent.FileHash58Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="filehash58_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.FileHash58Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="filehash58_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.independent.FileBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="hashType" 
+            type="io.opensec.six.oval.model.independent.EntityObjectHashTypeType">
+            <bind-xml name="hash_type" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.FileHash58State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="filehash58_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="hashType" 
+            type="io.opensec.six.oval.model.independent.EntityStateHashTypeType">
+            <bind-xml name="hash_type" node="element"/>
+        </field>
+        <field name="hash" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="hash" node="element"/>
+        </field>
+        <field name="windowsView" 
+            type="io.opensec.six.oval.model.independent.EntityStateWindowsViewType">
+            <bind-xml name="windows_view" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.FileHash58Item"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="filehash58_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="hashType" 
+            type="io.opensec.six.oval.model.independent.EntityItemHashTypeType">
+            <bind-xml name="hash_type" node="element"/>
+        </field>
+        <field name="hash" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="hash" node="element"/>
+        </field>
+        <field name="windowsView" 
+            type="io.opensec.six.oval.model.independent.EntityItemWindowsViewType">
+            <bind-xml name="windows_view" node="element"/>
+        </field>
+    </class>
+
+
+    <class name="io.opensec.six.oval.model.independent.FileHashTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="filehash_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.FileHashObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="filehash_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.independent.FileBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.FileHashState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="filehash_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="md5" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="md5" node="element"/>
+        </field>
+        <field name="sha1" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="sha1" node="element"/>
+        </field>
+        <field name="windowsView" 
+            type="io.opensec.six.oval.model.independent.EntityStateWindowsViewType">
+            <bind-xml name="windows_view" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.FileHashItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="filehash_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="md5" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="md5" node="element"/>
+        </field>
+        <field name="sha1" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="sha1" node="element"/>
+        </field>
+        <field name="windowsView" 
+            type="io.opensec.six.oval.model.independent.EntityItemWindowsViewType">
+            <bind-xml name="windows_view" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- ldap, 57                                                -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.independent.LdapTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="ldap_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.LdapObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="ldap_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.independent.LdapBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="suffix" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="suffix" node="element"/>
+        </field>
+        <field name="relativeDn" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="relative_dn" node="element"/>
+        </field>
+        <field name="attribute" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="attribute" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.LdapState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="ldap_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="suffix" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="suffix" node="element"/>
+        </field>
+        <field name="relativeDn" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="relative_dn" node="element"/>
+        </field>
+        <field name="attribute" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="attribute" node="element"/>
+        </field>
+        <field name="objectClass" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="object_class" node="element"/>
+        </field>
+        <field name="ldaptype" 
+            type="io.opensec.six.oval.model.independent.EntityStateLdaptypeType">
+            <bind-xml name="ldaptype" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.LdapItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="ldap_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="suffix" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="suffix" node="element"/>
+        </field>
+        <field name="relativeDn" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="relative_dn" node="element"/>
+        </field>
+        <field name="attribute" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="attribute" node="element"/>
+        </field>
+        <field name="objectClass" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="object_class" node="element"/>
+        </field>
+        <field name="ldaptype" 
+            type="io.opensec.six.oval.model.independent.EntityItemLdaptypeType">
+            <bind-xml name="ldaptype" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType"
+            collection="collection">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <class name="io.opensec.six.oval.model.independent.Ldap57Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="ldap57_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.Ldap57Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="ldap57_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.independent.LdapBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="suffix" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="suffix" node="element"/>
+        </field>
+        <field name="relativeDn" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="relative_dn" node="element"/>
+        </field>
+        <field name="attribute" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="attribute" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.Ldap57State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="ldap57_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="suffix" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="suffix" node="element"/>
+        </field>
+        <field name="relativeDn" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="relative_dn" node="element"/>
+        </field>
+        <field name="attribute" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="attribute" node="element"/>
+        </field>
+        <field name="objectClass" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="object_class" node="element"/>
+        </field>
+        <field name="ldaptype" 
+            type="io.opensec.six.oval.model.independent.EntityStateLdaptypeType">
+            <bind-xml name="ldaptype" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.definitions.EntityStateRecordType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.Ldap57Item"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="ldap57_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="suffix" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="suffix" node="element"/>
+        </field>
+        <field name="relativeDn" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="relative_dn" node="element"/>
+        </field>
+        <field name="attribute" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType"
+            nillable="true"> <!-- required="true" -->
+            <bind-xml name="attribute" node="element"/>
+        </field>
+        <field name="objectClass" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="object_class" node="element"/>
+        </field>
+        <field name="ldaptype" 
+            type="io.opensec.six.oval.model.independent.EntityItemLdaptypeType">
+            <bind-xml name="ldaptype" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.sc.EntityItemRecordType"
+            collection="collection">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ************************************************************** -->
+    <!-- sql, 57                                                        -->
+    <!-- ************************************************************** -->
+    <class name="io.opensec.six.oval.model.independent.SqlTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="sql_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.SqlObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="sql_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="engine" 
+            type="io.opensec.six.oval.model.independent.EntityObjectEngineType">
+            <bind-xml name="engine" node="element"/>
+        </field>
+        <field name="version" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="connectionString" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="connection_string" node="element"/>
+        </field>
+        <field name="sql" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="sql" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.SqlState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="sql_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="engine" 
+            type="io.opensec.six.oval.model.independent.EntityStateEngineType">
+            <bind-xml name="engine" node="element"/>
+        </field>
+        <field name="version" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="connectionString" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="connection_string" node="element"/>
+        </field>
+        <field name="sql" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="sql" node="element"/>
+        </field>
+        <field name="result" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="result" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.SqlItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="sql_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="engine" 
+            type="io.opensec.six.oval.model.independent.EntityItemEngineType">
+            <bind-xml name="engine" node="element"/>
+        </field>
+        <field name="version" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="connectionString" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="connection_string" node="element"/>
+        </field>
+        <field name="sql" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="sql" node="element"/>
+        </field>
+        <field name="result" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType"
+            collection="collection">
+            <bind-xml name="result" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.Sql57Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="sql57_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.Sql57Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="sql57_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="engine" 
+            type="io.opensec.six.oval.model.independent.EntityObjectEngineType">
+            <bind-xml name="engine" node="element"/>
+        </field>
+        <field name="version" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="connectionString" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="connection_string" node="element"/>
+        </field>
+        <field name="sql" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="sql" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.Sql57State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="sql57_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="engine" 
+            type="io.opensec.six.oval.model.independent.EntityStateEngineType">
+            <bind-xml name="engine" node="element"/>
+        </field>
+        <field name="version" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="connectionString" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="connection_string" node="element"/>
+        </field>
+        <field name="sql" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="sql" node="element"/>
+        </field>
+        <field name="result" 
+            type="io.opensec.six.oval.model.definitions.EntityStateRecordType">
+            <bind-xml name="result" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.Sql57Item"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="sql57_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="engine" 
+            type="io.opensec.six.oval.model.independent.EntityItemEngineType">
+            <bind-xml name="engine" node="element"/>
+        </field>
+        <field name="version" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="connectionString" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="connection_string" node="element"/>
+        </field>
+        <field name="sql" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="sql" node="element"/>
+        </field>
+        <field name="result" 
+            type="io.opensec.six.oval.model.sc.EntityItemRecordType"
+            collection="collection">
+            <bind-xml name="result" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- textfilecontent, 54                                     -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.independent.TextfileContentTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="textfilecontent_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.TextfileContentObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="textfilecontent_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.independent.FileBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="line" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="line" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.TextfileContentState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="textfilecontent_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="line" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="line" node="element"/>
+        </field>
+        <field name="subexpression" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="subexpression" node="element"/>
+        </field>
+        <field name="windowsView" 
+            type="io.opensec.six.oval.model.independent.EntityStateWindowsViewType">
+            <bind-xml name="windows_view" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.TextfileContentItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="textfilecontent_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="pattern" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="pattern" node="element"/>
+        </field>
+        <field name="instance" 
+            type="io.opensec.six.oval.model.sc.EntityItemIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+        <field name="line" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="line" node="element"/>
+        </field>
+        <field name="text" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType">
+            <bind-xml name="text" node="element"/>
+        </field>
+        <field name="subexpression" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType"
+            collection="collection">
+            <bind-xml name="subexpression" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.TextfileContent54Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="textfilecontent54_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.TextfileContent54Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="textfilecontent54_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.independent.TextfileContent54Behaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="pattern" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="pattern" node="element"/>
+        </field>
+        <field name="instance" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.TextfileContent54State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="textfilecontent54_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="pattern" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="pattern" node="element"/>
+        </field>
+        <field name="instance" 
+            type="io.opensec.six.oval.model.definitions.EntityStateIntType">
+            <bind-xml name="instance" node="element"/>
+        </field>
+        <field name="text" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="text" node="element"/>
+        </field>
+        <field name="subexpression" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="subexpression" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- unknown                                                 -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.independent.UnknownTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="unknown_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- variable                                                -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.independent.VariableTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="variable_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.VariableObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="variable_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="varRef" 
+            type="io.opensec.six.oval.model.independent.EntityObjectVariableRefType">
+            <bind-xml name="var_ref" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.VariableState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="variable_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="varRef" 
+            type="io.opensec.six.oval.model.independent.EntityStateVariableRefType">
+            <bind-xml name="var_ref" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.VariableItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="variable_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="varRef" 
+            type="io.opensec.six.oval.model.independent.EntityItemVariableRefType">
+            <bind-xml name="var_ref" node="element"/>
+        </field>
+        <field name="value" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType"
+            collection="collection">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- xmlfilecontent                                          -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.independent.XmlfileContentTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="xmlfilecontent_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.XmlfileContentObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="xmlfilecontent_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="set" 
+            type="io.opensec.six.oval.model.definitions.Set">
+            <bind-xml name="set" node="element"
+                xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        </field>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.independent.FileBehaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="xpath" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="xpath" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.independent.XmlfileContentState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="xmlfilecontent_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+            ns-prefix=""/>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="xpath" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="xpath" node="element"/>
+        </field>
+        <field name="valueOf" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="value_of" node="element"/>
+        </field>
+        <field name="windowsView" 
+            type="io.opensec.six.oval.model.independent.EntityStateWindowsViewType">
+            <bind-xml name="windows_view" node="element"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.independent.XmlfileContentItem"
+        extends="io.opensec.six.oval.model.sc.ItemType">
+        <map-to xml="xmlfilecontent_item"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent"
+            ns-prefix=""/>
+        <field name="filepath" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filepath" node="element"/>
+        </field>
+        <field name="path" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="path" node="element"/>
+        </field>
+        <field name="filename" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="filename" node="element"/>
+        </field>
+        <field name="xpath" 
+            type="io.opensec.six.oval.model.sc.EntityItemStringType">
+            <bind-xml name="xpath" node="element"/>
+        </field>
+        <field name="valueOf" 
+            type="io.opensec.six.oval.model.sc.EntityItemAnySimpleType"
+            collection="collection">
+            <bind-xml name="value_of" node="element"/>
+        </field>
+        <field name="windowsView" 
+            type="io.opensec.six.oval.model.independent.EntityItemWindowsViewType">
+            <bind-xml name="windows_view" node="element"/>
+        </field>
+    </class>
+
+</mapping>

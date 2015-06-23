@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // Opensec OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  xmlns:oval-directives-5                            % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <class name="io.opensec.six.oval.model.directives.OvalDirectives"
+        extends="io.opensec.six.oval.model.Document">
+        <map-to xml="oval_directives"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-directives-5"/>
+        <field name="generator" 
+            type="io.opensec.six.oval.model.common.GeneratorType">
+            <bind-xml name="generator" node="element"/>
+        </field>
+        <field name="directives" 
+            type="io.opensec.six.oval.model.results.DefaultDirectivesType">
+            <bind-xml name="directives" node="element"/>
+        </field>
+        <field name="classDirectives" 
+            type="io.opensec.six.oval.model.results.ClassDirectivesType"
+            collection="collection">
+            <bind-xml name="class_directives" node="element"/>
+        </field>
+    </class>
+
+</mapping>

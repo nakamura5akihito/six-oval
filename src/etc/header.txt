@@ -1,7 +1,5 @@
 ${name} - ${url}
-Copyright (C) ${year}
-  ${organization}
-  Registration Number: ${reg-number}
+Copyright (C) ${year} ${primary-developer}
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

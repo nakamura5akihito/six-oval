@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // SIX OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <class name ="io.opensec.six.oval.model.OvalObject"
+        verify-constructable="false">
+    </class>
+
+    <class name ="io.opensec.six.oval.model.Element"
+        extends="io.opensec.six.oval.model.OvalObject"
+        verify-constructable="false">
+
+<!--
+        <field name="ovalId" type="string">
+            <bind-xml name="id" node="attribute"/>
+        </field>
+-->
+
+        <field name="ovalVersion" type="integer">
+            <bind-xml name="version" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.Document"
+        verify-constructable="false">
+        
+<!--
+        <field name="schemaLocation" type="string">
+            <bind-xml name="xsi:schemaLocation" node="attribute"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </field>
+-->
+
+<!--
+        <field name="persistentID" type="string">
+            <bind-xml name="pid" node="attribute"
+            xmlns="http://aist.go.jp/six/oval"
+            />
+        </field>
+-->
+    </class>
+
+    <class name="io.opensec.six.oval.model.DocumentId">
+        <map-to xml="document-id"
+            ns-uri="http://opensec.io/six/oval"/>
+        <field name="value" type="string">
+            <bind-xml node="text"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.AffectedCpeList">
+    <!--
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+    -->
+
+        <field name="cpe" 
+            type="io.opensec.six.oval.model.Cpe"
+            collection="collection">
+            <bind-xml name="cpe" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.Cpe">
+    <!--
+        <map-to xml="cpe"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+    -->
+
+        <field name="name" type="string">
+            <bind-xml node="text"/>
+        </field>
+    </class>
+
+</mapping>
+

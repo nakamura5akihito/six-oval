@@ -4,7 +4,6 @@
   // Project SIX: OVAL
   // Logback Configuration
   // @author    Akihito Nakamura, AIST
-  // @version   $Id: logback.xml 406 2012-09-24 08:47:58Z nakamura5akihito@gmail.com $
 -->
 
 <configuration debug="true">

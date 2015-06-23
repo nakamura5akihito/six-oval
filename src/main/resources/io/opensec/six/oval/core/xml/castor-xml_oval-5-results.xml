@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // SIX OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  xmlns:oval-results-5                               % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <class name="io.opensec.six.oval.model.results.OvalResults"
+        extends="io.opensec.six.oval.model.Document">
+        <map-to xml="oval_results"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"
+            ns-prefix=""/>
+        <field name="generator" 
+            type="io.opensec.six.oval.model.common.GeneratorType">
+            <bind-xml name="generator" node="element"/>
+        </field>
+        <field name="directives" 
+            type="io.opensec.six.oval.model.results.DefaultDirectivesType">
+            <bind-xml name="directives" node="element"/>
+        </field>
+        <field name="classDirectives" 
+            type="io.opensec.six.oval.model.results.ClassDirectivesType"
+            collection="collection">
+            <bind-xml name="class_directives" node="element"/>
+        </field>
+        <field name="ovalDefinitions" 
+            type="io.opensec.six.oval.model.definitions.OvalDefinitions">
+            <bind-xml name="oval-def:oval_definitions" node="element"
+                xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+                />
+        </field>
+        <field name="results" 
+            type="io.opensec.six.oval.model.results.ResultsType">
+            <bind-xml name="results" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.DirectivesType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="definitionTrue" 
+            type="io.opensec.six.oval.model.results.DirectiveType">
+            <bind-xml name="definition_true" node="element"/>
+        </field>
+        <field name="definitionFalse" 
+            type="io.opensec.six.oval.model.results.DirectiveType">
+            <bind-xml name="definition_false" node="element"/>
+        </field>
+        <field name="definitionUnknown" 
+            type="io.opensec.six.oval.model.results.DirectiveType">
+            <bind-xml name="definition_unknown" node="element"/>
+        </field>
+        <field name="definitionError" 
+            type="io.opensec.six.oval.model.results.DirectiveType">
+            <bind-xml name="definition_error" node="element"/>
+        </field>
+        <field name="definitionNotEvaluated" 
+            type="io.opensec.six.oval.model.results.DirectiveType">
+            <bind-xml name="definition_not_evaluated" node="element"/>
+        </field>
+        <field name="definitionNotApplicable" 
+            type="io.opensec.six.oval.model.results.DirectiveType">
+            <bind-xml name="definition_not_applicable" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.DefaultDirectivesType"
+        extends="io.opensec.six.oval.model.results.DirectivesType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="includeSourceDefinitions" type="boolean">
+            <bind-xml name="include_source_definitions" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.ClassDirectivesType"
+        extends="io.opensec.six.oval.model.results.DirectivesType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="definitionClass" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.ClassEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.common.ClassEnumeration" -->
+            <bind-xml name="class" node="attribute"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.results.DirectiveType">
+        <field name="reported" type="boolean">
+            <bind-xml name="reported" node="attribute"/>
+        </field>
+        <field name="content" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.results.ContentEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.results.ContentEnumeration" -->
+            <bind-xml name="content" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.ResultsType">
+        <map-to xml="results" 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="system" 
+            type="io.opensec.six.oval.model.results.SystemType"
+            collection="collection">
+            <bind-xml name="system" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.SystemType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="definitions" 
+            type="io.opensec.six.oval.model.results.DefinitionsType">
+            <bind-xml name="definitions" node="element"/>
+        </field>
+        <field name="tests" 
+            type="io.opensec.six.oval.model.results.TestsType">
+            <bind-xml name="tests" node="element"/>
+        </field>
+        <field name="ovalSystemCharacteristics" 
+            type="io.opensec.six.oval.model.sc.OvalSystemCharacteristics">
+            <bind-xml name="oval-sc:oval_system_characteristics" node="element"
+                xmlns:oval-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5"
+                />
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.DefinitionsType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="definition" 
+            type="io.opensec.six.oval.model.results.DefinitionType"
+            collection="collection">
+            <bind-xml name="definition" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.DefinitionType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="criteria" 
+            type="io.opensec.six.oval.model.results.CriteriaType">
+            <bind-xml name="criteria" node="element"/>
+        </field>
+        <field name="definitionId" type="string">
+            <bind-xml name="definition_id" node="attribute"/>
+        </field>
+<!--
+        <field name="ovalID" type="string">
+            <bind-xml name="definition_id" node="attribute"/>
+        </field>
+-->
+
+        <field name="ovalVersion" type="int">
+            <bind-xml name="version" node="attribute"/>
+        </field>
+        <field name="result" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.results.ResultEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.results.ResultEnumeration" -->
+            <bind-xml name="result" node="attribute"/>
+        </field>
+    </class>
+
+    <class name ="io.opensec.six.oval.model.results.CriteriaResultElement"
+        verify-constructable="false">
+        <field name="negate" type="boolean">
+            <bind-xml name="negate" node="attribute"/>
+        </field>
+        <field name="result" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.results.ResultEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.results.ResultEnumeration" -->
+            <bind-xml name="result" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.CriteriaResultLeafElement"
+        extends="io.opensec.six.oval.model.results.CriteriaResultElement"
+        verify-constructable="false">
+        <field name="version" type="int">
+            <bind-xml name="version" node="attribute"/>
+        </field>
+        <field name="variableInstance" type="int">
+            <bind-xml name="variable_instance" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.CriteriaType"
+        extends="io.opensec.six.oval.model.results.CriteriaResultElement">
+        <map-to xml="criteria"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="operator" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.OperatorEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.common.OperatorEnumeration" -->
+            <bind-xml name="operator" node="attribute"/>
+        </field>
+        <field name="elements" 
+            type="io.opensec.six.oval.model.results.CriteriaResultElement"
+            collection="collection">
+            <bind-xml auto-naming="deriveByClass" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.CriterionType"
+        extends="io.opensec.six.oval.model.results.CriteriaResultLeafElement">
+        <map-to xml="criterion"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="testRef" type="string">
+            <bind-xml name="test_ref" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.ExtendDefinitionType"
+        extends="io.opensec.six.oval.model.results.CriteriaResultLeafElement">
+        <map-to xml="extend_definition"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="definitionRef" type="string">
+            <bind-xml name="definition_ref" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.TestsType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="test" 
+            type="io.opensec.six.oval.model.results.TestType"
+            collection="collection">
+            <bind-xml name="test" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.TestType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="testId" type="string">
+            <bind-xml name="test_id" node="attribute"/>
+        </field>
+<!--
+        <field name="ovalID" type="string">
+            <bind-xml name="test_id" node="attribute"/>
+        </field>
+-->
+
+        <field name="ovalVersion" type="int">
+            <bind-xml name="version" node="attribute"/>
+        </field>
+        <field name="result" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.results.ResultEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.results.ResultEnumeration" -->
+            <bind-xml name="result" node="attribute"/>
+        </field>
+        <field name="checkExistence" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.ExistenceEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.common.ExistenceEnumeration" -->
+            <bind-xml name="check_existence" node="attribute"/>
+        </field>
+        <field name="check" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.CheckEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.common.CheckEnumeration" -->
+            <bind-xml name="check" node="attribute"/>
+        </field>
+        <field name="stateOperator" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.OperatorEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.common.OperatorEnumeration" -->
+            <bind-xml name="state_operator" node="attribute"/>
+        </field>
+        <field name="testedItem" 
+            type="io.opensec.six.oval.model.results.TestedItemType"
+            collection="collection">
+            <bind-xml name="tested_item" node="element"/>
+        </field>
+        <field name="testedVariable" 
+            type="io.opensec.six.oval.model.results.TestedVariableType"
+            collection="collection">
+            <bind-xml name="tested_variable" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.TestedItemType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="itemId" type="int">
+            <bind-xml name="item_id" node="attribute"/>
+        </field>
+        <field name="result" 
+            type="string"
+            handler="io.opensec.six.oval.core.xml.results.ResultEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.results.ResultEnumeration" -->
+            <bind-xml name="result" node="attribute"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.results.TestedVariableType">
+        <map-to 
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-results-5"/>
+        <field name="variableId" type="string">
+            <bind-xml name="variable_id" node="attribute"/>
+        </field>
+        <field name="content" type="string">
+            <bind-xml node="text"/>
+        </field>
+    </class>
+
+</mapping>

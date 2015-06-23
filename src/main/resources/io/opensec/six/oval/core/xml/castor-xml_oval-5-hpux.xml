@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<!-- 
+ // Opensec OVAL
+ // Castor XML Mapping Specification
+ // @author    Akihito Nakamura, AIST 
+-->
+
+<mapping>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-- %                                                     % -->
+    <!-- %  #hpux                                              % -->
+    <!-- %                                                     % -->
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <!-- ******************************************************* -->
+    <!-- patch, patch53                                          -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.hpux.Patch53Test"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="patch53_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.hpux.Patch53Object"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="patch53_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="behaviors" 
+            type="io.opensec.six.oval.model.hpux.Patch53Behaviors">
+            <bind-xml name="behaviors" node="element"/>
+        </field>
+        <field name="swtype" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="swtype" node="element"/>
+        </field>
+        <field name="areaPatched" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="area_patched" node="element"/>
+        </field>
+        <field name="patchBase" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="patch_base" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.hpux.Patch53State"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="patch53_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="swtype" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="swtype" node="element"/>
+        </field>
+        <field name="areaPatched" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="area_patched" node="element"/>
+        </field>
+        <field name="patchBase" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="patch_base" node="element"/>
+        </field>
+    </class>
+
+
+<!-- NOTE: Element name conflicts.
+hpux-def and solaris-def namespaces have the same "patch_xxx" elements.
+Castor fails their mappings whether the ns-uri attribute is specified or not.
+-->
+    <class name="io.opensec.six.oval.model.hpux.PatchTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="hpux_patch_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.hpux.PatchObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="hpux_patch_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="patchName" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="patch_name" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.hpux.PatchState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="hpux_patch_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="patchName" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="patch_name" node="element"/>
+        </field>
+        <field name="swtype" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="swtype" node="element"/>
+        </field>
+        <field name="areaPatched" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="area_patched" node="element"/>
+        </field>
+        <field name="patchBase" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="patch_base" node="element"/>
+        </field>
+    </class>
+
+
+    <!-- ******************************************************* -->
+    <!-- swlist                                                  -->
+    <!-- ******************************************************* -->
+    <class name="io.opensec.six.oval.model.hpux.SwlistTest"
+        extends="io.opensec.six.oval.model.definitions.TestType">
+        <map-to xml="swlist_test"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="object" 
+            type="io.opensec.six.oval.model.definitions.SystemObjectRefType">
+            <bind-xml name="object" node="element"/>
+        </field>
+        <field name="state" 
+            type="io.opensec.six.oval.model.definitions.StateRefType"
+            collection="collection">
+            <bind-xml name="state" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.hpux.SwlistObject"
+        extends="io.opensec.six.oval.model.definitions.SystemObjectType">
+        <map-to xml="swlist_object"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="swlist" 
+            type="io.opensec.six.oval.model.definitions.EntityObjectStringType">
+            <bind-xml name="swlist" node="element"/>
+        </field>
+        <field name="filter" 
+            type="io.opensec.six.oval.model.definitions.Filter"
+            collection="collection">
+            <bind-xml name="filter" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.hpux.SwlistState"
+        extends="io.opensec.six.oval.model.definitions.StateType">
+        <map-to xml="swlist_state"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux"
+            ns-prefix=""/>
+        <field name="swlist" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="swlist" node="element"/>
+        </field>
+        <field name="bundle" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="bundle" node="element"/>
+        </field>
+        <field name="fileset" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="fileset" node="element"/>
+        </field>
+        <field name="version" 
+            type="io.opensec.six.oval.model.definitions.EntityStateAnySimpleType">
+            <bind-xml name="version" node="element"/>
+        </field>
+        <field name="title" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="title" node="element"/>
+        </field>
+        <field name="vendor" 
+            type="io.opensec.six.oval.model.definitions.EntityStateStringType">
+            <bind-xml name="vendor" node="element"/>
+        </field>
+    </class>
+
+<!-- TODO: swlist_item -->
+
+
+
+    <!-- ******************************************************* -->
+    <!-- entity attribute types                                  -->
+    <!-- ******************************************************* -->
+
+
+</mapping>
+
