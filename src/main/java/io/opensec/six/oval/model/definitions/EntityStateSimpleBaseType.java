@@ -18,6 +18,7 @@ package io.opensec.six.oval.model.definitions;
 
 import io.opensec.six.oval.model.common.CheckEnumeration;
 import io.opensec.six.oval.model.common.DatatypeEnumeration;
+import io.opensec.six.oval.model.common.ExistenceEnumeration;
 import io.opensec.six.oval.model.common.OperationEnumeration;
 
 
@@ -38,6 +39,14 @@ public abstract class EntityStateSimpleBaseType
 
     private CheckEnumeration  entity_check;
     //{optional, default="all"}
+
+
+    public static final ExistenceEnumeration  DEFAULT_CHECK_EXISTENCE =
+                    ExistenceEnumeration.AT_LEAST_ONE_EXISTS;
+
+    private ExistenceEnumeration  check_existence;
+    //{optional, default="allat_least_one_exists"}
+
 
 
 
@@ -114,6 +123,32 @@ public abstract class EntityStateSimpleBaseType
 
 
 
+    /**
+     */
+    public void setCheckExistence(
+                    final ExistenceEnumeration check_existence
+                    )
+    {
+        this.check_existence = check_existence;
+    }
+
+
+    public ExistenceEnumeration getCheckExistence()
+    {
+        return check_existence;
+    }
+
+
+    public static ExistenceEnumeration checkExistence(
+                    final EntityStateSimpleBaseType obj
+                    )
+    {
+        ExistenceEnumeration  check_existence = obj.getCheckExistence();
+        return (check_existence == null ? DEFAULT_CHECK_EXISTENCE : check_existence);
+    }
+
+
+
 
     //**************************************************************
     //  java.lang.Object
@@ -126,6 +161,7 @@ public abstract class EntityStateSimpleBaseType
         int  result = super.hashCode();
 
         result = prime * result + entityCheck( this ).hashCode();
+        result = prime * result + checkExistence( this ).hashCode();
 
         return result;
     }
@@ -148,7 +184,9 @@ public abstract class EntityStateSimpleBaseType
         if (super.equals( obj )) {
             EntityStateSimpleBaseType  other = (EntityStateSimpleBaseType)obj;
             if (entityCheck( this ) == entityCheck( other )) {
-                return true;
+                if (checkExistence( this ) == checkExistence( other )) {
+                    return true;
+                }
             }
         }
 
@@ -162,6 +200,7 @@ public abstract class EntityStateSimpleBaseType
     {
         return super.toString()
                         + ", entity_check=" + getEntityCheck()
+                        + ", check_existence=" + getCheckExistence()
                         ;
     }
 
