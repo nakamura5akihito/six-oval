@@ -714,6 +714,19 @@
         </field>
     </class>
 
+    <class name="io.opensec.six.oval.model.definitions.GlobToRegexFunctionType">
+        <map-to xml="glob_to_regex"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-definitions-5"/>
+        <field name="component" 
+            type="io.opensec.six.oval.model.definitions.ComponentGroup"
+            collection="collection">
+            <bind-xml auto-naming="deriveByClass" node="element"/>
+        </field>
+        <field name="globNoescape" type="boolean">
+            <bind-xml name="glob_noescape" node="attribute"/>
+        </field>
+    </class>
+
 
     <!-- ******************************************************* -->
     <!-- entity                                                  -->
@@ -839,6 +852,12 @@
             handler="io.opensec.six.oval.core.xml.common.CheckEnumerationHandler">
             <!-- type="io.opensec.six.oval.model.common.CheckEnumeration" -->
             <bind-xml name="entity_check" node="attribute"/>
+        </field>
+        <field name="checkExistence"
+            type="string"
+            handler="io.opensec.six.oval.core.xml.common.ExistenceEnumerationHandler">
+            <!-- type="io.opensec.six.oval.model.common.ExistenceEnumeration" -->
+            <bind-xml name="check_existence" node="attribute"/>
         </field>
     </class>
 
