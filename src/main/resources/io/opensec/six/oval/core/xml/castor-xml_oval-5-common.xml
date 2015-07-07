@@ -174,5 +174,25 @@ Constructor arguments only valid for attribute mapped fields!!!
         </field>
     </class>
 
+    <class name="io.opensec.six.oval.model.common.NotesType">
+        <map-to xml="notes"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-common-5"
+            ns-prefix=""/>
+        <field name="note" 
+            type="io.opensec.six.oval.model.common.Note"
+            collection="collection">
+            <bind-xml name="note" node="element"/>
+        </field>
+    </class>
+
+    <class name="io.opensec.six.oval.model.common.Note">
+        <map-to xml="note"
+            ns-uri="http://oval.mitre.org/XMLSchema/oval-common-5"
+            ns-prefix=""/>
+        <field name="content" type="string">
+            <bind-xml node="text"/>
+        </field>
+    </class>
+
 </mapping>
 

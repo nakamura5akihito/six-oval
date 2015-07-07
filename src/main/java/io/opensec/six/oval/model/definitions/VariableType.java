@@ -78,6 +78,7 @@ public class VariableType
 
 
 
+        @Override
         public String value()
         {
             return value;
@@ -96,6 +97,10 @@ public class VariableType
 
 
     ////////////////////////////////////////////////////////////////
+
+    private io.opensec.six.oval.model.common.NotesType  notes;
+    //{0..1}
+
 
     private DatatypeEnumeration  datatype;
     //{required}
@@ -142,6 +147,23 @@ public class VariableType
 
 //        _oval_entity_type = OvalEntityType.variable;
 //        _definitions_element_type = DefinitionsElement.Type.variable;
+    }
+
+
+
+    /**
+     */
+    public void setNotes(
+                    final io.opensec.six.oval.model.common.NotesType notes
+                    )
+    {
+        this.notes = notes;
+    }
+
+
+    public io.opensec.six.oval.model.common.NotesType getNotes()
+    {
+        return notes;
     }
 
 
@@ -214,7 +236,8 @@ public class VariableType
     public String toString()
     {
         return super.toString()
-                        + ", datatype=" + getDatatype();
+                        + ", datatype=" + getDatatype()
+                        + ", notes=" + getNotes();
     }
 
 }

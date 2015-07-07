@@ -43,7 +43,7 @@ public class DefinitionType
     //{1..1}
 
 
-    private NotesType  notes;
+    private io.opensec.six.oval.model.common.NotesType  notes;
     //{0..1}
 
 
@@ -154,7 +154,7 @@ public class DefinitionType
     /**
      */
     public void setNotes(
-                    final NotesType notes
+                    final io.opensec.six.oval.model.common.NotesType notes
                     )
     {
         this.notes = notes;
@@ -163,7 +163,7 @@ public class DefinitionType
 
     /**
      */
-    public NotesType getNotes()
+    public io.opensec.six.oval.model.common.NotesType getNotes()
     {
         return notes;
     }

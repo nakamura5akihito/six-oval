@@ -39,7 +39,7 @@ public class TestType
     extends DefinitionsComponent
 {
 
-    private NotesType  notes;
+    private io.opensec.six.oval.model.common.NotesType  notes;
     //{0..1}
 
 
@@ -155,14 +155,14 @@ public class TestType
     /**
      */
     public void setNotes(
-                    final NotesType notes
+                    final io.opensec.six.oval.model.common.NotesType notes
                     )
     {
         this.notes = notes;
     }
 
 
-    public NotesType getNotes()
+    public io.opensec.six.oval.model.common.NotesType getNotes()
     {
         return notes;
     }

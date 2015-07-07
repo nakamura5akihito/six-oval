@@ -100,9 +100,15 @@
             <bind-xml name="metadata" node="element"/>
         </field>
         <field name="notes" 
+            type="io.opensec.six.oval.model.common.NotesType">
+            <bind-xml name="notes" node="element"/>
+        </field>
+<!-- OVAL Language pre-5.11
+        <field name="notes" 
             type="io.opensec.six.oval.model.definitions.NotesType">
             <bind-xml name="notes" node="element"/>
         </field>
+-->
         <field name="criteria" 
             type="io.opensec.six.oval.model.definitions.CriteriaType">
             <bind-xml name="criteria" node="element"/>
@@ -297,9 +303,15 @@
 -->
 
         <field name="notes" 
+            type="io.opensec.six.oval.model.common.NotesType">
+            <bind-xml name="notes" node="element"/>
+        </field>
+<!-- OVAL Language pre-5.11
+        <field name="notes" 
             type="io.opensec.six.oval.model.definitions.NotesType">
             <bind-xml name="notes" node="element"/>
         </field>
+-->
 <!--
         <field name="notes" 
             type="io.opensec.six.oval.model.definitions.NotesType">
@@ -352,9 +364,15 @@
         extends="io.opensec.six.oval.model.definitions.DefinitionsComponent"
         verify-constructable="false">
         <field name="notes" 
+            type="io.opensec.six.oval.model.common.NotesType">
+            <bind-xml name="notes" node="element"/>
+        </field>
+<!-- OVAL Language pre-5.11
+        <field name="notes" 
             type="io.opensec.six.oval.model.definitions.NotesType">
             <bind-xml name="notes" node="element"/>
         </field>
+-->
     </class>
 
     <class name="io.opensec.six.oval.model.definitions.Set">
@@ -409,9 +427,15 @@
         extends="io.opensec.six.oval.model.definitions.DefinitionsComponent"
         verify-constructable="false">
         <field name="notes" 
+            type="io.opensec.six.oval.model.common.NotesType">
+            <bind-xml name="notes" node="element"/>
+        </field>
+<!-- OVAL Language pre-5.11
+        <field name="notes" 
             type="io.opensec.six.oval.model.definitions.NotesType">
             <bind-xml name="notes" node="element"/>
         </field>
+-->
         <field name="operator" 
             type="string"
             handler="io.opensec.six.oval.core.xml.common.OperatorEnumerationHandler">
@@ -441,6 +465,10 @@
             handler="io.opensec.six.oval.core.xml.common.DatatypeEnumerationHandler">
             <!-- type="io.opensec.six.oval.model.common.DatatypeEnumeration" -->
             <bind-xml name="datatype" node="attribute"/>
+        </field>
+        <field name="notes" 
+            type="io.opensec.six.oval.model.common.NotesType">
+            <bind-xml name="notes" node="element"/>
         </field>
     </class>
 
